@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.shopping.R;
 
 public class LoginActivity extends AppCompatActivity {
+    private static final String TAG = "LoginActivity";
 
     private LoginViewModel loginViewModel;
 
