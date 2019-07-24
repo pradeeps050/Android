@@ -30,4 +30,14 @@
     <string name="retry">Retry</string>
 
 
+    <string name="message"><![CDATA[<html>
+ <head></head>
+ <body style="text-align:justify;color:gray;background-color:white;"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book.</br> Hi vhgvhjb</p>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br> when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book.</br> Hi vhgvhjb</p>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br> when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book.</br> Hi vhgvhjb</p></body></html>]]>
+    </string>
+
 </resources>
