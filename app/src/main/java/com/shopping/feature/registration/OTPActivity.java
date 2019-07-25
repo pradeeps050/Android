@@ -1,0 +1,41 @@
+package com.shopping.feature.registration;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+
+import com.shopping.R;
+
+public class OTPActivity extends AppCompatActivity {
+    private static final String TAG = "OTPActivity";
+
+    private Toolbar toolbar;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_otp);
+        initToolbar();
+
+    }
+
+    private void initToolbar() {
+        toolbar = findViewById(R.id.otp_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        toolbar.setNavigationIcon(R.drawable.ic_icon_back_b);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
+
+
+
+
+    }
+}
