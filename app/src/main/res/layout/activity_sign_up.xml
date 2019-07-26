@@ -30,7 +30,8 @@
             android:id="@+id/email_edt_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/email"/>
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"/>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -47,7 +48,9 @@
             android:id="@+id/phone_edt_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/phoneNo"/>
+            android:hint="@string/phoneNo"
+            android:inputType="phone"
+            android:maxLength="12"/>
 
     </android.support.design.widget.TextInputLayout>
     
@@ -127,9 +130,17 @@
             android:layout_width="414pt"
             android:layout_height="160pt"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/ic_veg_icon"/>
+            app:srcCompat="@drawable/ic_icon_v"/>
 
     </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/signin_progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone"/>
 
 
 </RelativeLayout>
