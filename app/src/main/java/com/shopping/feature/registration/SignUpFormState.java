@@ -13,13 +13,16 @@ public class SignUpFormState {
     private Integer phone;
     @Nullable
     private Integer password;
+    @Nullable
+    private Integer confPassword;
 
     private boolean isDataValid;
 
-    public SignUpFormState(@Nullable Integer email, @Nullable Integer phone, @Nullable Integer password) {
+    public SignUpFormState(@Nullable Integer email, @Nullable Integer phone, @Nullable Integer password, @Nullable Integer confPassword) {
         this.email = email;
         this.phone = phone;
         this.password  = password;
+        this.confPassword = confPassword;
         this.isDataValid = false;
     }
 
@@ -43,6 +46,11 @@ public class SignUpFormState {
     @Nullable
     Integer getPasswordError() {
         return password;
+    }
+
+    @Nullable
+    Integer getConfPasswordError() {
+        return confPassword;
     }
 
     boolean isDataValid() {
