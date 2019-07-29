@@ -9,12 +9,12 @@ public class Logger extends Timber.Tree {
     // Log when DEBUGGING is enabled
     private final static boolean DEBUG = true;
 
-    // Verbose logging
-    public static void v(String tag, String message, Object... args) {
-        if (BuildConfig.DEBUG) {
-            Timber.tag(tag).v(message, args);
-        }
-    }
+//    // Verbose logging
+//    public static void v(String tag) {
+//        if (BuildConfig.DEBUG) {
+//            Timber.tag(tag).v(message, args);
+//        }
+//    }
 
     // Info logging
     public static void i(String tag, String message, Object... args) {
