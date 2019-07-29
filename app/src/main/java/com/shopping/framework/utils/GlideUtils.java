@@ -14,21 +14,20 @@ import com.bumptech.glide.request.target.Target;
 
 public class GlideUtils {
 
-    public static void loadImageFromUriInView(Context context, ImageView imageView, String uri){
-        if(!TextUtils.isEmpty(uri)){
-            Glide.with(context)
-                    .load(uri)
-                    .addListener(new RequestListener<Drawable>() {
-                        @Override
-                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                            return false;
-                        }
-
-                        @Override
-                        public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                            return false;
-                        }
-                    }).into(imageView);
-        }
-    }
+//    public static void loadImageFromUriInView(Context context, ImageView imageView, String uri){
+//        if(!TextUtils.isEmpty(uri)){
+//            Glide.with(context)
+//                    .load(uri).addListener(new RequestListener<Drawable>() {
+//                        @Override
+//                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+//                            return false;
+//                        }
+//
+//                        @Override
+//                        public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+//                            return false;
+//                        }
+//                    }).into(imageView);
+//        }
+//    }
 }
