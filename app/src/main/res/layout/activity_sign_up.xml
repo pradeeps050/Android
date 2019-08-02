@@ -128,8 +128,9 @@
 
         <ImageView
             android:layout_width="414pt"
-            android:layout_height="160pt"
+            android:layout_height="160dp"
             android:scaleType="fitXY"
+            android:fitsSystemWindows="true"
             app:srcCompat="@drawable/ic_icon_v"/>
 
     </RelativeLayout>
