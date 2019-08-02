@@ -146,4 +146,10 @@
     <color name="color_eeeeee">#eeeeee</color>
     <color name="color_c7c7cc">#c7c7cc</color>
 
+    <color name="button_color">#7f135a</color>
+    <color name="light_white">#f1f1f1</color>
+    <color name="pumpkin_orange">#F2FF9800</color>
+    <color name="menu_header_background">#27FF9800</color>
+    <color name="green">#F03AAC09</color>
+
 </resources>

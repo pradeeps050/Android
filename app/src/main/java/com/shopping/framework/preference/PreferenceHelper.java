@@ -5,6 +5,9 @@ import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import android.util.Log;
+
+import com.shopping.feature.login.data.model.LoginResponse;
 
 import java.util.Objects;
 import java.util.Set;
@@ -12,6 +15,8 @@ import java.util.Set;
 
 
 public class PreferenceHelper {
+    private static final String TAG = PreferenceHelper.class.getSimpleName();
+
     @Nullable
     private static PreferenceHelper appPrefrence = null;
     @NonNull
@@ -97,5 +102,20 @@ public class PreferenceHelper {
         return Objects.requireNonNull(preferences).getBoolean(key, false);
     }
 
+    public void saveSaveLoginResponse(LoginResponse loginResponse) {
+        SharedPreferences.Editor editor = Objects.requireNonNull(preferences).edit();
+        editor.putString(IPrefrenceHelperKeys.LOGIN_ACCESS_TOKEN, loginResponse.accessToken);
+        editor.putString(IPrefrenceHelperKeys.LOGIN_TOKEN_TYPE, loginResponse.tokenType);
+        editor.putString(IPrefrenceHelperKeys.LOGIN_EXPIRE_IN, loginResponse.expiresIn);
+        editor.putString(IPrefrenceHelperKeys.LOGIN_REFRESH_TOKEN, loginResponse.refreshToken);
+        editor.apply();
+        Log.d(TAG, ">> Saving login response");
+    }
 
+    public String getLoginToken() {
+        if (null == preferences){
+            return "";
+        }
+        return preferences.getString(IPrefrenceHelperKeys.LOGIN_ACCESS_TOKEN, "");
+    }
 }

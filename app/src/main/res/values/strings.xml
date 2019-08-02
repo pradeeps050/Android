@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Shopping</string>
+    <string name="app_name">Viraj Grocery</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Bhavesh Kumar</string>
@@ -20,7 +20,10 @@
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_email">Not a valid email</string>
+    <string name="invalid_phone">Not a valid phone number</string>
     <string name="invalid_password">Password must be >5 characters</string>
+    <string name="password_match">Password is not same</string>
     <string name="login_failed">"Login failed"</string>
 
     <string name="no_internet_connection_msg_header">Unable to connect to the internet</string>
@@ -39,5 +42,43 @@
     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br> when an unknown printer took a galley of type and
         scrambled it to make a type specimen book.</br> Hi vhgvhjb</p></body></html>]]>
     </string>
+
+    <string name="name">Virag Grocery</string>
+
+    <!--Register activity-->
+    <string name="register">Register to Viraj Grocery</string>
+    <string name="email">Email ID</string>
+    <string name="password">Password</string>
+    <string name="confPass">Confirm Password</string>
+    <string name="phoneNo">Phone Number</string>
+    <string name="signup">SIGN UP</string>
+    <string name="reg_msg">Already have an account?</string>
+    <string name="singIn">Sign In</string>
+
+    <!--Forgot password activity-->
+    <string name="forgot_title">Forgot Password</string>
+    <string name="title_msg">Please enter your registered mobile no. or Email ID</string>
+    <string name="email_or_pphone">Email ID or Phone Number</string>
+    <string name="submit">Submit</string>
+
+    <!--SignIn Activity-->
+    <string name="signin_msg">Welcome to Viraj Grocery</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="create_acc">Create new account?</string>
+
+    <!--Change password activity-->
+    <string name="chg_password">Change Password</string>
+    <string name="old_pass">Old Password</string>
+    <string name="new_pass">New Password</string>
+    <string name="retype_pass">Re-type Password</string>
+
+    <!--OTP Activity-->
+    <string name="enter_otp">Enter OTP</string>
+    <string name="otp_txt">Please type the verification code sent to     </string>
+    <string name="next">Next</string>
+    <string name="resent_otp">Resent OTP</string>
+
+
+
 
 </resources>

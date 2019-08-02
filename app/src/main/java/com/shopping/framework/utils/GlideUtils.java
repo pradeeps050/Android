@@ -17,7 +17,8 @@ public class GlideUtils {
 //    public static void loadImageFromUriInView(Context context, ImageView imageView, String uri){
 //        if(!TextUtils.isEmpty(uri)){
 //            Glide.with(context)
-//                    .load(uri).addListener(new RequestListener<Drawable>() {
+//                    .load(uri)
+//                    .addListener(new RequestListener<Drawable>() {
 //                        @Override
 //                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
 //                            return false;
