@@ -115,7 +115,7 @@ public class HomeActivity extends AppCompatActivity {
         binding.exclusiveOfferRecyView.setAdapter(adapter);
     }
     private void loadOfferProduct() {
-        binding.verticalText.setText(ConstantValues.verticalString);
+        binding.verticalText.setText(ConstantValues.VERTICAL_STRING);
         RotateAnimation ranim = (RotateAnimation) AnimationUtils.loadAnimation(this, R.anim.vertical_text_anim);
         ranim.setFillAfter(true);
         binding.verticalText.setAnimation(ranim);
