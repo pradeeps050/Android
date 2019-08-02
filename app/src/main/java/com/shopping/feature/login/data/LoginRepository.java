@@ -75,8 +75,8 @@ public class LoginRepository {
         // handle login
         Log.d(TAG, ">>> login  ");
 
-        RestApiBuilder.getNetworkService(RestApi.class).login("password", "ps@gmail.com",
-                "Viraj@2019")
+        RestApiBuilder.getNetworkService(RestApi.class).login("password", "shikhar@ost.com",
+                "Abcd@1234")
                 .enqueue(new Callback<LoginResponse>() {
                     @Override
                     public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
