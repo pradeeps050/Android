@@ -6,6 +6,7 @@ import android.os.Bundle;
 import com.shopping.R;
 
 public class CategoryActivity extends AppCompatActivity {
+    private static final String TAG = CategoryActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
