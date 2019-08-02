@@ -11,6 +11,7 @@
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="40dp"
@@ -31,6 +32,7 @@
             android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
             android:hint="@string/email_or_pphone" />
 
     </android.support.design.widget.TextInputLayout>
@@ -47,6 +49,7 @@
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:hint="@string/password"/>
 
     </android.support.design.widget.TextInputLayout>
@@ -87,8 +90,9 @@
             android:layout_width="10pt"
             android:layout_height="10pt"
             android:layout_centerInParent="true"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="25dp"
             android:scaleType="fitXY"
+            android:fitsSystemWindows="true"
             android:layout_toLeftOf="@id/verical_line"
             app:srcCompat="@drawable/ic_icon_g" />
 
@@ -104,8 +108,9 @@
             android:layout_width="5pt"
             android:layout_height="12pt"
             android:layout_centerInParent="true"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="35dp"
             android:scaleType="fitXY"
+            android:fitsSystemWindows="true"
             android:layout_toEndOf="@id/verical_line"
             android:layout_toRightOf="@id/gmail_img"
             app:srcCompat="@drawable/ic_icon_fb" />
@@ -144,8 +149,9 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="90pt"
+            android:layout_height="160dp"
             android:scaleType="fitXY"
+            android:fitsSystemWindows="true"
             app:srcCompat="@drawable/ic_icon_v" />
     </RelativeLayout>
 
