@@ -14,11 +14,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.shopping.R;
 import com.shopping.feature.login.ui.login.LoginActivity;
 import com.shopping.feature.registration.viewmodel.SignUpViewModel;
 import com.shopping.framework.logger.Logger;
+import com.shopping.framework.network.NetworkState;
 
 public class SignUpActivity extends AppCompatActivity {
     private static final String TAG = SignUpActivity.class.getSimpleName();
@@ -64,10 +66,26 @@ public class SignUpActivity extends AppCompatActivity {
         viewModel.getSignUpResult().observe(this, new Observer<SignUpResult>() {
             @Override
             public void onChanged(@Nullable SignUpResult signUpResult) {
+                if(signUpResult != null) {
+                    if (true) {
+                        Log.d(TAG, "Sign up result " + signUpResult.getResult());
+                        progressBar.setVisibility(View.INVISIBLE);
+                        startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+                        finish();
 
+                    } else {
+                        Log.d(TAG, ">> Sign up result null");
+                    }
+                }
             }
         });
 
+        viewModel.getNetworkState().observe(this, new Observer<NetworkState>() {
+            @Override
+            public void onChanged(@Nullable NetworkState networkState) {
+                Log.d(TAG, "Network State>>>> " + networkState.getMessage());
+            }
+        });
 
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +101,8 @@ public class SignUpActivity extends AppCompatActivity {
                 progressBar.setVisibility(View.VISIBLE);
 
                 /*viewModel.createAccount(userEmailEdtTxt.getText().toString(), userPhoneEdtTxt.getText().toString()
-                ,userPasswordEdtTxt.getText().toString());*/
+                ,userPasswordEdtTxt.getText().toString())*/;
+                viewModel.createAccount("abc@gmail.com", "9876543210", "99999999");
                 //startActivity(new Intent(SignUpActivity.this, OTPActivity.class));
 
             }
@@ -98,7 +117,7 @@ public class SignUpActivity extends AppCompatActivity {
         signUpButton = findViewById(R.id.btn_signup);
         signIn = findViewById(R.id.signIn_txt);
         progressBar = findViewById(R.id.signin_progressbar);
-        signUpButton.setEnabled(false);
+        signUpButton.setEnabled(true);
         userEmailEdtTxt.addTextChangedListener(textWatcher);
         userPhoneEdtTxt.addTextChangedListener(textWatcher);
         userPasswordEdtTxt.addTextChangedListener(textWatcher);
@@ -125,5 +144,7 @@ public class SignUpActivity extends AppCompatActivity {
                     userConfPasswordEdtTxt.getText().toString());
         }
     };
+
+
 
 }
