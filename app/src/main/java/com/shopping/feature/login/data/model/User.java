@@ -97,7 +97,7 @@ public class User {
                 ", mobile='" + mobile + '\'' +
                 ", roleId=" + roleId +
                 ", isVerified=" + isVerified +
-                ", userDetails=" + userDetails.get(0).toString() +
+                ", userDetails=" + userDetails.toString() +
                 ", isActive=" + isActive +
                 '}';
     }
