@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+    </data>
+
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".feature.registration.OTPActivity">
@@ -10,12 +16,13 @@
         android:id="@+id/otp_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"/>
+        android:layout_alignParentLeft="true"
+        android:minHeight="?attr/actionBarSize" />
 
     <TextView
         android:id="@+id/otp_txt"
+        style="@style/AppTheme.TextFont"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/otp_toolbar"
@@ -23,18 +30,17 @@
         android:layout_marginTop="20dp"
         android:text="@string/enter_otp"
         android:textSize="10pt"
-        android:textStyle="bold"
-        style="@style/AppTheme.TextFont" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/enter_otp_txt"
+        style="@style/AppTheme.TextFont"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/otp_txt"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="25dp"
         android:layout_below="@id/otp_txt"
-        style="@style/AppTheme.TextFont"/>
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/otp_txt" />
 
     <RelativeLayout
         android:id="@+id/otp_edittext_container"
@@ -45,66 +51,70 @@
 
         <EditText
             android:id="@+id/edit1"
+            style="@style/PinEditTextStyle"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_marginStart="25dp"
             android:layout_marginLeft="25dp"
-            style="@style/PinEditTextStyle"
             android:inputType="numberPassword" />
+
         <LinearLayout
             android:id="@+id/center_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal|center">
+            android:gravity="center_horizontal|center"
+            android:orientation="horizontal">
+
             <EditText
                 android:id="@+id/edit2"
+                style="@style/PinEditTextStyle"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/edit1"
                 android:layout_marginLeft="5dp"
-                style="@style/PinEditTextStyle"
-                android:inputType="numberPassword"/>
+                android:layout_toRightOf="@id/edit1"
+                android:inputType="numberPassword" />
+
             <EditText
                 android:id="@+id/edit3"
+                style="@style/PinEditTextStyle"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                style="@style/PinEditTextStyle"
-                android:inputType="numberPassword"/>
+                android:inputType="numberPassword" />
         </LinearLayout>
+
         <EditText
             android:id="@+id/edit4"
+            style="@style/PinEditTextStyle"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginEnd="25dp"
             android:layout_marginRight="25dp"
-            style="@style/PinEditTextStyle"
-            android:inputType="numberPassword"/>
+            android:inputType="numberPassword" />
     </RelativeLayout>
 
     <Button
         android:id="@+id/next_btn"
+        style="@style/AppTheme.RoundShapeButton"
         android:layout_width="320dp"
         android:layout_height="60dp"
         android:layout_below="@id/otp_edittext_container"
-        style="@style/AppTheme.RoundShapeButton"
-        android:text="@string/next"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:text="@string/next" />
 
     <TextView
+        style="@style/AppTheme.TextFont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/resent_otp"
         android:layout_below="@id/next_btn"
-        android:layout_marginTop="10dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="20pt"
-        style="@style/AppTheme.TextFont"/>
+        android:text="@string/resent_otp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -115,17 +125,11 @@
         <ImageView
             android:layout_width="414pt"
             android:layout_height="160pt"
-            app:srcCompat="@drawable/ic_icon_v"
-            android:scaleType="fitXY"/>
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_icon_v" />
 
     </RelativeLayout>
 
 
-
-
-
-
-
-
-
 </RelativeLayout>
+</layout>
