@@ -1,6 +1,7 @@
 package com.shopping.feature.login.data;
 
 import android.content.Context;
+import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -38,6 +39,8 @@ public class LoginRepository {
     private static volatile LoginRepository instance;
 
     private LoginDataSource dataSource;
+    private User loginUser;
+    private User us;
 
     // If user credentials will be cached in local storage, it is recommended it be encrypted
     // @see https://developer.android.com/training/articles/keystore
@@ -71,43 +74,70 @@ public class LoginRepository {
         // @see https://developer.android.com/training/articles/keystore
     }
 
-    public Result<LoggedInUser> login(String username, String password) {
+    private void setLoggedInUser(User user) {
+        this.us = user;
+    }
+
+    public Result<User> login(String username, String password) {
+        // handle login
+        Result<User> result = dataSource.login(username, password);
+        if (result instanceof Result.Success) {
+            setLoggedInUser(((Result.Success<User>) result).getData());
+        } else {
+            Log.d(TAG, " NOT iNSTANCE of RESULT.SUCCESS");
+
+        }
+        return result;
+    }
+
+    /*public User login(String username, String password) {
         // handle login
         Log.d(TAG, ">>> login  ");
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            Log.i(TAG, ">>> On MAIN THREAD");
+        }else {
+            Log.i(TAG, ">>> NOT In Main Thred");
+        }
 
-        RestApiBuilder.getNetworkService(RestApi.class).login("password", "shikhar@ost.com",
-                "Abcd@1234")
+        RestApiBuilder.getNetworkService(RestApi.class).login("password", "ps@gmail.com",
+                "Viraj@2019")
                 .enqueue(new Callback<LoginResponse>() {
                     @Override
                     public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                        if (Looper.myLooper() == Looper.getMainLooper()) {
+                            Log.i(TAG, ">>> On MAIN THREAD");
+                        }else {
+                            Log.i(TAG, ">>> NOT In Main Thred");
+                        }
                         if (response.isSuccessful()) {
-                            Log.d(TAG, ">>> Response CODE>>> " + response.code());
+                            Log.d(TAG, ">>> Response CODE >>> " + response.code());
                             LoginResponse loginResponse = response.body();
                             if(loginResponse != null) {
                                 Log.d(TAG, "Login Response >> Access Token >> " + loginResponse.accessToken);
                                 Log.d(TAG, "Login Response >> Token type >> " + loginResponse.tokenType);
                                 Log.d(TAG, "Login Response >> Expire In>>  " + loginResponse.expiresIn);
                                 Log.d(TAG, "Login Response >> Refresh Token>>  " + loginResponse.refreshToken);
-                                saveLoginResponse(loginResponse);
+                                loginUser = saveLoginResponse(loginResponse);
+
                             } else {
-                                Log.d(TAG, ">> Login Response is NULL");
+                                Log.w(TAG, ">> Login Response is NULL");
                             }
                         } else {
-                            Log.d(TAG, ">> Response is UNSuccessful");
+                            Log.w(TAG, ">> Response is UNSuccessful");
                         }
                     }
-
                     @Override
                     public void onFailure(Call<LoginResponse> call, Throwable t) {
-                        Log.d(TAG, "On Failure");
+                        Log.w(TAG, "On Failure");
 
                     }
                 });
-        return result;
-    }
+        return loginUser;
+    }*/
 
-    public void getUser(String token) {
+    public User getUser(String token) {
         Log.d(TAG, ">> getUser>> ");
+        User user = null;
         RestApiBuilder.getNetworkService(RestApi.class)
                 .getUserByToken("Bearer " + token)
                 .enqueue(new Callback<User>() {
@@ -133,20 +163,22 @@ public class LoginRepository {
 
                     }
                 });
-
-
+        return user;
     }
 
-    public void saveLoginResponse(LoginResponse loginResponse) {
+    public User saveLoginResponse(LoginResponse loginResponse) {
        Context context =  AppInstance.getInstance().getContext();
+       User user = null;
        if (context != null) {
            PreferenceHelper helper = PreferenceHelper.getAppPrefs(AppInstance.getInstance().getContext());
            helper.saveSaveLoginResponse(loginResponse);
-           getUser(loginResponse.accessToken);
+           user = getUser(loginResponse.accessToken);
        } else {
            Log.w(TAG, ">> App context is NULL");
        }
+       return user;
     }
+
 
     /*public Result<LoggedInUser> login(User user) {
         Log.d(TAG, ">>> loginUser");
