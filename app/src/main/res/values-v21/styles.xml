@@ -14,4 +14,9 @@
         <item name="android:fontFamily">@font/roboto</item>
     </style>
 
+    <style name="AppTheme.RoundedCornerWhiteButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:background">@drawable/white_rounded_shape</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 </resources>
