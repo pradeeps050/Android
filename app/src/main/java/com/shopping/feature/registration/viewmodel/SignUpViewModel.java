@@ -10,6 +10,8 @@ import android.util.Patterns;
 import com.shopping.R;
 import com.shopping.feature.registration.SignUpFormState;
 import com.shopping.feature.registration.SignUpResult;
+import com.shopping.feature.registration.data.SignUpRepository;
+import com.shopping.framework.network.NetworkState;
 import com.shopping.framework.network.RestApiBuilder;
 import com.shopping.framework.network.RestApiServices;
 
@@ -17,11 +19,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SignUpViewModel extends ViewModel {
-    private static final String TAG = "SignUpViewModel";
+    private static final String TAG = SignUpViewModel.class.getSimpleName();
 
     private Context context;
     private MutableLiveData<SignUpFormState> signUpFormState = new MutableLiveData<>();
-    private MutableLiveData<SignUpResult> signUpResult = new MutableLiveData<>();
+    private MutableLiveData<SignUpResult> signUpResultData = new MutableLiveData<>();
+    private MutableLiveData<NetworkState> networkState = new MutableLiveData<>();
+    private SignUpRepository signUpRepository = SignUpRepository.getInstance();
 
     public SignUpViewModel(){}
 
@@ -34,15 +38,20 @@ public class SignUpViewModel extends ViewModel {
     }
 
     public LiveData<SignUpResult> getSignUpResult() {
-        return signUpResult;
+        return signUpResultData;
     }
 
     public void createAccount(String email, String phone, String password) {
-        //Call rest api
         Log.d(TAG, ">> create account ");
 
+        SignUpResult signUpResult = signUpRepository.signUp(email, phone, password);
 
+        //signUpResultData.setValue(signUpResult);
 
+    }
+
+    public LiveData<NetworkState> getNetworkState() {
+        return networkState;
     }
 
     public void signUpDataChanged(String email, String phone, String password, String confPassword) {
