@@ -6,6 +6,7 @@ import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.os.Looper;
 import android.util.Log;
 import android.util.Patterns;
 
@@ -24,6 +25,7 @@ public class LoginViewModel extends ViewModel {
 
     private MutableLiveData<LoginFormState> loginFormState = new MutableLiveData<>();
     private MutableLiveData<LoginResult> loginResult = new MutableLiveData<>();
+    //private MutableLiveData<User> userMutableLiveData = new MutableLiveData<>();
     private LoginRepository loginRepository;
 
     LoginViewModel(LoginRepository loginRepository) {
@@ -38,16 +40,20 @@ public class LoginViewModel extends ViewModel {
         return loginResult;
     }
 
+    /*LiveData<User> getUserMutableLiveData() {
+        return userMutableLiveData;
+    }
+*/
     public void login(String username, String password) {
         // can be launched in a separate asynchronous job
         Logger.d(TAG, ">>>> login");
-        loginRepository.login(username, password);
-        /*PreferenceHelper helper = PreferenceHelper.getAppPrefs(AppInstance.getInstance().getContext());
-        String token = helper.getLoginToken();
-        Log.d(TAG, " TOKEN >> " + token);
-        if (token != null) {
-            loginRepository.getUser(token);
-        }*/
+        Result<User> result = loginRepository.login(username, password);
+        if (result instanceof Result.Success) {
+            User u = ((Result.Success<User>) result).getData();
+            loginResult.setValue(new LoginResult(u));
+        } else {
+            loginResult.setValue(new LoginResult(R.string.login_failed));
+        }
 
         /*new AsyncTask() {
             Result<LoggedInUser> result;
