@@ -9,4 +9,5 @@ public interface ConstantValues {
     int SPLASH_TIME_OUT = 2000;
     String LOG_TAG = "Shopping";
     String BUNDLE_DATA = "BUNDLE_DATA";
+    String VERTICAL_STRING = "O\nF\nF\nE\nR";
 }
