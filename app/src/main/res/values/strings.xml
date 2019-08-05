@@ -43,7 +43,7 @@
         scrambled it to make a type specimen book.</br> Hi vhgvhjb</p></body></html>]]>
     </string>
 
-    <string name="name">Virag Grocery</string>
+    <!--<string name="name">Virag Grocery</string>-->
 
     <!--Register activity-->
     <string name="register">Register to Viraj Grocery</string>
@@ -78,7 +78,135 @@
     <string name="next">Next</string>
     <string name="resent_otp">Resent OTP</string>
 
+    <!--Term and Condition activity-->
+    <string name="termandcond"><![CDATA[
+    <html>
+     <head></head>
+     <body style="text-align:justify;color:gray;background-color:white;">
+     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pellentesque,
+     urna nec hendrerit pellentesque, risus massa Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+     nec hendrerit pellentesque, risus massa</br>
+     </br>
+      Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+      nec hendrerit pellentesque, risus massa
+     Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit. Nunc pellentesque, urna
+      nec hendrerit pellentesque, risus massa</br>
+      </br>
+     Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+     nec hendrerit pellentesque, risus massa
+     Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+     nec hendrerit pellentesque, risus massa</br>
+     </br>
+      Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+      nec hendrerit pellentesque, risus massa
+     Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit. Nunc pellentesque, urna
+      nec hendrerit pellentesque, risus massa</br>
+      </br>
+     Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+     nec hendrerit pellentesque, risus massa
+     Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+     nec hendrerit pellentesque, risus massa</br>
+     </br>
+     </body>
+     </html>]]>
+    </string>
+
+    <!-- my card activity-->
+    <string name="akshay">Akshay Shayl</string>
+    <string name="add_new_card">ADD NEW CARDS</string>
+    <string name="card_num">Card Number</string>
+    <string name="xxxx_xxxx_7987">XXXX_XXXX_7987</string>
+    <string name="card_num2">Card Number</string>
+    <string name="xxxx_xxxx_7986">XXXX_XXXX_7987</string>
+    <string name="expiry">Expiry</string>
+    <string name="expirydate1">
+    <![CDATA[
+    <html>
+     <head></head><body>3-12</body></html]]></string>
+    <string name="expirydate2">
+     <![CDATA[
+    <html>
+     <head></head><body>3-12</body></html]]>
+    </string>
+
+    <!--FAQ activity-->
+    <string name="message2"><![CDATA[
+<html>
+ <head></head>
+ <body style="text-align:justify;color:black;background-color:white;font-size:16px;">
+ <b> Q. Payment Related Queries?</b>
+   </br>
+ </body>
+</html>
+]]>
+</string>
+
+    <string name="message3"><![CDATA[
+<html>
+ <head></head>
+ <body style="text-align:justify;color:gray;background-color:white;line-height=8dp;font-size:12px;>
+   Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+     nec hendrerit pellentesque, risus massam
+   </br>
+ </body>
+</html>
+]]>
+    </string>
+
+        <!--for thankYou activity-->
 
 
+    <string name="any_suggestion">Any Suggestion/Note to be considered ?</string>
+    <string name="address_saket_nagr">Address : saket nagar</string>
+    <string name="tell_your_friend_saving">Tell your friends about savings</string>
+    <string name="you_saved">You have saved </string>
+    <string name="order_placed_successfully">Order Successfully Placed</string>
+    <string name="thank_u">Thank You</string>
+    <string name="check_status">CHECK ORDER STATUS</string>
+    <string name="enter_mobile">Mobile: 896868978</string>
+
+    <!-- for add address activity -->
+
+    <string name="username">Name</string>
+    <string name="flat_num">Flat/House/Office No.</string>
+    <string name="street_name">Street/Society/Office Name</string>
+    <string name="location">Location</string>
+    <string name="mobile_num">Mobile Number</string>
+    <string name="nick_name">Nick Name Of Your Address</string>
+    <string name="home">Home</string>
+    <string name="office">Office</string>
+    <string name="others">Others</string>
+    <string name="loc_on_map">Locate On Map </string>
+    <string name="enter_name">Enter Name</string>
+    <string name="enter_street_num">Enter No.</string>
+    <string name="enter_street_society_name">Enter street/society/officename</string>
+    <string name="enter_location">Enter location</string>
+
+
+
+    <!--my card activity-->
+    <string name="mr">Mr.</string>
+    <string name="mrs">Mrs.</string>
+    <string name="miss">Miss.</string>
+    <string name="enter_coupon">Enter coupon code here </string>
+    <string name="apply_button">Apply</string>
+    <string name="view_available_offer">View Available Offers</string>
+    <string name="choose_payment_method">Choose Payment Method</string>
+    <string name="card">Card</string>
+    <string name="cash_on_del">Cash On Delivery</string>
+    <string name="mada">MADA</string>
+    <string name="amount_payable">Amount Payable(Incl. of all taxes)</string>
+    <string name="rupees">₹ 303</string>
+    <string name="proceed_payment">PROCEED TO PAYMENT</string>
 
 </resources>
