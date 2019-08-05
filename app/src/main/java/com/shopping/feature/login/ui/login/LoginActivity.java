@@ -26,6 +26,8 @@ import com.shopping.feature.home.HomeActivity;
 import com.shopping.feature.login.data.model.User;
 import com.shopping.feature.registration.OTPActivity;
 import com.shopping.feature.registration.SignUpActivity;
+import com.shopping.feature.registration.data.OTPRepository;
+import com.shopping.feature.registration.model.ResponseFail;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
@@ -45,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         final EditText passwordEditText = findViewById(R.id.password);
         final Button loginButton = findViewById(R.id.login);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
-        loginButton.setEnabled(true);
+        loginButton.setEnabled(false);
         createAccount = findViewById(R.id.signup);
         forgotPassword = findViewById(R.id.forgot_password);
 
@@ -65,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        loginViewModel.getLoginResult().observe(this, new Observer<LoginResult>() {
+        /*loginViewModel.getLoginResult().observe(this, new Observer<LoginResult>() {
             @Override
             public void onChanged(@Nullable LoginResult loginResult) {
                 if (loginResult == null) {
@@ -82,13 +84,45 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(new Intent(LoginActivity.this, OTPActivity.class));
                     finish();
                 }
-                /*if (loginResult.getSuccess() != null) {
+                *//*if (loginResult.getSuccess() != null) {
                     updateUiWithUser(loginResult.getSuccess());
-                }*/
+                }*//*
                 setResult(Activity.RESULT_OK);
 
                 //Complete and destroy login activity once successful
                 //finish();
+            }
+        });*/
+
+        loginViewModel.getUserMutableLiveData().observe(this, new Observer<User>() {
+            @Override
+            public void onChanged(@Nullable User user) {
+                loadingProgressBar.setVisibility(View.GONE);
+                if (user == null) {
+                    return;
+                }
+                if (user.getIsVerified()) {
+                    Toast.makeText(LoginActivity.this, "Verified User", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                    return;
+
+                } else {
+                    Intent intent = new Intent(LoginActivity.this, OTPActivity.class);
+                    intent.putExtra("UserID", user.getUserId().intValue());
+                    startActivity(intent);
+                    finish();
+                    return;
+                }
+            }
+        });
+
+        loginViewModel.getFailResponse().observe(this, new Observer<ResponseFail>() {
+            @Override
+            public void onChanged(@Nullable ResponseFail responseFail) {
+                loadingProgressBar.setVisibility(View.INVISIBLE);
+                if (responseFail != null) {
+                    Toast.makeText(LoginActivity.this, responseFail.message, Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -131,7 +165,6 @@ public class LoginActivity extends AppCompatActivity {
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 loginViewModel.login(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString());
-                //startActivity(new Intent(LoginActivity.this, OTPActivity.class));
             }
         });
 
