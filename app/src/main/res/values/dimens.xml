@@ -44,4 +44,12 @@
     <dimen name="sp_16">16sp</dimen>
     <dimen name="sp_24">24sp</dimen>
     <dimen name="sp_48">48sp</dimen>
+
+
+    <dimen name="edit_text">14sp</dimen>
+    <dimen name="btn_txt">12sp</dimen>
+    <dimen name="thank_u_txt">32sp</dimen>
+    <dimen name="order_successfully_placed">20sp</dimen>
+
+    <dimen name="txt_view_text">12sp</dimen> <!--add address activity-->
 </resources>
