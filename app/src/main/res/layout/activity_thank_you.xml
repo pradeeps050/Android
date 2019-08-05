@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+    </data>
+
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".feature.thankyou.ui.ThankYouActivity">
+
+    <include android:id="@+id/white_toolbar"
+        layout="@layout/whitetoolbar"/>
+
+
+
+    <ImageView
+        android:id="@+id/confirm_img"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/ic_confirm"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"/>
+    <TextView
+        android:id="@+id/thanku_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        app:fontFamily="Roboto-Regular"
+        android:text="@string/thank_u"
+        android:textSize="@dimen/thank_u_txt"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+
+    <TextView
+        android:id="@+id/order_place_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/order_placed_successfully"
+        android:textSize="@dimen/order_successfully_placed"
+        android:textColor="@color/black"
+        android:fontFamily="Roboto-Regular"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/saved_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/you_saved"
+        app:fontFamily="Roboto-Regular"
+        android:textColor="@color/black"
+        android:textSize="@dimen/edit_text" />
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/tell_about_saving_crd"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tell_about_saving_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="@string/tell_your_friend_saving"
+                app:fontFamily="Roboto-Regular"
+                android:textSize="@dimen/edit_text"
+                android:textColor="@color/shadowblack"
+                android:layout_marginLeft="15sp"
+                android:paddingTop="15sp" />
+
+            <ImageView
+                android:id="@+id/share_img"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:srcCompat="@drawable/ic_icon_share_g"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="8dp"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/address_crd"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="6dp">
+
+        <RelativeLayout
+            android:id="@+id/address_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/address_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+
+                android:textColor="@color/shadowblack"
+                android:padding="10sp"
+                android:layout_marginLeft="10dp"
+                android:textSize="@dimen/edit_text"
+                android:fontFamily="Roboto-Regular"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/address_txt"
+                android:hint="@string/enter_mobile"
+                android:padding="10sp"
+                android:textColor="@color/shadowblack"
+                android:textSize="@dimen/edit_text"
+                android:layout_marginLeft="10dp"
+                android:theme="@style/EditTextLine"
+                android:fontFamily="Roboto-Regular"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:id="@+id/enter_mobile" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <TextView
+            android:id="@+id/ant_suggestion_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/order_status"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:layout_marginEnd="53dp"
+            android:layout_marginRight="53dp"
+            android:layout_marginBottom="7dp"
+            android:padding="12sp"
+            android:text="@string/any_suggestion"
+            android:fontFamily="Roboto-Regular"
+            android:textSize="@dimen/edit_text"
+            android:textColor="@color/greencolor" />
+
+        <Button
+            android:id="@+id/order_status"
+            android:layout_width="200dp"
+            android:layout_height="39dp"
+            android:text="@string/check_status"
+            android:layout_gravity="left"
+            android:textSize="@dimen/btn_txt"
+            android:background="@color/black"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"/>
+
+        <Button
+            android:id="@+id/continue_shopping"
+            android:layout_width="190dp"
+            android:layout_height="39dp"
+            android:text="@string/continue_shopping"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/order_status"
+            app:fontFamily="Roboto-Regular"
+            android:textSize="@dimen/btn_txt"
+            android:background="@color/lightpurple"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:layout_alignParentBottom="true"/>
+
+    </RelativeLayout>
+    </LinearLayout>
+
+</layout>
