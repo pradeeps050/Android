@@ -75,15 +75,23 @@ public class LoginActivity extends AppCompatActivity {
                 if (loginResult.getError() != null) {
                     showLoginFailed(loginResult.getError());
                 }
-                if (loginResult.getSuccess() != null) {
-                    updateUiWithUser(loginResult.getSuccess());
+                if (loginResult.isUserVerified()) {
+                    Toast.makeText(LoginActivity.this, "USer verified", Toast.LENGTH_SHORT).show();
+                }else {
+                    Log.d(TAG, ">>> USER IS NOT VERIFIED");
+                    startActivity(new Intent(LoginActivity.this, OTPActivity.class));
+                    finish();
                 }
+                /*if (loginResult.getSuccess() != null) {
+                    updateUiWithUser(loginResult.getSuccess());
+                }*/
                 setResult(Activity.RESULT_OK);
 
                 //Complete and destroy login activity once successful
                 //finish();
             }
         });
+
 
         TextWatcher afterTextChangedListener = new TextWatcher() {
             @Override
@@ -98,8 +106,8 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                /*loginViewModel.loginDataChanged(usernameEditText.getText().toString(),
-                        passwordEditText.getText().toString());*/
+                loginViewModel.loginDataChanged(usernameEditText.getText().toString(),
+                        passwordEditText.getText().toString());
             }
         };
         usernameEditText.addTextChangedListener(afterTextChangedListener);
