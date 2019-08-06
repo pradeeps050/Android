@@ -1,13 +1,10 @@
 package com.shopping.framework.network;
 
 
-import com.shopping.BuildConfig;
-import com.shopping.feature.login.data.Result;
-import com.shopping.feature.login.data.model.LoggedInUser;
 import com.shopping.feature.login.data.model.LoginResponse;
 import com.shopping.feature.login.data.model.User;
 import com.shopping.feature.product.model.Model;
-import com.shopping.feature.registration.SignUpResult;
+import com.shopping.feature.registration.model.SignUpResponse;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -15,9 +12,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
-import retrofit2.http.Headers;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface RestApi {
@@ -28,7 +23,7 @@ public interface RestApi {
 
     @FormUrlEncoded
     @POST("/Register")
-    Call<ResponseBody> signUp(
+    Call<SignUpResponse> signUp(
             @Field("Email") String email,
             @Field("Mobile") String phone,
             @Field("Password") String password);
@@ -43,6 +38,17 @@ public interface RestApi {
     @GET("/UsersByToken")
     Call<User> getUserByToken(@Header("Authorization") String token);
 
+    @FormUrlEncoded
+    @POST("/sendotpfromuser")
+    Call<ResponseBody> otpRequest(@Field("UserId") int userId);
+
+    @FormUrlEncoded
+    @POST("/resendotp")
+    Call<ResponseBody> reSendOtp(@Field("UserId") int userId);
+
+    @FormUrlEncoded
+    @POST("/VerifyUser")
+    Call<ResponseBody> verifyOtp(@Field("UserId") int userId, @Field("OTP") int otp);
 
 }
 
