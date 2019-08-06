@@ -1,6 +1,5 @@
 package com.shopping.feature.login.ui.login;
 
-import android.app.Activity;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
@@ -26,7 +25,6 @@ import com.shopping.feature.home.HomeActivity;
 import com.shopping.feature.login.data.model.User;
 import com.shopping.feature.registration.OTPActivity;
 import com.shopping.feature.registration.SignUpActivity;
-import com.shopping.feature.registration.data.OTPRepository;
 import com.shopping.feature.registration.model.ResponseFail;
 
 public class LoginActivity extends AppCompatActivity {
@@ -67,33 +65,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        /*loginViewModel.getLoginResult().observe(this, new Observer<LoginResult>() {
-            @Override
-            public void onChanged(@Nullable LoginResult loginResult) {
-                if (loginResult == null) {
-                    return;
-                }
-                loadingProgressBar.setVisibility(View.GONE);
-                if (loginResult.getError() != null) {
-                    showLoginFailed(loginResult.getError());
-                }
-                if (loginResult.isUserVerified()) {
-                    Toast.makeText(LoginActivity.this, "USer verified", Toast.LENGTH_SHORT).show();
-                }else {
-                    Log.d(TAG, ">>> USER IS NOT VERIFIED");
-                    startActivity(new Intent(LoginActivity.this, OTPActivity.class));
-                    finish();
-                }
-                *//*if (loginResult.getSuccess() != null) {
-                    updateUiWithUser(loginResult.getSuccess());
-                }*//*
-                setResult(Activity.RESULT_OK);
-
-                //Complete and destroy login activity once successful
-                //finish();
-            }
-        });*/
-
         loginViewModel.getUserMutableLiveData().observe(this, new Observer<User>() {
             @Override
             public void onChanged(@Nullable User user) {
@@ -125,7 +96,6 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-
 
         TextWatcher afterTextChangedListener = new TextWatcher() {
             @Override
@@ -172,13 +142,27 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
-
+                /*ShoppingRoomDatabase db = ShoppingRoomDatabase.getInstance(LoginActivity.this);
+                UserEntity entity = db.userDao().getUserDetail();
+                if (entity != null) {
+                    Log.i(TAG, " >> QUERY >> " + entity.toString());
+                } else {
+                    Log.i(TAG, " >> QUERY is NULL ");
+                }*/
             }
         });
 
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                /*Log.d(TAG, ">> forgot >> ");
+                ShoppingRoomDatabase db = ShoppingRoomDatabase.getInstance(LoginActivity.this);
+                UserEntity userEntity = new UserEntity();
+                userEntity.setMobile(22);
+                userEntity.setFullName("Pradeep Sharma");
+                userEntity.setEmail("ps@gmail.com");
+                userEntity.setUserID(2);
+                db.userDao().insetUserDetails(userEntity);*/
                 startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
             }
         });
