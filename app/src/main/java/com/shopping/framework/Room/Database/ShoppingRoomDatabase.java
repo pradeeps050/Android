@@ -9,16 +9,17 @@ import android.arch.persistence.room.TypeConverters;
 import android.content.Context;
 import android.support.annotation.VisibleForTesting;
 
+import com.shopping.framework.Room.dao.UserDao;
+import com.shopping.framework.model.UserEntity;
 import com.shopping.framework.model.WinBotEntity;
 
 
-@Database(entities =
-        {WinBotEntity.class}
-        , version = 1, exportSchema = false)
+@Database(entities = {UserEntity.class}, version = 1, exportSchema = false)
 @TypeConverters({Converters.class})
 public abstract class ShoppingRoomDatabase extends RoomDatabase {
     @VisibleForTesting
-    private static final String DATABASE_NAME = "WindStream-Database";
+    private static final String DATABASE_NAME = "user_db";
+    public abstract UserDao userDao();
     private static ShoppingRoomDatabase sInstance;
     private final MutableLiveData<Boolean> mIsDatabaseCreated = new MutableLiveData<>();
 
