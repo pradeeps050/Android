@@ -11,9 +11,9 @@ import com.shopping.R;
 import com.shopping.feature.registration.SignUpFormState;
 import com.shopping.feature.registration.SignUpResult;
 import com.shopping.feature.registration.data.SignUpRepository;
+import com.shopping.feature.registration.model.ResponseFail;
+import com.shopping.feature.registration.model.SignUpResponse;
 import com.shopping.framework.network.NetworkState;
-import com.shopping.framework.network.RestApiBuilder;
-import com.shopping.framework.network.RestApiServices;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -25,9 +25,13 @@ public class SignUpViewModel extends ViewModel {
     private MutableLiveData<SignUpFormState> signUpFormState = new MutableLiveData<>();
     private MutableLiveData<SignUpResult> signUpResultData = new MutableLiveData<>();
     private MutableLiveData<NetworkState> networkState = new MutableLiveData<>();
-    private SignUpRepository signUpRepository = SignUpRepository.getInstance();
+    private MutableLiveData<SignUpResponse> mutableLiveData = new MutableLiveData<>();
+    private MutableLiveData<ResponseFail> failMutableLiveData = new MutableLiveData<>();
+    private SignUpRepository signUpRepository;
 
-    public SignUpViewModel(){}
+    public SignUpViewModel(){
+        signUpRepository = SignUpRepository.getInstance();
+    }
 
     public SignUpViewModel(Context context) {
         this.context = context;
@@ -41,12 +45,13 @@ public class SignUpViewModel extends ViewModel {
         return signUpResultData;
     }
 
+    public LiveData<SignUpResponse> getSignUpResponse() {return mutableLiveData;}
+
+    public LiveData<ResponseFail> getFailResponse(){return failMutableLiveData;}
+
     public void createAccount(String email, String phone, String password) {
         Log.d(TAG, ">> create account ");
-
-        SignUpResult signUpResult = signUpRepository.signUp(email, phone, password);
-
-        //signUpResultData.setValue(signUpResult);
+        signUpRepository.signUp(email, phone, password, mutableLiveData, failMutableLiveData);
 
     }
 
