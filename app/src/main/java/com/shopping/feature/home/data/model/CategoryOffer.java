@@ -17,7 +17,7 @@ public class CategoryOffer {
 
     @BindingAdapter("android:imageUrl")
     public static void loadImage(ImageView imageView, String imageUrl) {
-        imageView.setImageResource(R.drawable.banner_3);
+        //imageView.setImageResource(R.drawable.banner_3);
     }
 
     public ArrayList<CategoryOffer> getData() {

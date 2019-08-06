@@ -171,7 +171,7 @@
 ]]>
     </string>
 
-        <!--for thankYou activity-->
+    <!--for thankYou activity-->
 
 
     <string name="any_suggestion">Any Suggestion/Note to be considered ?</string>
@@ -182,6 +182,7 @@
     <string name="thank_u">Thank You</string>
     <string name="check_status">CHECK ORDER STATUS</string>
     <string name="enter_mobile">Mobile: 896868978</string>
+    <string name="continue_shopping">CONTINUE SHOPPING</string>
 
     <!-- for add address activity -->
 
@@ -201,8 +202,7 @@
     <string name="enter_location">Enter location</string>
 
 
-
-    <!--my card activity-->
+    <!--dateTimePayment activity-->
     <string name="mr">Mr.</string>
     <string name="mrs">Mrs.</string>
     <string name="miss">Miss.</string>
