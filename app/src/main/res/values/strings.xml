@@ -128,15 +128,8 @@
     <string name="card_num2">Card Number</string>
     <string name="xxxx_xxxx_7986">XXXX_XXXX_7987</string>
     <string name="expiry">Expiry</string>
-    <string name="expirydate1">
-    <![CDATA[
-    <html>
-     <head></head><body>3-12</body></html]]></string>
-    <string name="expirydate2">
-     <![CDATA[
-    <html>
-     <head></head><body>3-12</body></html]]>
-    </string>
+    <string name="expirydate1">3-12</string>
+    <string name="expirydate2">4-12</string>
 
     <!--FAQ activity-->
     <string name="message2"><![CDATA[
@@ -163,7 +156,7 @@
 ]]>
     </string>
 
-        <!--for thankYou activity-->
+    <!--for thankYou activity-->
 
 
     <string name="any_suggestion">Any Suggestion/Note to be considered ?</string>
@@ -174,6 +167,7 @@
     <string name="thank_u">Thank You</string>
     <string name="check_status">CHECK ORDER STATUS</string>
     <string name="enter_mobile">Mobile: 896868978</string>
+    <string name="continue_shopping">CONTINUE SHOPPING</string>
 
     <!-- for add address activity -->
 
@@ -193,8 +187,7 @@
     <string name="enter_location">Enter location</string>
 
 
-
-    <!--my card activity-->
+    <!--dateTimePayment activity-->
     <string name="mr">Mr.</string>
     <string name="mrs">Mrs.</string>
     <string name="miss">Miss.</string>

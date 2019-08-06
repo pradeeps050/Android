@@ -91,7 +91,7 @@ public class BaseActivity  extends AppCompatActivity implements NavigationView.O
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
+        /*if (id == R.id.nav_home) {
 
 
         } else if (id == R.id.nav_order) {
@@ -104,7 +104,7 @@ public class BaseActivity  extends AppCompatActivity implements NavigationView.O
 
         } else if (id == R.id.nav_send) {
 
-        }
+        }*/
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

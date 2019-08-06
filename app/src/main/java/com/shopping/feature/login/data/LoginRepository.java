@@ -13,7 +13,6 @@ import com.shopping.feature.registration.SignUpResult;
 import com.shopping.framework.application.AppInstance;
 import com.shopping.framework.network.RestApi;
 import com.shopping.framework.network.RestApiBuilder;
-import com.shopping.framework.network.RestApiClient;
 import com.shopping.framework.network.RestApiServices;
 import com.shopping.framework.preference.PreferenceHelper;
 

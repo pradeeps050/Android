@@ -16,7 +16,7 @@
 
         <include
             android:id="@+id/black_toolbar"
-            layout="@layout/blacktoolbar" />
+            layout="@layout/blacktoolbar"/>
 
 
         <RadioGroup

@@ -16,7 +16,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".feature.home.category.CategoryActivity"></activity>
+        <activity android:name=".feature.datetimepayment.ui.DateTimePaymentActivity" />
+        <activity android:name=".feature.thankyou.ui.ThankYouActivity" />
+        <activity android:name=".feature.needhelp.ui.NeedHelpActivity" />
+        <activity android:name=".feature.mycard.ui.MyCardActivity" />
+        <activity android:name=".feature.addaddress.ui.AddAddressActivity" />
+        <activity android:name=".feature.termandcondition.ui.TermAndConditionActivity" />
+        <activity android:name=".feature.home.category.CategoryActivity" />
         <activity
             android:name=".feature.home.HomeActivity"
             android:theme="@style/AppTheme.BlackActionBar" />

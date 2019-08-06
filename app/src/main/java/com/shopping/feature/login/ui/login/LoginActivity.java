@@ -26,6 +26,7 @@ import com.shopping.feature.home.HomeActivity;
 import com.shopping.feature.login.data.model.User;
 import com.shopping.feature.registration.OTPActivity;
 import com.shopping.feature.registration.SignUpActivity;
+import com.shopping.feature.termandcondition.ui.TermAndConditionActivity;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
@@ -146,7 +147,7 @@ public class LoginActivity extends AppCompatActivity {
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
+                startActivity(new Intent(LoginActivity.this, TermAndConditionActivity.class));
             }
         });
     }
