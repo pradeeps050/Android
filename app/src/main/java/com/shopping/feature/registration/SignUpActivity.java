@@ -18,6 +18,8 @@ import android.widget.Toast;
 
 import com.shopping.R;
 import com.shopping.feature.login.ui.login.LoginActivity;
+import com.shopping.feature.registration.model.ResponseFail;
+import com.shopping.feature.registration.model.SignUpResponse;
 import com.shopping.feature.registration.viewmodel.SignUpViewModel;
 import com.shopping.framework.logger.Logger;
 import com.shopping.framework.network.NetworkState;
@@ -63,19 +65,34 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
-        viewModel.getSignUpResult().observe(this, new Observer<SignUpResult>() {
+        viewModel.getSignUpResponse().observe(this, new Observer<SignUpResponse>() {
             @Override
-            public void onChanged(@Nullable SignUpResult signUpResult) {
-                if(signUpResult != null) {
-                    if (true) {
-                        Log.d(TAG, "Sign up result " + signUpResult.getResult());
-                        progressBar.setVisibility(View.INVISIBLE);
-                        startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
-                        finish();
+            public void onChanged(@Nullable SignUpResponse signUpResponse) {
+                if (signUpResponse == null) {
+                    progressBar.setEnabled(false);
+                    progressBar.setVisibility(View.GONE);
+                    progressBar.setVisibility(View.INVISIBLE);
+                    return;
+                }
+                if (! signUpResponse.getVerified()) {
+                    progressBar.setVisibility(View.INVISIBLE);
+                    startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+                    finish();
+                } else {
+                    Log.d(TAG, ">> user is verified ");
+                }
+                progressBar.setEnabled(false);
+                progressBar.setVisibility(View.GONE);
+                progressBar.setVisibility(View.INVISIBLE);
+            }
+        });
 
-                    } else {
-                        Log.d(TAG, ">> Sign up result null");
-                    }
+        viewModel.getFailResponse().observe(this, new Observer<ResponseFail>() {
+            @Override
+            public void onChanged(@Nullable ResponseFail responseFail) {
+                progressBar.setVisibility(View.INVISIBLE);
+                if (responseFail != null) {
+                    Toast.makeText(SignUpActivity.this, responseFail.message, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -100,10 +117,9 @@ public class SignUpActivity extends AppCompatActivity {
                 progressBar.setEnabled(true);
                 progressBar.setVisibility(View.VISIBLE);
 
-                /*viewModel.createAccount(userEmailEdtTxt.getText().toString(), userPhoneEdtTxt.getText().toString()
-                ,userPasswordEdtTxt.getText().toString())*/;
-                viewModel.createAccount("abc@gmail.com", "9876543210", "99999999");
-                //startActivity(new Intent(SignUpActivity.this, OTPActivity.class));
+                viewModel.createAccount(userEmailEdtTxt.getText().toString(), userPhoneEdtTxt.getText().toString()
+                ,userPasswordEdtTxt.getText().toString());
+
 
             }
         });
@@ -117,7 +133,7 @@ public class SignUpActivity extends AppCompatActivity {
         signUpButton = findViewById(R.id.btn_signup);
         signIn = findViewById(R.id.signIn_txt);
         progressBar = findViewById(R.id.signin_progressbar);
-        signUpButton.setEnabled(true);
+        signUpButton.setEnabled(false);
         userEmailEdtTxt.addTextChangedListener(textWatcher);
         userPhoneEdtTxt.addTextChangedListener(textWatcher);
         userPasswordEdtTxt.addTextChangedListener(textWatcher);
