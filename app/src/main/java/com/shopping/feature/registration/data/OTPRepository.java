@@ -3,6 +3,7 @@ package com.shopping.feature.registration.data;
 import android.arch.lifecycle.MutableLiveData;
 import android.util.Log;
 
+import com.shopping.feature.registration.model.OTP;
 import com.shopping.framework.network.RestApi;
 import com.shopping.framework.network.RestApiBuilder;
 
@@ -85,30 +86,38 @@ public class OTPRepository {
 
     public void verifyOtp(int userId, int otp) {
         RestApiBuilder.getNetworkService(RestApi.class).verifyOtp(userId, otp)
-                .enqueue(new Callback<ResponseBody>() {
+                .enqueue(new Callback<OTP>() {
                     @Override
-                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    public void onResponse(Call<OTP> call, Response<OTP> response) {
                         if (response.isSuccessful() && response.code()== 200) {
-                            try {
-                                Log.i(TAG, ">> OTP response " + response.body().string());
-
-                            } catch (IOException e) {
-                                Log.e(TAG, ">> " + e.getMessage());
-                            }
+                            OTP otpResponse = response.body();
+                            Log.i(TAG, ">> OTP " + otpResponse.toString());
                         } else {
                             Log.e(TAG, ">> response is FALSE ");
-                            try {
-                                //check null pointer
-                                Log.i(TAG, ">> OTP response " + response.body().string());
-
-                            } catch (IOException e) {
-                                Log.e(TAG, ">> " + e.getMessage());
-                            }
                         }
                     }
                     @Override
-                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    public void onFailure(Call<OTP> call, Throwable t) {
                         Log.e(TAG, ">> response is FALSE ");
+                    }
+                });
+    }
+
+    public void validateOtp(int userId, String otp, MutableLiveData<ResponseBody> mutableLiveData) {
+        RestApiBuilder.getNetworkService(RestApi.class).validateOtp(userId, otp)
+                .enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        if (response.isSuccessful() && response.code() == 200) {
+                            mutableLiveData.postValue(response.body());
+                        } else {
+                            mutableLiveData.postValue(null);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        Log.d(TAG, ">> onFailure");
 
                     }
                 });
