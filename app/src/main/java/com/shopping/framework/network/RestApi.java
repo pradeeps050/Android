@@ -1,9 +1,11 @@
 package com.shopping.framework.network;
 
 
+import com.shopping.feature.forgatpassword.data.ForgotPassword;
 import com.shopping.feature.login.data.model.LoginResponse;
 import com.shopping.feature.login.data.model.User;
 import com.shopping.feature.product.model.Model;
+import com.shopping.feature.registration.model.OTP;
 import com.shopping.feature.registration.model.SignUpResponse;
 
 import okhttp3.ResponseBody;
@@ -48,7 +50,24 @@ public interface RestApi {
 
     @FormUrlEncoded
     @POST("/VerifyUser")
-    Call<ResponseBody> verifyOtp(@Field("UserId") int userId, @Field("OTP") int otp);
+    Call<OTP> verifyOtp(@Field("UserId") int userId, @Field("OTP") int otp);
+
+    @FormUrlEncoded
+    @POST("/sendotp")
+    Call<ForgotPassword> sendOtp(@Field("Mobile") String mobile);
+
+    @FormUrlEncoded
+    @POST("/validateotp")
+    Call<ResponseBody> validateOtp(@Field("UserId") int userId, @Field("OTP") String otp);
+
+    @FormUrlEncoded
+    @POST("/UpdatePassword")
+    Call<ResponseBody> updatePassword(@Field("UserId") int userId, @Field("Password") String password);
+
+
+    //response is userid and otp and call validateotp field papa UserId, OTP
+
+    // after if true>>  api UpdatePassword filed UserId Password
 
 }
 
