@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data >
+    <import type="android.view.View"></import>
+    </data>
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".feature.addaddress.ui.AddAddressActivity">
+
+
+        <include
+            android:id="@+id/black_toolbar"
+            layout="@layout/blacktoolbar" />
+
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/mr_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:checked="true"
+                android:text="@string/mr"
+                android:textSize="12sp"
+                android:theme="@style/MyRadioButton" />
+
+            <RadioButton
+                android:id="@+id/mrs_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/mrs"
+                android:textSize="12sp"
+                android:theme="@style/MyRadioButton" />
+
+            <RadioButton
+                android:id="@+id/miss_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/miss"
+                android:textSize="12sp"
+                android:theme="@style/MyRadioButton" />
+        </RadioGroup>
+
+
+        <TextView
+            android:id="@+id/name_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:text="@string/username"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/txt_view_text" />
+
+        <EditText
+            android:id="@+id/enter_name_edtxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_name"
+            android:layout_marginTop="0dp"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:layout_marginLeft="20dp"
+
+            android:textColor="@color/black"
+            android:theme="@style/EditTextLine"
+            android:textSize="@dimen/edit_text" />
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:text="@string/street_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/txt_view_text" />
+
+        <EditText
+
+            android:id="@+id/enter_flatnum_edtxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_street_num"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/black"
+            android:theme="@style/EditTextLine"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="@dimen/edit_text" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:text="@string/street_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/txt_view_text" />
+
+        <EditText
+            android:id="@+id/enter_street_name_edtxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_street_society_name"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/edit_text"
+            android:theme="@style/EditTextLine"
+            android:textCursorDrawable="@drawable/color_cursor"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:text="@string/location"
+            android:textColor="@color/black"
+            android:textSize="@dimen/txt_view_text" />
+
+        <EditText
+            android:id="@+id/enter_location_edtxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_location"
+            android:layout_marginLeft="20dp"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textColor="@color/black"
+            android:theme="@style/EditTextLine"
+            android:textSize="@dimen/edit_text" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:text="@string/mobile_num"
+            android:theme="@style/EditTextLine"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textColor="@color/black"
+            android:textSize="@dimen/txt_view_text" />
+
+        <EditText
+            android:id="@+id/enter_mobile_edtxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_mobile"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/black"
+            android:theme="@style/EditTextLine"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="@dimen/edit_text" />
+
+        <TextView
+            android:id="@+id/enter_mobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:text="@string/nick_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/txt_view_text" />
+
+        <LinearLayout
+            android:id="@+id/layout3"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/layout2"
+            android:layout_marginTop="11dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/home_button"
+                android:layout_width="60dp"
+                android:layout_height="40sp"
+                android:layout_marginLeft="20dp"
+                android:text="@string/home"
+                android:textAllCaps="false"
+                android:background="@drawable/button_background"
+                android:textSize="@dimen/btn_txt" />
+
+            <Button
+                android:id="@+id/about_button"
+                android:layout_width="60dp"
+                android:layout_height="40sp"
+                android:layout_marginLeft="10dp"
+                android:text="@string/office"
+                android:textAllCaps="false"
+                android:textSize="@dimen/btn_txt"
+                android:background="@drawable/button_background"/>
+
+            <Button
+                android:id="@+id/screen_button"
+                android:layout_width="60sp"
+                android:layout_height="40sp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/button_background"
+                android:text="@string/others"
+                android:textAllCaps="false"
+                android:textSize="@dimen/btn_txt" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:id="@+id/locate_on_map"
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:layout_above="@id/proceed_payment"
+                android:layout_marginBottom="4dp"
+                android:gravity="center"
+                android:text="@string/loc_on_map"
+                android:textColor="@color/success_green"
+                android:textSize="@dimen/btn_txt" />
+
+            <Button
+                android:id="@+id/proceed_payment"
+                android:layout_width="fill_parent"
+                android:layout_height="49dp"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom"
+                android:background="@color/lightpurple"
+                android:gravity="center"
+                android:text="@string/proceed_payment"
+                android:textColor="@color/white"
+                android:textSize="@dimen/btn_txt"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="60sp"
+                android:layout_height="40sp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/white"
+                android:text="go"
+                android:textAllCaps="false"
+                android:textSize="11sp" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</layout>
