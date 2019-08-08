@@ -155,6 +155,8 @@
     <color name="shadowblack">#bcbcbc</color>
     <color name="lightpurple">#7f135a</color>
     <color name="greencolor">#43b02a</color>
+<color name="payment_delivered_background">#f7f7f7</color>
+    <color name="shadow_light_black_background">#f7f7f7</color>
 
 
 </resources>
