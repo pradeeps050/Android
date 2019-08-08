@@ -26,8 +26,6 @@ private Toolbar toolbar;
             @Override
             public void onClick(View view) {
 
-
-
         String username= binding.nameText.getText().toString();
         String streetNum= binding.enterStreetNameEdtxt.getText().toString();
         String location= binding.enterLocationEdtxt.getText().toString();
@@ -49,9 +47,8 @@ private Toolbar toolbar;
         });
         changeColor(R.color.black);
     }
-
-    public void changeColor(int resourseColor) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+             public void changeColor(int resourseColor) {
+             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(ContextCompat.getColor(getApplicationContext(), resourseColor));
         }
     }
