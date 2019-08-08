@@ -15,6 +15,7 @@ import android.webkit.WebView;
 import com.shopping.R;
 import com.shopping.databinding.ActivityNeedHelpBinding;
 import com.shopping.feature.addaddress.ui.AddAddressActivity;
+import com.shopping.feature.thankyou.ui.ThankYouActivity;
 
 
 public class NeedHelpActivity extends AppCompatActivity {
@@ -45,21 +46,21 @@ public class NeedHelpActivity extends AppCompatActivity {
         binding.web12.loadData(getResources().getString(R.string.message3), "text/html; charset=utf-8", "utf-8");
 
 
-        changeColor(R.color.black);
         binding.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i =new Intent(NeedHelpActivity.this, AddAddressActivity.class);
+                Intent i = new Intent(NeedHelpActivity.this, ThankYouActivity.class);
                 startActivity(i);
             }
         });
 
-        webView.setOnTouchListener(new View.OnTouchListener() {
+     /*   webView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                return (motionEvent.getAction()== MotionEvent.ACTION_MOVE);
+                return (motionEvent.getAction() == MotionEvent.ACTION_MOVE);
             }
-        });
+        });*/
+        changeColor(R.color.black);
     }
 
     public void changeColor(int resourseColor) {
