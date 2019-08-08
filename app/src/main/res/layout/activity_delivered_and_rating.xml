@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+            </data>
+
+
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/payment_delivered_background"
+    tools:context=".feature.deliveredandrating.ui.DeliveredAndRatingActivity">
+
+    <android.support.v7.widget.Toolbar
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/shadow_light_black_toolbar"
+    android:background="@color/shadow_light_black_background">
+    </android.support.v7.widget.Toolbar>
+
+        <ImageView
+            android:id="@+id/confirm_img"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:srcCompat="@drawable/ic_confirm"
+            android:layout_gravity="center"
+            android:layout_marginTop="180dp"/>
+        <TextView
+            android:id="@+id/your_product_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/your_product_delivered_successfully"
+            android:textSize="@dimen/sp_18"
+            android:layout_marginTop="@dimen/dp_20"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/rate_the_person"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/rate_the_person_shopper"
+            android:textSize="@dimen/sp_14"
+            android:layout_marginTop="@dimen/dp_20"
+            android:textColor="@color/black"
+            android:fontFamily="Roboto-Medium"/>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp_20"
+    android:orientation="horizontal"
+    android:gravity="center">
+
+        <ImageView
+            android:id="@+id/start1_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_icon_star" />
+
+        <ImageView
+            android:id="@+id/start2_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_icon_star" />
+
+        <ImageView
+            android:id="@+id/start3_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_icon_star" />
+
+        <ImageView
+            android:id="@+id/start_blank1_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_icon_star_b" />
+
+         <ImageView
+             android:id="@+id/start_blank_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_icon_star_b" />
+</LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/submit_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/submit"
+                android:layout_gravity="bottom"
+                android:background="@color/lightpurple"
+                android:textColor="@color/white"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>
