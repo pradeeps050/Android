@@ -1,6 +1,5 @@
 package com.shopping.feature.termandcondition.ui;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Build;
@@ -10,12 +9,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.support.v7.widget.Toolbar;
-
 import com.shopping.R;
 import com.shopping.databinding.ActivityTermAndConditionBinding;
-import com.shopping.feature.addaddress.ui.AddAddressActivity;
 import com.shopping.feature.mycard.ui.MyCardActivity;
-import com.shopping.feature.termandcondition.data.model.TermAndConditionModel;
+
 
 public class TermAndConditionActivity extends AppCompatActivity {
     private Button button;
@@ -33,9 +30,12 @@ public class TermAndConditionActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Term And Condition");
         toolbar.setNavigationIcon(R.drawable.ic_icon_back);
 
-        TermAndConditionViewModel viewModel = new TermAndConditionViewModel(new TermAndConditionModel(getResources().getString(R.string.termandcond)));
+      /*  TermAndConditionViewModel viewModel = new TermAndConditionViewModel(new TermAndConditionModel(getResources().getString(R.string.termandcond)));
         binding.webView3.loadData(viewModel.getMessage(), "text/html; charset=utf-8", "utf-8");
-        changeColor(R.color.black);
+        changeColor(R.color.black);*/
+
+
+        binding.webView3.loadUrl("http://www.orangeskill.com/privacy-policy");
 
       button = findViewById(R.id.privacyPolicybutton);
         button.setOnClickListener(new View.OnClickListener() {
@@ -52,7 +52,7 @@ public class TermAndConditionActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
+        changeColor(R.color.black);
     }
 
     public void changeColor(int resourseColor) {
@@ -61,7 +61,6 @@ public class TermAndConditionActivity extends AppCompatActivity {
         }
     }
 }
-
 
 
 
