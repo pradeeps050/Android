@@ -158,24 +158,27 @@
 ]]>
 </string>
 
+
     <string name="message3"><![CDATA[
 <html>
  <head></head>
- <body style="text-align:justify;color:gray;background-color:white;line-height=8dp;font-size:12px;>
-   Lorem ipsum dolor sit amet, consectetur
+ <body style="text-align:justify;color:gray;background-color:white;font-size:16px;">
+ <b>Lorem ipsum dolor sit amet, consectetur
      adipiscing elit. Nunc pellentesque, urna
      nec hendrerit pellentesque, risus massam
+     Q. Payment Related Queries?</b>
    </br>
  </body>
 </html>
 ]]>
-    </string>
+</string>
+
 
     <!--for thankYou activity-->
 
-
+    <string name="thanku_address">Address:</string>
     <string name="any_suggestion">Any Suggestion/Note to be considered ?</string>
-    <string name="address_saket_nagr">Address : saket nagar</string>
+    <string name="address_saket_nagr"> saket nagar</string>
     <string name="tell_your_friend_saving">Tell your friends about savings</string>
     <string name="you_saved">You have saved </string>
     <string name="order_placed_successfully">Order Successfully Placed</string>
@@ -216,5 +219,97 @@
     <string name="amount_payable">Amount Payable(Incl. of all taxes)</string>
     <string name="rupees">₹ 303</string>
     <string name="proceed_payment">PROCEED TO PAYMENT</string>
+
+    <!--newcard activity-->
+    <string name="card_number">CardNumber</string>
+    <string name="enter_card_num">Enter Card name</string>
+    <string name="mm_yy">MM/YY</string>
+    <string name="enter_month_year">Enter month and year</string>
+    <string name="cvv">CVV</string>
+    <string name="enter_cvv">Enter CVV</string>
+    <string name="save_this_card_for_future">Save this card for future use .Its perfectly secure.</string>
+    <string name="save">SAVE</string>
+
+    <!--deliveredAndRating activity-->
+    <string name="your_product_delivered_successfully">Your Product Delivered Successfully</string>
+    <string name="rate_the_person_shopper">Rate the Person Shopper as per your experience</string>
+
+    <!--profileActivity -->
+    <string name="profile_holder_name">Name :</string>
+    <string name="email_address">Email Address:</string>
+    <string name="mailId">Shayalfrelance@gmail.com</string>
+    <string name="mobile">Mobile:</string>
+    <string name="mobilenum">8786568769</string>
+    <string name="address">Address</string>
+    <string name="user_address">C,block Noida Sector 61</string>
+
+
+<!--for privacy policy screen-->
+    <string name="privacypolicy"><![CDATA[
+    <html>
+     <head></head>
+     <body style="text-align:justify;color:gray;background-color:white;">
+     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pellentesque,
+     urna nec hendrerit pellentesque, risus massa Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+     nec hendrerit pellentesque, risus massa</br>
+     </br>
+     1.&nbsp;&nbsp;  Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit. Nunc pellentesque, urna
+      nec hendrerit pellentesque, risus massa
+     2.&nbsp;&nbsp;  Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit. Nunc pellentesque, urna
+      nec hendrerit pellentesque, risus massa</br>
+      </br>
+     3.&nbsp;&nbsp;  Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+     nec hendrerit pellentesque, risus massa
+     Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+     nec hendrerit pellentesque, risus massa</br>
+     </br>
+      4.&nbsp;&nbsp;  Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+      nec hendrerit pellentesque, risus massa
+     Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit. Nunc pellentesque, urna
+      nec hendrerit pellentesque, risus massa</br>
+      </br>
+     Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+     nec hendrerit pellentesque, risus massa
+     Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+     nec hendrerit pellentesque, risus massa</br>
+     </br>
+      Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+     nec hendrerit pellentesque, risus massa
+     Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+     nec hendrerit pellentesque, risus massa</br>
+     </br>
+      Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+     nec hendrerit pellentesque, risus massa
+     Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+     nec hendrerit pellentesque, risus massa</br>
+     </br>
+      Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+     nec hendrerit pellentesque, risus massa
+     Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+     nec hendrerit pellentesque, risus massa</br>
+     </br>
+     </body>
+     </html>]]>
+    </string>
+
+    <!-- for setting activity-->
+     <string name="privacyPolicy">Privacy Policy</string>
+     <string name="termcondition">Terms And Condition</string>
+     <string name="faq">FAQ</string>
 
 </resources>
