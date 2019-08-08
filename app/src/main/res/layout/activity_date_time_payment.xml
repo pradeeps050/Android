@@ -10,6 +10,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/shadow_light_black_background"
     tools:context=".feature.datetimepayment.ui.DateTimePaymentActivity">
 
 
@@ -20,10 +21,10 @@
         <android.support.v7.widget.CardView
             android:id="@+id/enter_coupon_crd"
             android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginRight="10dp">
+            android:layout_height="@dimen/dp_44"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_6"
+            android:layout_marginRight="@dimen/dp_10">
 
             <RelativeLayout
                 android:id="@+id/relayout"
@@ -35,8 +36,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_below="@null"
                     android:fontFamily="Robooto-Medium"
                     android:theme="@style/EditTextLineDateTimeScreen"
                     android:textCursorDrawable="@drawable/color_cursor"
@@ -46,15 +47,15 @@
 
                 <Button
                     android:id="@+id/apply_btn"
-                    android:layout_width="58dp"
-                    android:layout_height="49dp"
+                    android:layout_width="@dimen/dp_60"
+                    android:layout_height="@dimen/dp_49"
                     android:layout_alignParentRight="true"
                     android:background="@color/lightpurple"
                     android:text="@string/apply_button"
                     android:textAllCaps="true"
                     android:textColor="@color/white"
                     android:fontFamily="Roboto-Medium"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/sp_14" />
             </RelativeLayout>
 
         </android.support.v7.widget.CardView>
@@ -63,8 +64,8 @@
             android:id="@+id/available_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="17dp"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_17"
             android:text="@string/view_available_offer"
             android:textColor="@color/greencolor"
             android:fontFamily="Roboto-Regular"
@@ -74,21 +75,21 @@
             android:id="@+id/payment_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_12"
             android:text="@string/choose_payment_method"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="@dimen/sp_18"
             android:textStyle="bold"
             android:fontFamily="Roboto-Regular"/>
 
         <android.support.v7.widget.CardView
             android:id="@+id/payment_detail_crdview"
             android:layout_width="match_parent"
-            android:layout_height="144dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp">
+            android:layout_height="@dimen/dp_144"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10">
 
             <LinearLayout
                 android:id="@+id/linear_layout"
@@ -105,10 +106,10 @@
                         android:id="@+id/card_radio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="14dp"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="@dimen/dp_14"
+                        android:layout_marginLeft="@dimen/dp_10"
                         android:text="@string/card"
-                        android:padding="2dp"
+                        android:padding="@dimen/dp_2"
                         android:checked="false"
                         android:textSize="@dimen/edit_text"
                         android:fontFamily="Roboto-Medium"
@@ -120,11 +121,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/edit_text"
-                        android:layout_marginTop="14dp"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="@dimen/dp_14"
+                        android:layout_marginLeft="@dimen/dp_10"
                         android:checked="false"
                         android:fontFamily="Roboto-Medium"
-                        android:padding="2dp"
+                        android:padding="@dimen/dp_2"
                         android:text="@string/cash_on_del"
                         android:textColor="@color/shadowblack"
                         android:theme="@style/MyRadioButton" />
@@ -134,9 +135,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/edit_text"
-                        android:layout_marginTop="14dp"
-                        android:layout_marginLeft="10dp"
-                        android:padding="2dp"
+                        android:layout_marginTop="@dimen/dp_14"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:padding="@dimen/dp_2"
                         android:checked="false"
                         android:fontFamily="Roboto-Medium"
                         android:text="@string/mada"
@@ -152,7 +153,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/dp_10"
             android:background="@color/white"
             android:fontFamily="Roboto-Medium"
             android:text="go" />
@@ -165,24 +166,23 @@
             <android.support.v7.widget.CardView
                 android:id="@+id/card_view"
                 android:layout_width="match_parent"
-                android:layout_height="49dp"
+                android:layout_height="@dimen/dp_49"
                 android:layout_above="@+id/continue_btn"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="8dp">
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_8">
 
                 <TextView
                     android:id="@+id/amount_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="17dp"
-                    android:layout_marginBottom="12dp"
+                    android:layout_marginTop="@dimen/dp_15"
                     android:background="@color/white"
                     android:gravity="center"
                     android:textColor="@color/shadowblack"
                     android:fontFamily="Roboto-Medium"
-                    android:layout_marginLeft="12dp"
+                    android:layout_marginLeft="@dimen/dp_15"
                     android:text="@string/amount_payable"
                     android:textSize="@dimen/edit_text" />
 
@@ -193,9 +193,9 @@
                     android:fontFamily="Roboto-Medium"
                     android:layout_above="@+id/continue_btn"
                     android:layout_gravity="right"
-                    android:paddingRight="2dp"
-                    android:paddingTop="15dp"
-                    android:layout_marginRight="4dp"
+                    android:paddingRight="@dimen/dp_2"
+                    android:paddingTop="@dimen/dp_15"
+                    android:layout_marginRight="@dimen/dp_4"
                     android:text="@string/rupees"
                     android:textColor="@color/greencolor"
                     android:textSize="12sp" />
@@ -205,16 +205,16 @@
             <Button
                 android:id="@+id/continue_btn"
                 android:layout_width="fill_parent"
-                android:layout_height="49dp"
+                android:layout_height="@dimen/dp_49"
                 android:layout_alignParentBottom="true"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="@dimen/dp_4"
                 android:background="@color/lightpurple"
                 android:gravity="center"
                 android:text="@string/proceed_payment"
                 android:textColor="@color/white"
                 android:fontFamily="Roboto-Medium"
                 android:textAllCaps="false"
-                android:textSize="14sp" />
+                android:textSize="@dimen/sp_14" />
         </RelativeLayout>
 
     </LinearLayout>
