@@ -30,6 +30,8 @@
         <item name="android:background">@drawable/round_shape_button</item>
     </style>
 
+
+
     <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">18sp</item>
     </style>
@@ -47,12 +49,10 @@
     </style>
 
 
-
-
-    <style name="BlackToolbarTheme" parent="AppTheme">
+   <!-- <style name="BlackToolbarTheme" parent="AppTheme">
         <item name="colorPrimary">@color/black</item>
         <item name="colorPrimaryDark">@color/black</item>
-    </style>
+    </style>-->
 
     <style name="MyRadioButton" parent="Theme.AppCompat.Light">
         <item name="colorControlNormal">@color/black</item>
@@ -81,6 +81,9 @@
         <item name="android:background">@drawable/cart_button</item>
         <item name="android:textColor">@color/button_color</item>
     </style>
-
+    <style name="MyCheckButton" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/black</item>
+        <item name="colorControlActivated">@color/greencolor</item>
+    </style>
 
 </resources>
