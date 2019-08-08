@@ -11,7 +11,6 @@ import android.text.Html;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -44,10 +43,8 @@ private TextView akshayText;
         String expiryDate2 ="<font color=#b7b7b7> Expiry :</font><font color=#000000> 3/12 </font>";
         binding.expiryTxt2.setText(Html.fromHtml(expiryDate2));*/
 
-        akshayText=binding.akshayTxt;
-        penImage= binding.penImg;
 
-        penImage.setOnClickListener(new View.OnClickListener() {
+       binding.pen1Img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d(TAG ,">>>"+ akshayText.getText().toString());
@@ -55,6 +52,7 @@ private TextView akshayText;
                 startActivity(i);*/
             }
         });
+
         toolbar=(Toolbar)binding.blackToolbar;
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("My Cards");
@@ -65,7 +63,8 @@ private TextView akshayText;
                 onBackPressed();
             }
         });
-        changeColor(R.color.black);
+
+
         binding.addNewCardBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,6 +72,7 @@ private TextView akshayText;
                 startActivity(i);
             }
         });
+        changeColor(R.color.black);
     }
 
     public void changeColor(int resourseColor) {
