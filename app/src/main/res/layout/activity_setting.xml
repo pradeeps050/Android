@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+    </data>
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/shadow_light_black_background"
+    tools:context=".feature.setting.ui.SettingActivity">
+        <include
+            android:id="@+id/blacktoolbar"
+            layout="@layout/blacktoolbar" />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_49"
+            android:layout_margin="@dimen/dp_11"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_11"
+            android:layout_marginRight="@dimen/dp_11"
+            android:id="@+id/card1">
+
+            <TextView
+                android:id="@+id/info_text1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/faq"
+                android:layout_margin="@dimen/dp_12"
+                android:textSize="@dimen/dp_14"
+                app:fontFamily="Roboto-Regular"
+                android:textColor="@color/black"/>
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_margin="@dimen/dp_10"
+                app:srcCompat="@drawable/ic_icon_forward_arrow" />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_49"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_marginLeft="@dimen/dp_11"
+            android:layout_marginRight="@dimen/dp_11">
+            <TextView
+                android:id="@+id/info_text2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/termcondition"
+                android:layout_margin="@dimen/dp_12"
+                android:textSize="@dimen/dp_14"
+                app:fontFamily="Roboto-Regular"
+                android:textColor="@color/black"/>
+
+            <ImageView
+                android:layout_width="@dimen/dp_10"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_margin="@dimen/dp_10"
+                app:srcCompat="@drawable/ic_icon_forward_arrow" />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_49"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_11"
+            android:layout_marginRight="@dimen/dp_11"
+            android:id="@+id/card3">
+            <TextView
+                android:id="@+id/info_text3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/privacyPolicy"
+                android:layout_margin="@dimen/dp_12"
+                android:textSize="@dimen/dp_14"
+                app:fontFamily="Roboto-Regular"
+                android:textColor="@color/black"/>
+
+            <ImageView
+                android:layout_width="@dimen/dp_12"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_margin="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_370"
+                android:layout_marginTop="@dimen/dp_10"
+                app:srcCompat="@drawable/ic_icon_forward_arrow" />
+        </android.support.v7.widget.CardView>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GO"
+            android:id="@+id/button"/>
+
+
+
+
+    </LinearLayout>
+
+</layout>
