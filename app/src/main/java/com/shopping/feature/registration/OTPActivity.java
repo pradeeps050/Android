@@ -43,13 +43,15 @@ public class OTPActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_otp);
         intent = getIntent();
+        init();
         changePassword = intent.getStringExtra(ConstantValues.CHANGE_PASSWORD);
         if (ConstantValues.CHANGE_PASSWORD.equals(changePassword)) {
             userID = intent.getIntExtra(ConstantValues.USER_ID, 0);
         }
         userID = getIntent().getIntExtra("UserID", 0);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_otp);
+
         editText1 = binding.edit1;
         editText2 = binding.edit2;
         editText3 = binding.edit3;
@@ -109,6 +111,15 @@ public class OTPActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+    }
+
+    private void init() {
+        //Set ui accounding to intent
+
+        String value = intent.getStringExtra(ConstantValues.CHANGE_PASSWORD);
+        if (ConstantValues.CHANGE_PASSWORD.equals(value)) {
+            binding.nextBtn.setText("Verify");
+        }
     }
 
 
