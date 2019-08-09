@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.shopping.R;
@@ -26,6 +27,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private Button submit;
     private EditText phone;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_forgot_password);
         submit = findViewById(R.id.submit_btn);
         phone = findViewById(R.id.email_edt_txt);
+        progressBar = findViewById(R.id.progressbar);
         initToolbar();
 
         ForgotPasswordViewModel viewModel = ViewModelProviders.of(this).get(ForgotPasswordViewModel.class);
@@ -40,6 +43,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         viewModel.getLiveData().observe(this, new Observer<ForgotPassword>() {
             @Override
             public void onChanged(@Nullable ForgotPassword forgotPassword) {
+                progressBar.setVisibility(View.GONE);
                 if(forgotPassword == null) {
                     Toast.makeText(ForgotPasswordActivity.this, "Failed", Toast.LENGTH_SHORT).show();
                     return;
@@ -49,8 +53,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                     intent.putExtra(ConstantValues.CHANGE_PASSWORD, ConstantValues.CHANGE_PASSWORD);
                     intent.putExtra(ConstantValues.USER_ID, forgotPassword.getUserId());
                     startActivity(intent);
-                } else {
-                    Toast.makeText(ForgotPasswordActivity.this, "Verified", Toast.LENGTH_SHORT).show();
+                    finish();
                 }
             }
         });
@@ -59,14 +62,8 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (phone.getText().toString() != null) {
+                    progressBar.setVisibility(View.VISIBLE);
                     viewModel.sendOtp(phone.getText().toString());
-                    /*try {
-                        int mobile = Integer.parseInt(phone.getText().toString());
-                        viewModel.sendOtp(mobile);
-                    } catch (NumberFormatException e) {
-                        Log.e(TAG, ">> " + e.getMessage());
-                    }*/
-
 
                 } else {
                     Toast.makeText(ForgotPasswordActivity.this, "Enter phone", Toast.LENGTH_SHORT).show();
