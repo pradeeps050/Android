@@ -49,8 +49,6 @@ public class OTPActivity extends AppCompatActivity {
             userID = intent.getIntExtra(ConstantValues.USER_ID, 0);
         }
         userID = getIntent().getIntExtra("UserID", 0);
-
-        setContentView(R.layout.activity_otp);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_otp);
         editText1 = binding.edit1;
         editText2 = binding.edit2;
@@ -59,12 +57,11 @@ public class OTPActivity extends AppCompatActivity {
         editText5 = binding.edit5;
         progressBar = binding.progressBar;
         initToolbar();
-
         otpViewModel = ViewModelProviders.of(this).get(OTPViewModel.class);
-
         otpViewModel.getMutable().observe(this, new Observer<ResponseBody>() {
             @Override
             public void onChanged(@Nullable ResponseBody responseBody) {
+
             }
         });
         binding.resendOtp.setOnClickListener(new View.OnClickListener() {
@@ -84,13 +81,15 @@ public class OTPActivity extends AppCompatActivity {
                 String ed4 = editText4.getText().toString();
                 String ed5 = editText5.getText().toString();
                 String otp = new String(ed1+ed2+ed3+ed4+ed5);
+
+                //call here according to intent.
                 if (ConstantValues.CHANGE_PASSWORD.equals(changePassword)) {
                     Log.d(TAG, " >> Change Password");
                     otpViewModel.validateOtp(userID, otp);
                 }
                 Log.i(TAG, ">> OTP>> and UserID >> " + otp +" " + String.valueOf(userID));
                 otpViewModel.verifyOtp(userID, Integer.parseInt(otp));
-                //progressBar.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.VISIBLE);
             }
         });
        /* binding.edit1.addTextChangedListener(new OTPTextWatcher(binding.edit1));
