@@ -1,42 +1,28 @@
 package com.shopping.feature.login.data;
 
 import android.arch.lifecycle.MutableLiveData;
-import android.content.Context;
-import android.os.Looper;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.shopping.feature.login.data.model.LoggedInUser;
 import com.shopping.feature.login.data.model.LoginResponse;
 import com.shopping.feature.login.data.model.User;
-import com.shopping.feature.login.ui.login.LoginActivity;
-import com.shopping.feature.login.ui.login.LoginResult;
-import com.shopping.feature.registration.SignUpResult;
 import com.shopping.feature.registration.model.ResponseFail;
-import com.shopping.framework.Executors.AppExecutors;
-import com.shopping.framework.Room.Repository.UserRepository;
+import com.shopping.framework.Room.Database.ShoppingRoomDatabase;
 import com.shopping.framework.application.AppInstance;
+import com.shopping.framework.application.ShoppingApplication;
 import com.shopping.framework.model.UserEntity;
 import com.shopping.framework.network.RestApi;
 import com.shopping.framework.network.RestApiBuilder;
-import com.shopping.framework.network.RestApiClient;
-import com.shopping.framework.network.RestApiServices;
 import com.shopping.framework.preference.PreferenceHelper;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
-import okhttp3.OkHttpClient;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import timber.log.Timber;
 
 /**
  * Class that requests authentication and user information from the remote data source and
@@ -108,7 +94,7 @@ public class LoginRepository {
         return result;
     }*/
 
-    public User getUser(String token) {
+    /*public User getUser(String token) {
         Log.d(TAG, ">> getUser>> ");
         User user = null;
         RestApiBuilder.getNetworkService(RestApi.class)
@@ -136,22 +122,14 @@ public class LoginRepository {
                     }
                 });
         return user;
+    }*/
+
+    public void saveLoginResponse(LoginResponse loginResponse) {
+       PreferenceHelper helper = PreferenceHelper.getAppPrefs(AppInstance.getInstance().getContext());
+       helper.saveSaveLoginResponse(loginResponse);
     }
 
-    public User saveLoginResponse(LoginResponse loginResponse) {
-       Context context =  AppInstance.getInstance().getContext();
-       User user = null;
-       if (context != null) {
-           PreferenceHelper helper = PreferenceHelper.getAppPrefs(AppInstance.getInstance().getContext());
-           helper.saveSaveLoginResponse(loginResponse);
-       } else {
-           Log.w(TAG, ">> App context is NULL");
-       }
-       return user;
-    }
-
-    public void login(String email, String password,
-                      MutableLiveData<User> mutableLiveData, MutableLiveData<ResponseFail> failMutableLiveData) {
+    public void login(String email, String password, MutableLiveData<User> mutableLiveData, MutableLiveData<ResponseFail> failMutableLiveData) {
         RestApiBuilder.getNetworkService(RestApi.class).login("password", email, password).
                 enqueue(new Callback<LoginResponse>() {
             @Override
@@ -166,7 +144,6 @@ public class LoginRepository {
                         Log.d(TAG, "Login Response >> Refresh Token>>  " + loginResponse.refreshToken);
                         saveLoginResponse(loginResponse);
                         Log.d(TAG, ">> Passing token >> ");
-
                         RestApiBuilder.getNetworkService(RestApi.class)
                                 .getUserByToken("Bearer " + loginResponse.accessToken)
                                 .enqueue(new Callback<User>() {
@@ -174,7 +151,7 @@ public class LoginRepository {
                                     @Override
                                     public void onResponse(Call<User> call, Response<User> response) {
                                         if (response.isSuccessful()) {
-                                            Log.d(TAG, ">>> Response CODE>>> " + response.code());
+                                            Log.d(TAG, ">>> Response CODE >>> " + response.code());
                                             User user = response.body();
                                             if (user != null) {
                                                 Log.i(TAG, ">> User Details >>> " + user.toString());
@@ -182,19 +159,23 @@ public class LoginRepository {
                                                 saveUserInDatabase(user);
                                             } else {
                                                 Log.w(TAG, ">> User is NULL >>");
+                                                mutableLiveData.postValue(user);
                                             }
                                         } else {
                                             Log.e(TAG, ">> Not access user profile >>");
+                                            mutableLiveData.postValue(null);
                                         }
                                     }
                                     @Override
                                     public void onFailure(Call<User> call, Throwable t) {
                                         Log.e(TAG, ">> User profile onFail >> ");
+                                        failMutableLiveData.postValue(new ResponseFail("Response Fail"));
                                     }
                                 });
 
                     } else {
                         Log.w(TAG, ">> Login Response is NULL");
+                        failMutableLiveData.postValue(new ResponseFail("Response Fail"));
                     }
                 } else {
                     Log.w(TAG, ">> Response is FALSE while login >> ");
@@ -213,43 +194,24 @@ public class LoginRepository {
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
                 Log.e(TAG, ">> Login Fail >>");
+                failMutableLiveData.postValue(new ResponseFail("Response Fail"));
             }
         });
     }
 
     public void saveUserInDatabase(User user) {
         Log.i(TAG, ">> saving in database >> ");
-        UserRepository userRepository = new UserRepository(AppInstance.getInstance().getContext());
         UserEntity userEntity = new UserEntity();
+        userEntity.setUserID(user.getUserId().intValue());
         userEntity.setEmail(user.getEmail());
+        userEntity.setMobile(user.getMobile());
         userEntity.setFullName(user.getUserDetails()!= null && user.getUserDetails().size()!= 0 ? user.getUserDetails().get(0).getFullName() : null);
-        userEntity.setMobile(user.getMobile().intValue());
-        userRepository.insert(userEntity);
+        ShoppingApplication.getInstance().getExecutors().diskIO().execute(new Runnable() {
+            @Override
+            public void run() {
+                ShoppingRoomDatabase db = ShoppingRoomDatabase.getInstance(AppInstance.getInstance().getContext());
+                db.userDao().insetUserDetails(userEntity);
+            }
+        });
     }
-
-    /*public Result<LoggedInUser> login(User user) {
-        Log.d(TAG, ">>> loginUser");
-
-        RestApiBuilder.getNetworkService(RestApi.class).loginUser(new User("8090404700", "Shani@1234", "password"))
-                .enqueue(new Callback<Result<LoggedInUser>>() {
-                    @Override
-                    public void onResponse(Call<Result<LoggedInUser>> call, Response<Result<LoggedInUser>> response) {
-                        Log.d(TAG, ">>>> Response code" + String.valueOf(response.code()));
-                        Log.d(TAG, ">>>> Response message " + response.message());
-                        Log.d(TAG, ">>> Response " + response.isSuccessful());
-                        result = response.body();
-                        if (result instanceof Result.Success) {
-                            setLoggedInUser(((Result.Success<LoggedInUser>) result).getData());
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<Result<LoggedInUser>> call, Throwable t) {
-                        Log.d(TAG, "onFailure ");
-
-                    }
-                });
-        return result;
-
-    }*/
 }
