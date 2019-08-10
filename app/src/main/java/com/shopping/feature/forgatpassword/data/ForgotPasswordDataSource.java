@@ -6,9 +6,6 @@ import android.util.Log;
 import com.shopping.framework.network.RestApi;
 import com.shopping.framework.network.RestApiBuilder;
 
-import java.io.IOException;
-
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -33,13 +30,14 @@ public class ForgotPasswordDataSource {
                             mutableLiveData.postValue(response.body());
                         } else {
                             Log.w(TAG, " >> false");
+                            mutableLiveData.postValue(null);
                         }
                     }
 
                     @Override
                     public void onFailure(Call<ForgotPassword> call, Throwable t) {
                         Log.w(TAG, " >> onFailure");
-
+                        mutableLiveData.postValue(null);
                     }
                 });
     }
