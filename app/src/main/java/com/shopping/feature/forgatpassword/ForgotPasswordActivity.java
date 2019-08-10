@@ -3,11 +3,10 @@ package com.shopping.feature.forgatpassword;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,11 +14,10 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.shopping.R;
-import com.shopping.feature.changepassword.ChangePasswordActivity;
 import com.shopping.feature.forgatpassword.data.ForgotPassword;
-import com.shopping.feature.forgatpassword.data.ForgotPasswordDataSource;
 import com.shopping.feature.registration.OTPActivity;
 import com.shopping.framework.constantsValues.ConstantValues;
+import com.shopping.framework.logger.Logger;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
     private static final String TAG = "ForgotPasswordActivity";
@@ -44,13 +42,15 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             @Override
             public void onChanged(@Nullable ForgotPassword forgotPassword) {
                 progressBar.setVisibility(View.GONE);
+                Logger.i(TAG, ">> onChanged");
                 if(forgotPassword == null) {
                     Toast.makeText(ForgotPasswordActivity.this, "Failed", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (! forgotPassword.getVerified()) {
                     Intent intent = new Intent(ForgotPasswordActivity.this, OTPActivity.class);
-                    intent.putExtra(ConstantValues.CHANGE_PASSWORD, ConstantValues.CHANGE_PASSWORD);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.putExtra(ConstantValues.FLAG, ConstantValues.FORGOT_PASSWORD);
                     intent.putExtra(ConstantValues.USER_ID, forgotPassword.getUserId());
                     startActivity(intent);
                     finish();
@@ -61,12 +61,11 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (phone.getText().toString() != null) {
+                if (phone.getText().toString().length() == 10) {
                     progressBar.setVisibility(View.VISIBLE);
                     viewModel.sendOtp(phone.getText().toString());
-
                 } else {
-                    Toast.makeText(ForgotPasswordActivity.this, "Enter phone", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ForgotPasswordActivity.this, "Enter valid mobile no.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
