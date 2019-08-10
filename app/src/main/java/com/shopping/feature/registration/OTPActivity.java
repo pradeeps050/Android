@@ -5,13 +5,10 @@ import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -27,10 +24,6 @@ import com.shopping.feature.registration.model.ValidateOtp;
 import com.shopping.feature.registration.viewmodel.OTPViewModel;
 import com.shopping.framework.constantsValues.ConstantValues;
 import com.shopping.framework.logger.Logger;
-
-import java.io.IOException;
-
-import okhttp3.ResponseBody;
 
 public class OTPActivity extends AppCompatActivity {
     private static final String TAG = "OTPActivity";
