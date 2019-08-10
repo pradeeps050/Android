@@ -8,11 +8,11 @@ import com.shopping.feature.changepassword.data.ChangePasswordDataSource;
 
 import okhttp3.ResponseBody;
 
-public class ChnagePasswordViewModel extends ViewModel {
+public class ChangePasswordViewModel extends ViewModel {
     private ChangePasswordDataSource dataSource;
-    MutableLiveData<ResponseBody> mutableLiveData = new MutableLiveData<>();
+    private MutableLiveData<ResponseBody> mutableLiveData = new MutableLiveData<>();
 
-    public ChnagePasswordViewModel() {
+    public ChangePasswordViewModel() {
         dataSource = ChangePasswordDataSource.getInstance();
     }
 
@@ -20,7 +20,7 @@ public class ChnagePasswordViewModel extends ViewModel {
         return mutableLiveData;
     }
 
-    public void validateOtp(int userId, String otp) {
-        dataSource.validateOtp(userId, otp, mutableLiveData);
+    public void updatePassword(int userId, String password) {
+        dataSource.updatePassword(userId, password, mutableLiveData);
     }
 }
