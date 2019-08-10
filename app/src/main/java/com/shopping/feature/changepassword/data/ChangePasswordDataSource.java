@@ -1,13 +1,12 @@
 package com.shopping.feature.changepassword.data;
 
 import android.arch.lifecycle.MutableLiveData;
-import android.util.Log;
 
+import com.shopping.framework.logger.Logger;
 import com.shopping.framework.network.RestApi;
 import com.shopping.framework.network.RestApiBuilder;
 
 import okhttp3.ResponseBody;
-import okhttp3.internal.http.RealResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -24,21 +23,24 @@ public class ChangePasswordDataSource {
         return instance;
     }
 
-    public void validateOtp(int userId, String otp, MutableLiveData<ResponseBody> mutableLiveData) {
-        RestApiBuilder.getNetworkService(RestApi.class).validateOtp(userId, otp)
+    public void updatePassword(int userId, String pasword, MutableLiveData<ResponseBody> mutableLiveData) {
+        RestApiBuilder.getNetworkService(RestApi.class).updatePassword(userId, pasword)
                 .enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                         if (response.isSuccessful() && response.code() == 200) {
+                            Logger.d(TAG, ">> Change password true");
                             mutableLiveData.postValue(response.body());
                         } else {
+                            Logger.d(TAG, ">> Change password false");
                             mutableLiveData.postValue(null);
                         }
                     }
 
                     @Override
                     public void onFailure(Call<ResponseBody> call, Throwable t) {
-                        Log.d(TAG, ">> onFailure");
+                        Logger.d(TAG, ">> Change password onFail");
+                        mutableLiveData.postValue(null);
 
                     }
                 });
