@@ -26,6 +26,7 @@ import com.shopping.feature.login.data.model.User;
 import com.shopping.feature.registration.OTPActivity;
 import com.shopping.feature.registration.SignUpActivity;
 import com.shopping.feature.registration.model.ResponseFail;
+import com.shopping.framework.constantsValues.ConstantValues;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
@@ -74,12 +75,17 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 if (user.getIsVerified()) {
                     Toast.makeText(LoginActivity.this, "Verified User", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
                     return;
 
                 } else {
                     Intent intent = new Intent(LoginActivity.this, OTPActivity.class);
-                    intent.putExtra("UserID", user.getUserId().intValue());
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.putExtra(ConstantValues.FLAG, ConstantValues.LOGIN);
+                    intent.putExtra(ConstantValues.USER_ID, user.getUserId().intValue());
                     startActivity(intent);
                     finish();
                     return;
