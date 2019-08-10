@@ -6,7 +6,9 @@ import com.shopping.feature.login.data.model.LoginResponse;
 import com.shopping.feature.login.data.model.User;
 import com.shopping.feature.product.model.Model;
 import com.shopping.feature.registration.model.OTP;
+import com.shopping.feature.registration.model.RequestOtpResponse;
 import com.shopping.feature.registration.model.SignUpResponse;
+import com.shopping.feature.registration.model.ValidateOtp;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -40,9 +42,10 @@ public interface RestApi {
     @GET("/UsersByToken")
     Call<User> getUserByToken(@Header("Authorization") String token);
 
+    // at login time
     @FormUrlEncoded
     @POST("/sendotpfromuser")
-    Call<ResponseBody> otpRequest(@Field("UserId") int userId);
+    Call<RequestOtpResponse> otpRequest(@Field("UserId") int userId);
 
     @FormUrlEncoded
     @POST("/resendotp")
@@ -50,7 +53,7 @@ public interface RestApi {
 
     @FormUrlEncoded
     @POST("/VerifyUser")
-    Call<OTP> verifyOtp(@Field("UserId") int userId, @Field("OTP") int otp);
+    Call<OTP> verifyOtp(@Field("UserId") int userId, @Field("OTP") int otp); //while login
 
     @FormUrlEncoded
     @POST("/sendotp")
@@ -58,14 +61,15 @@ public interface RestApi {
 
     @FormUrlEncoded
     @POST("/validateotp")
-    Call<ResponseBody> validateOtp(@Field("UserId") int userId, @Field("OTP") String otp);
+    Call<ValidateOtp> validateOtp(@Field("UserId") int userId, @Field("OTP") String otp);
 
+    //for change password
     @FormUrlEncoded
     @POST("/UpdatePassword")
     Call<ResponseBody> updatePassword(@Field("UserId") int userId, @Field("Password") String password);
 
 
-    //response is userid and otp and call validateotp field papa UserId, OTP
+    //response is userid and otp and call validateotp field  UserId, OTP
 
     // after if true>>  api UpdatePassword filed UserId Password
 
