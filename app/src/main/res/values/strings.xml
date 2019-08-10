@@ -77,6 +77,9 @@
     <string name="otp_txt">Please type the verification code sent to     </string>
     <string name="next">Next</string>
     <string name="resent_otp">Resent OTP</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="request_opt">Request OTP</string>
+    <string name="verify_otp">Verify OTP</string>
 
 
 
