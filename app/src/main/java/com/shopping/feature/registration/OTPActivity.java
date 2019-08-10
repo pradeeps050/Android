@@ -15,11 +15,20 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.shopping.R;
 import com.shopping.databinding.ActivityOtpBinding;
+import com.shopping.feature.changepassword.ChangePasswordActivity;
+import com.shopping.feature.home.HomeActivity;
+import com.shopping.feature.registration.model.OTP;
+import com.shopping.feature.registration.model.RequestOtpResponse;
+import com.shopping.feature.registration.model.ValidateOtp;
 import com.shopping.feature.registration.viewmodel.OTPViewModel;
 import com.shopping.framework.constantsValues.ConstantValues;
+import com.shopping.framework.logger.Logger;
+
+import java.io.IOException;
 
 import okhttp3.ResponseBody;
 
@@ -36,40 +45,28 @@ public class OTPActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private OTPViewModel otpViewModel;
     private  int userID;
-    private String changePassword;
     private Intent intent;
-
+    private boolean callVerify = false;
+    private RequestOtpResponse reqOtpResponse = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_otp);
         intent = getIntent();
+        initToolbar();
         init();
-        changePassword = intent.getStringExtra(ConstantValues.CHANGE_PASSWORD);
-        if (ConstantValues.CHANGE_PASSWORD.equals(changePassword)) {
-            userID = intent.getIntExtra(ConstantValues.USER_ID, 0);
-        }
-        userID = getIntent().getIntExtra("UserID", 0);
-
         editText1 = binding.edit1;
         editText2 = binding.edit2;
         editText3 = binding.edit3;
         editText4 = binding.edit4;
         editText5 = binding.edit5;
-        progressBar = binding.progressBar;
-        initToolbar();
         otpViewModel = ViewModelProviders.of(this).get(OTPViewModel.class);
-        otpViewModel.getMutable().observe(this, new Observer<ResponseBody>() {
-            @Override
-            public void onChanged(@Nullable ResponseBody responseBody) {
 
-            }
-        });
         binding.resendOtp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                otpViewModel.requestOtp(userID);
+                otpViewModel.resendOtp(userID);
             }
         });
 
@@ -83,21 +80,92 @@ public class OTPActivity extends AppCompatActivity {
                 String ed4 = editText4.getText().toString();
                 String ed5 = editText5.getText().toString();
                 String otp = new String(ed1+ed2+ed3+ed4+ed5);
+                String flag = intent.getStringExtra(ConstantValues.FLAG);
+                if (ConstantValues.LOGIN.equals(flag)) {
+                    //call verify otp api. and request otp
+                    if (callVerify) {
+                        if (otp.length() == 5) {
+                            int userid = reqOtpResponse.getUserId();
+                            Logger.i(TAG, ">> calling verify otp api");
+                            otpViewModel.verifyOtp(userid, Integer.parseInt(otp));
+                            callVerify = false;
+                        }
+                    } else {
+                        Logger.i(TAG, ">> calling request otp api");
+                        int userId = intent.getIntExtra(ConstantValues.USER_ID, 0);
+                        otpViewModel.requestOtp(userId);
+                        binding.progressBar.setVisibility(View.VISIBLE);
+                        callVerify = false;
+                    }
 
-                //call here according to intent.
-                if (ConstantValues.CHANGE_PASSWORD.equals(changePassword)) {
-                    Log.d(TAG, " >> Change Password");
-                    otpViewModel.validateOtp(userID, otp);
+                } else if (ConstantValues.FORGOT_PASSWORD.equals(flag)) {
+                    //call forget password api.
+                    if (otp.length() == 5) {
+                        int userId = intent.getIntExtra(ConstantValues.USER_ID, 0);
+                        Logger.i(TAG, ">> calling forget password otp api");
+                        otpViewModel.validateOtp(userId, otp);
+                        binding.progressBar.setVisibility(View.VISIBLE);
+                    }
+
                 }
-                Log.i(TAG, ">> OTP>> and UserID >> " + otp +" " + String.valueOf(userID));
-                otpViewModel.verifyOtp(userID, Integer.parseInt(otp));
-                progressBar.setVisibility(View.VISIBLE);
             }
         });
-       /* binding.edit1.addTextChangedListener(new OTPTextWatcher(binding.edit1));
-        binding.edit2.addTextChangedListener(new OTPTextWatcher(binding.edit2));
-        binding.edit3.addTextChangedListener(new OTPTextWatcher(binding.edit3));
-        binding.edit4.addTextChangedListener(new OTPTextWatcher(binding.edit4));*/
+
+        otpViewModel.getOTPRequestData().observe(this, new Observer<RequestOtpResponse>() {
+            @Override
+            public void onChanged(@Nullable RequestOtpResponse requestOtpResponse) {
+                Logger.d(TAG, ">> request otp response ");
+                binding.progressBar.setVisibility(View.GONE);
+                if (requestOtpResponse == null) {
+                    callVerify = false;
+                    Toast.makeText(OTPActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (! requestOtpResponse.getVerified()) {
+                    callVerify = true;
+                    binding.nextBtn.setText("Verify");
+                    reqOtpResponse = requestOtpResponse;
+                    Logger.i(TAG, ">> RQOTP RES " + reqOtpResponse.toString());
+                }
+            }
+        });
+
+        otpViewModel.getMutable().observe(this, new Observer<OTP>() {
+            @Override
+            public void onChanged(@Nullable OTP otp) {
+                binding.progressBar.setVisibility(View.GONE);
+                if (otp == null) {
+                    Toast.makeText(OTPActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                    callVerify = true;
+                    return;
+                }
+                if (otp.getVerified()) {
+                    callVerify = false;
+                    startActivity(new Intent(OTPActivity.this, HomeActivity.class));
+                    finish();
+                } else {
+                    Toast.makeText(OTPActivity.this, "User is not verified", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        otpViewModel.getResponseLiveData().observe(this, new Observer<ValidateOtp>() {
+            @Override
+            public void onChanged(@Nullable ValidateOtp validateOtp) {
+                binding.progressBar.setVisibility(View.GONE);
+                if (validateOtp == null) {
+                    Toast.makeText(OTPActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (validateOtp.getVerified()) {
+                    Intent intent = new Intent(OTPActivity.this, ChangePasswordActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.putExtra(ConstantValues.USER_ID, validateOtp.getUserId());
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        });
     }
 
     private void initToolbar() {
@@ -114,11 +182,14 @@ public class OTPActivity extends AppCompatActivity {
     }
 
     private void init() {
-        //Set ui accounding to intent
-
-        String value = intent.getStringExtra(ConstantValues.CHANGE_PASSWORD);
-        if (ConstantValues.CHANGE_PASSWORD.equals(value)) {
-            binding.nextBtn.setText("Verify");
+        //Set ui according to intent
+        String flag = intent.getStringExtra(ConstantValues.FLAG);
+        if (ConstantValues.LOGIN.equals(flag)) {
+            Logger.d(TAG, ">> setting login screen");
+            binding.nextBtn.setText(R.string.request_opt);
+        } else if (ConstantValues.FORGOT_PASSWORD.equals(flag)) {
+            Logger.d(TAG, ">> setting forgot password screen");
+            binding.nextBtn.setText(R.string.submit);
         }
     }
 
