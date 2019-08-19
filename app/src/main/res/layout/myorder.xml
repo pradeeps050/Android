@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+<data>
+    <import type="android.view.View"/>
+</data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/parent_layout">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="155dp"
+        android:layout_marginRight="@dimen/dp_15"
+        android:layout_marginLeft="@dimen/dp_15">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/order_no1_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="@dimen/dp_15"
+                android:text="vgiuug65787"/>
+            <TextView
+                android:id="@+id/order_no2_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/order_no1_txt"
+                android:text="cancelled Order"
+                android:textColor="@color/dark_red"
+                android:gravity="right"
+                android:layout_marginTop="@dimen/dp_15"
+                android:layout_marginRight="@dimen/dp_15"
+                android:layout_alignParentRight="true"/>
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                android:layout_marginTop="@dimen/dp_15"
+                android:layout_below="@+id/order_no1_txt"/>
+
+            <ImageView
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginTop="@dimen/dp_8"
+                android:id="@+id/order_img"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:padding="@dimen/dp_5"
+                app:srcCompat="@drawable/icecreamof_img"
+                android:layout_below="@+id/view1"
+                android:background="@drawable/imageview_border"/>
+
+            <TextView
+                android:id="@+id/mothers_choice_txt"
+                android:layout_width="183dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="@dimen/dp_15"
+                android:layout_below="@+id/view1"
+                android:layout_toRightOf="@+id/order_img"
+                android:text="Mothers choice kachi ghani mustard oil"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/rupees1_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="@dimen/dp_35"
+                android:layout_below="@+id/view1"
+                android:layout_toRightOf="@+id/mothers_choice_txt"
+                android:text="34 rup/"
+                android:textColor="@color/greencolor"/>
+
+            <TextView
+                android:id="@+id/rupees2_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_35"
+                android:layout_below="@+id/view1"
+                android:layout_toRightOf="@+id/rupees1_txt"
+                android:text="124/"
+                android:layout_marginLeft="@dimen/dp_4"
+                android:textColor="@color/black"/>
+
+
+
+            <TextView
+                android:id="@+id/delivery_charge_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/order_no1_txt"
+                android:text="Delivery Charge"
+                android:textColor="@color/shadowblack"
+                android:gravity="left"
+                android:layout_marginTop="@dimen/dp_6"
+                android:layout_below="@+id/mothers_choice_txt" />
+
+            <TextView
+                android:id="@+id/free_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_6"
+                android:layout_below="@+id/rupees1_txt"
+                android:layout_toRightOf="@+id/delivery_charge_txt"
+                android:text="free"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dp_10"
+                android:gravity="right"
+                android:textColor="@color/greencolor"/>
+
+
+
+            <TextView
+                android:id="@+id/vit_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/order_no1_txt"
+                android:text="VIT Tax"
+                android:textColor="@color/shadowblack"
+                android:gravity="left"
+                android:layout_marginTop="@dimen/dp_6"
+                android:layout_marginRight="@dimen/dp_15"
+                android:layout_below="@+id/delivery_charge_txt" />
+
+            <TextView
+                android:id="@+id/percent_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_5"
+                android:layout_below="@+id/free_txt"
+                android:layout_toRightOf="@+id/vit_txt"
+                android:text="5%"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dp_10"
+                android:gravity="right"
+                android:textColor="@color/black"/>
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+    </LinearLayout>
+</layout>
