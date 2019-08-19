@@ -81,6 +81,8 @@
     <string name="request_opt">Request OTP</string>
     <string name="verify_otp">Verify OTP</string>
 
+    <!--Home-->
+    <string name="offers">Offers</string>
 
 
 

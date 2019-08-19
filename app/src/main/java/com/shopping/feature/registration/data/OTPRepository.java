@@ -6,7 +6,10 @@ import android.util.Log;
 import com.shopping.feature.registration.model.OTP;
 import com.shopping.feature.registration.model.RequestOtpResponse;
 import com.shopping.feature.registration.model.ValidateOtp;
+import com.shopping.framework.Room.Database.ShoppingRoomDatabase;
+import com.shopping.framework.application.AppInstance;
 import com.shopping.framework.logger.Logger;
+import com.shopping.framework.model.UserEntity;
 import com.shopping.framework.network.RestApi;
 import com.shopping.framework.network.RestApiBuilder;
 
@@ -101,6 +104,7 @@ public class OTPRepository {
                         if (response.isSuccessful() && response.code()== 200) {
                             OTP otpResponse = response.body();
                             liveData.postValue(otpResponse);
+                            updateDatabase(response.body());
                             Log.i(TAG, ">> OTP " + otpResponse.toString());
                         } else {
                             Log.e(TAG, ">> response is FALSE ");
@@ -136,5 +140,11 @@ public class OTPRepository {
 
                     }
                 });
+    }
+
+    private void updateDatabase(OTP otp) {
+        ShoppingRoomDatabase db = ShoppingRoomDatabase.getInstance(AppInstance.getInstance().getContext());
+        UserEntity userEntity = new UserEntity();
+        userEntity.setIsVerified(otp.getVerified() == true? 1 : 0);
     }
 }

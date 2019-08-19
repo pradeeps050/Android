@@ -42,7 +42,7 @@ public class OfferProductAdapter extends RecyclerView.Adapter<OfferProductView> 
     @Override
     public void onBindViewHolder(@NonNull OfferProductView offerProductView, int i) {
        OfferProduct offerProduct =  list.get(i);
-       offerProductView.bind(offerProduct);
+       //offerProductView.bind(offerProduct);
     }
 
     @Override
@@ -64,6 +64,6 @@ public class OfferProductAdapter extends RecyclerView.Adapter<OfferProductView> 
         }
 
         public void bind(OfferProduct offerProduct) {
-            binding.setOfferProduct(offerProduct);
+           // binding.setOfferProduct(offerProduct);
         }
     }

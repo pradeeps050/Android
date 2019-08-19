@@ -56,6 +56,7 @@ public class SignUpRepository {
             @Override
             public void onFailure(Call<SignUpResponse> call, Throwable t) {
                 Log.d(TAG, ">>> Response FAIL " );
+                Log.i(TAG, ">> Exp " + t.getMessage());
                 failMutableLiveData.postValue(new ResponseFail("Response Fail"));
             }
         });

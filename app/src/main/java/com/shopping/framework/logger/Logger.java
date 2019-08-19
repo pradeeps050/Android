@@ -10,7 +10,7 @@ public class Logger extends Timber.Tree {
     private final static boolean DEBUG = true;
 
 //    // Verbose logging
- /*   public static void v(String tag) {
+    /*public static void v(String tag) {
        if (BuildConfig.DEBUG) {
             Timber.tag(tag).v(message, args);
        }

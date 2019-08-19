@@ -12,6 +12,7 @@ import com.shopping.feature.home.HomeActivity;
 import com.shopping.feature.login.ui.login.LoginActivity;
 import com.shopping.framework.Room.Database.ShoppingRoomDatabase;
 import com.shopping.framework.application.AppInstance;
+import com.shopping.framework.logger.Logger;
 import com.shopping.framework.model.UserEntity;
 
 public class SplashScreenActivity extends AppCompatActivity {
@@ -28,7 +29,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashScreenActivity.this, LoginActivity.class));
+                startActivity(new Intent(SplashScreenActivity.this, HomeActivity.class));
                 finish();
                 }
         }, SPLASH_SCREEN_TIME_OUT);
@@ -42,13 +43,21 @@ public class SplashScreenActivity extends AppCompatActivity {
                     UserEntity entity = db.userDao().getUserDetail();
                     if (entity!= null) {
                         if ((entity.getIsVerified() == 1) ? true : false) {
-                            startActivity(new Intent(SplashScreenActivity.this, HomeActivity.class));
+                            Intent intent = new Intent(SplashScreenActivity.this, HomeActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
+                            finish();
                         } else {
                             startActivity(new Intent(SplashScreenActivity.this, LoginActivity.class));
+                            finish();
                         }
                         Log.d("Users ", ">> " + entity.toString());
+                    } else {
+                        startActivity(new Intent(SplashScreenActivity.this, LoginActivity.class));
+
                     }
                 }
+                finish();
 
             }
         });*/

@@ -74,7 +74,6 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
                 if (user.getIsVerified()) {
-                    Toast.makeText(LoginActivity.this, "Verified User", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);

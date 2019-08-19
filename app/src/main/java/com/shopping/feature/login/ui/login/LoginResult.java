@@ -7,7 +7,7 @@ import com.shopping.feature.login.data.model.User;
 /**
  * Authentication result : success (user details) or error message.
  */
-class LoginResult {
+public class LoginResult {
     @Nullable
     private LoggedInUserView success;
     @Nullable
