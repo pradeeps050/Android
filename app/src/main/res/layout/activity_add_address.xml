@@ -221,7 +221,7 @@
                 android:layout_marginBottom="4dp"
                 android:gravity="center"
                 android:text="@string/loc_on_map"
-                android:textColor="@color/success_green"
+                android:textColor="@color/green"
                 android:textSize="@dimen/btn_txt" />
 
             <Button
