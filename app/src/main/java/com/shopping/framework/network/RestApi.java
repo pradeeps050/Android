@@ -1,23 +1,27 @@
 package com.shopping.framework.network;
 
 
-import com.shopping.BuildConfig;
-import com.shopping.feature.login.data.Result;
-import com.shopping.feature.login.data.model.LoggedInUser;
+import com.shopping.feature.forgatpassword.data.ForgotPassword;
+import com.shopping.feature.home.data.model.Offers;
 import com.shopping.feature.login.data.model.LoginResponse;
 import com.shopping.feature.login.data.model.User;
+import com.shopping.feature.login.ui.login.LoginResult;
 import com.shopping.feature.product.model.Model;
-import com.shopping.feature.registration.SignUpResult;
+import com.shopping.feature.registration.model.OTP;
+import com.shopping.feature.registration.model.RequestOtpResponse;
+import com.shopping.feature.registration.model.SignUpResponse;
+import com.shopping.feature.registration.model.ValidateOtp;
+
+import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
-import retrofit2.http.Headers;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface RestApi {
@@ -28,7 +32,7 @@ public interface RestApi {
 
     @FormUrlEncoded
     @POST("/Register")
-    Call<ResponseBody> signUp(
+    Call<SignUpResponse> signUp(
             @Field("Email") String email,
             @Field("Mobile") String phone,
             @Field("Password") String password);
@@ -42,6 +46,41 @@ public interface RestApi {
 
     @GET("/UsersByToken")
     Call<User> getUserByToken(@Header("Authorization") String token);
+
+    // at login time
+    @FormUrlEncoded
+    @POST("/sendotpfromuser")
+    Call<RequestOtpResponse> otpRequest(@Field("UserId") int userId);
+
+    @FormUrlEncoded
+    @POST("/resendotp")
+    Call<ResponseBody> reSendOtp(@Field("UserId") int userId);
+
+    @FormUrlEncoded
+    @POST("/VerifyUser")
+    Call<OTP> verifyOtp(@Field("UserId") int userId, @Field("OTP") int otp); //while login
+
+    @FormUrlEncoded
+    @POST("/sendotp")
+    Call<ForgotPassword> sendOtp(@Field("Mobile") String mobile);
+
+    @FormUrlEncoded
+    @POST("/validateotp")
+    Call<ValidateOtp> validateOtp(@Field("UserId") int userId, @Field("OTP") String otp);
+
+    //for change password
+    @FormUrlEncoded
+    @POST("/UpdatePassword")
+    Call<ResponseBody> updatePassword(@Field("UserId") int userId, @Field("Password") String password);
+
+    //response is userid and otp and call validateotp field  UserId, OTP
+
+    // after if true>>  api UpdatePassword filed UserId Password
+
+
+    //api for home screen offer product
+    @GET("/getoffers")
+    Call<List<Offers>> getOffers();
 
 
 }

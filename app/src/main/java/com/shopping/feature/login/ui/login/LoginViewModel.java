@@ -3,21 +3,14 @@ package com.shopping.feature.login.ui.login;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.AsyncTask;
-import android.os.Looper;
-import android.util.Log;
 import android.util.Patterns;
 
 import com.shopping.R;
 import com.shopping.feature.login.data.LoginRepository;
 import com.shopping.feature.login.data.Result;
-import com.shopping.feature.login.data.model.LoggedInUser;
 import com.shopping.feature.login.data.model.User;
-import com.shopping.framework.application.AppInstance;
-import com.shopping.framework.logger.Logger;
-import com.shopping.framework.preference.PreferenceHelper;
+import com.shopping.feature.registration.model.ResponseFail;
+import com.shopping.framework.network.NetworkState;
 
 
 public class LoginViewModel extends ViewModel {
@@ -25,8 +18,11 @@ public class LoginViewModel extends ViewModel {
 
     private MutableLiveData<LoginFormState> loginFormState = new MutableLiveData<>();
     private MutableLiveData<LoginResult> loginResult = new MutableLiveData<>();
-    //private MutableLiveData<User> userMutableLiveData = new MutableLiveData<>();
+    private MutableLiveData<NetworkState> networkState = new MutableLiveData<>();
+    private MutableLiveData<User> userMutableLiveData = new MutableLiveData<>();
+    private MutableLiveData<ResponseFail> failMutableLiveData = new MutableLiveData<>();
     private LoginRepository loginRepository;
+    Result<User> result;
 
     LoginViewModel(LoginRepository loginRepository) {
         this.loginRepository = loginRepository;
@@ -40,54 +36,14 @@ public class LoginViewModel extends ViewModel {
         return loginResult;
     }
 
-    /*LiveData<User> getUserMutableLiveData() {
+    LiveData<User> getUserMutableLiveData() {
         return userMutableLiveData;
     }
-*/
+
+    LiveData<ResponseFail> getFailResponse(){return failMutableLiveData; }
+
     public void login(String username, String password) {
-        // can be launched in a separate asynchronous job
-        Logger.d(TAG, ">>>> login");
-        Result<User> result = loginRepository.login(username, password);
-        if (result instanceof Result.Success) {
-            User u = ((Result.Success<User>) result).getData();
-            loginResult.setValue(new LoginResult(u));
-        } else {
-            loginResult.setValue(new LoginResult(R.string.login_failed));
-        }
-
-        /*new AsyncTask() {
-            Result<LoggedInUser> result;
-
-            @Override
-            protected Object doInBackground(Object[] objects) {
-                Log.d(TAG, ">>> doInBackground ");
-                result = loginRepository.login(username, password);
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(Object o) {
-                Log.d(TAG, ">>> onPostExecute ");
-                super.onPostExecute(o);
-                if (result instanceof Result.Success) {
-                    LoggedInUser data = ((Result.Success<LoggedInUser>) result).getData();
-                    loginResult.setValue(new LoginResult(new LoggedInUserView(data.getDisplayName())));
-                } else {
-                    loginResult.setValue(new LoginResult(R.string.login_failed));
-                }
-
-            }
-        }.execute();*/
-
-
-        //Result<LoggedInUser> result = loginRepository.login(username, password);
-
-        /*if (result instanceof Result.Success) {
-            LoggedInUser data = ((Result.Success<LoggedInUser>) result).getData();
-            loginResult.setValue(new LoginResult(new LoggedInUserView(data.getDisplayName())));
-        } else {
-            loginResult.setValue(new LoginResult(R.string.login_failed));
-        }*/
+        loginRepository.login(username, password, userMutableLiveData, failMutableLiveData);
     }
 
     public void loginDataChanged(String username, String password) {
@@ -122,43 +78,4 @@ public class LoginViewModel extends ViewModel {
     private boolean isPasswordValid(String password) {
         return password != null && password.trim().length() > 5;
     }
-
-    /*public void login(User user) {
-        Logger.d(TAG, ">>>> login");
-        Result<LoggedInUser> result = loginRepository.login(user);
-        if (result instanceof Result.Success) {
-            LoggedInUser data = ((Result.Success<LoggedInUser>) result).getData();
-            loginResult.setValue(new LoginResult(new LoggedInUserView(data.getDisplayName())));
-        } else {
-            loginResult.setValue(new LoginResult(R.string.login_failed));
-        }
-
-
-
-
-       *//* new AsyncTask() {
-            Result<LoggedInUser> result;
-
-            @Override
-            protected Object doInBackground(Object[] objects) {
-                Log.d(TAG, ">>> doInBackground ");
-                result = loginRepository.login(user);
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(Object o) {
-                Log.d(TAG, ">>> onPostExecute ");
-                super.onPostExecute(o);
-                if (result instanceof Result.Success) {
-                    LoggedInUser data = ((Result.Success<LoggedInUser>) result).getData();
-                    loginResult.setValue(new LoginResult(new LoggedInUserView(data.getDisplayName())));
-                } else {
-                    loginResult.setValue(new LoginResult(R.string.login_failed));
-                }
-
-            }
-        }.execute();*//*
-
-    }*/
 }

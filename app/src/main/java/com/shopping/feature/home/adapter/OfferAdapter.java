@@ -39,7 +39,7 @@ public class OfferAdapter extends RecyclerView.Adapter<OfferViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull OfferViewHolder offerViewHolder, int i) {
        Offers offers = offersList.get(i);
-       offerViewHolder.bind(offers);
+       //offerViewHolder.bind(offers);
     }
 
     @Override
@@ -58,8 +58,8 @@ class OfferViewHolder extends RecyclerView.ViewHolder {
         this.offerBinding = offerBinding;
     }
 
-    public void bind(Offers offers) {
+    /*public void bind(Offers offers) {
         offerBinding.setOffer(offers);
         offerBinding.executePendingBindings();
-    }
+    }*/
 }

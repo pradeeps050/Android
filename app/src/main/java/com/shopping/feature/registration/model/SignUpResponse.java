@@ -2,7 +2,8 @@ package com.shopping.feature.registration.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class OTP {
+public class SignUpResponse {
+
     @SerializedName("UserId")
     private Integer userId;
     @SerializedName("Email")
@@ -11,6 +12,8 @@ public class OTP {
     private String mobile;
     @SerializedName("Password")
     private String password;
+    @SerializedName("Salt")
+    private String salt;
     @SerializedName("RoleId")
     private Integer roleId;
     @SerializedName("IsVerified")
@@ -50,6 +53,14 @@ public class OTP {
         this.password = password;
     }
 
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
     public Integer getRoleId() {
         return roleId;
     }
@@ -76,11 +87,12 @@ public class OTP {
 
     @Override
     public String toString() {
-        return "OTP{" +
+        return "SignUpResponse{" +
                 "userId=" + userId +
                 ", email='" + email + '\'' +
-                ", mobile='" + mobile + '\'' +
+                ", mobile=" + mobile +
                 ", password='" + password + '\'' +
+                ", salt='" + salt + '\'' +
                 ", roleId=" + roleId +
                 ", isVerified=" + isVerified +
                 ", isActive=" + isActive +

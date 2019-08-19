@@ -4,9 +4,9 @@
 
     <data class="OfferProductBinding">
 
-        <variable
+       <!-- <variable
             name="offerProduct"
-            type="com.shopping.feature.home.data.model.OfferProduct" />
+            type="com.shopping.feature.home.data.model.OfferProduct" />-->
 
     </data>
 
@@ -30,7 +30,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
-                android:imageUrl="@{offerProduct.imageUrl}"
                 android:scaleType="fitXY" />
 
             <TextView
@@ -39,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
-                android:text="@{offerProduct.detail}" />
+                />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -53,7 +52,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="10dp"
-                    android:text="@{offerProduct.price}" />
+                     />
 
                 <TextView
                     android:id="@+id/pro_qty"
@@ -61,7 +60,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="10dp"
-                    android:text="@{offerProduct.quantity}" />
+                    />
 
             </RelativeLayout>
 

@@ -2,10 +2,10 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
-        <variable
-            name="product"
-            type="com.shopping.feature.home.data.model.Product" />
+        <import type="android.view.View" />
+        <!--<variable
+            name="offers"
+            type="com.shopping.feature.home.data.model.Offers" />-->
     </data>
 
     <android.support.v7.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -28,16 +28,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
-                android:imageUrl="@{product.imageUrl}"
-                android:scaleType="fitXY" />
+                android:scaleType="fitXY"
+                android:src="@drawable/banner_1"/>
 
             <TextView
                 android:id="@+id/pro_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:text="@{product.detail}" />
+                android:layout_marginTop="5dp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -50,16 +49,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:layout_marginLeft="10dp"
-                    android:text="@{product.price}" />
+                    android:layout_marginLeft="10dp" />
 
                 <TextView
                     android:id="@+id/pro_qty"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="10dp"
-                    android:text="@{product.quantity}" />
+                    android:layout_marginRight="10dp" />
 
             </RelativeLayout>
 

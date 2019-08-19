@@ -5,22 +5,22 @@ import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import com.shopping.R;
 import com.shopping.databinding.HomeProductListTemsBinding;
+import com.shopping.feature.home.data.model.Offers;
 import com.shopping.feature.home.data.model.Product;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class ProductAdapter  extends RecyclerView.Adapter<ProductViewHolder> {
 
     private Context context;
-    private ArrayList<Product> list;
+    private List<Offers> list;
     private LayoutInflater inflater;
 
-    public ProductAdapter(Context context, ArrayList<Product> list) {
+    public ProductAdapter(Context context, List<Offers> list) {
         this.context = context;
         this.list = list;
     }
@@ -38,9 +38,8 @@ public class ProductAdapter  extends RecyclerView.Adapter<ProductViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder productViewHolder, int i) {
-        Product product = list.get(i);
-        productViewHolder.bind(product);
-
+        Offers offers = list.get(i);
+        productViewHolder.bind(offers);
     }
 
     @Override
@@ -60,8 +59,10 @@ class ProductViewHolder extends RecyclerView.ViewHolder {
         this.binding = binding;
     }
 
-    public void bind(Product product) {
-        binding.setProduct(product);
-        binding.executePendingBindings();
+    public void bind(Offers offers) {
+        Integer i = offers.getQuantity();
+
+        binding.proQty.setText(String.valueOf(i.intValue()));
+
     }
 }

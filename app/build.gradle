@@ -49,11 +49,12 @@ dependencies {
     annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
 
     def support_version = "28.0.0"
-    def appCenterSdkVersion = '1.11.2'
     def paging_version = "1.0.1"
     def android_arch_version = "1.1.1"
     def room_version = "1.1.1"
     def retrofit2_version = "2.3.0"
+    def view_model_version = "1.1.0"
+    def glide_version = "4.3.1"
     implementation 'com.google.code.gson:gson:2.8.5'
 
     implementation "com.android.support:support-compat:$support_version"
@@ -97,10 +98,20 @@ dependencies {
     //Timber for logging
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
+    //adding view model
+    implementation "android.arch.lifecycle:extensions:$view_model_version"
+    implementation "android.arch.lifecycle:viewmodel:$view_model_version"
 
-    //Glide Library for image downloading
-    implementation 'com.github.bumptech.glide:glide:4.9.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+    //adding paging
+    implementation "android.arch.paging:runtime:$paging_version"
+
+
+
+    //adding glide
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+
+
 
     implementation 'org.greenrobot:eventbus:3.1.1'
 

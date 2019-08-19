@@ -1,36 +1,26 @@
 package com.shopping.feature.login.data.model;
 
-import android.support.annotation.StringRes;
-
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 
 public class User {
 
     @SerializedName("UserId")
     private Integer userId;
-
     @SerializedName("Email")
-
     private String email;
     @SerializedName("Mobile")
-
     private String mobile;
     @SerializedName("RoleId")
     private Integer roleId;
     @SerializedName("IsVerified")
-
     private Boolean isVerified;
     @SerializedName("UserDetails")
-
     private List<UserDetail> userDetails = new ArrayList<>();
     @SerializedName("IsActive")
-
     private Boolean isActive;
 
     public Integer getUserId() {

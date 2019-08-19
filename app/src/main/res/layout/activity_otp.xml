@@ -52,7 +52,7 @@
         <EditText
             android:id="@+id/edit1"
             style="@style/PinEditTextStyle"
-            android:layout_width="70dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_marginStart="25dp"
@@ -69,25 +69,33 @@
             <EditText
                 android:id="@+id/edit2"
                 style="@style/PinEditTextStyle"
-                android:layout_width="70dp"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="2dp"
                 android:layout_toRightOf="@id/edit1"
                 android:inputType="numberPassword" />
 
             <EditText
                 android:id="@+id/edit3"
                 style="@style/PinEditTextStyle"
-                android:layout_width="70dp"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:inputType="numberPassword" />
+
+            <EditText
+                android:id="@+id/edit4"
+                style="@style/PinEditTextStyle"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:inputType="numberPassword" />
         </LinearLayout>
 
         <EditText
-            android:id="@+id/edit4"
+            android:id="@+id/edit5"
             style="@style/PinEditTextStyle"
-            android:layout_width="70dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginEnd="25dp"
@@ -103,9 +111,10 @@
         android:layout_below="@id/otp_edittext_container"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="@string/next" />
+        android:text="@string/send_otp" />
 
     <TextView
+        android:id="@+id/resend_otp"
         style="@style/AppTheme.TextFont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -129,6 +138,14 @@
             app:srcCompat="@drawable/ic_icon_v" />
 
     </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"/>
 
 
 </RelativeLayout>

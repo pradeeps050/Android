@@ -5,37 +5,32 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.animation.AnimationUtils;
-import android.view.animation.RotateAnimation;
+import android.widget.Toast;
 
 import com.shopping.R;
-import com.shopping.databinding.HomeActivityBinding;
+import com.shopping.databinding.ActivityHomeBinding;
 import com.shopping.feature.home.adapter.CategoryOfferAdapter;
 import com.shopping.feature.home.adapter.ExcluOfferAdapter;
-import com.shopping.feature.home.adapter.OfferAdapter;
 import com.shopping.feature.home.adapter.OfferProductAdapter;
 import com.shopping.feature.home.adapter.ProductAdapter;
 import com.shopping.feature.home.category.CategoryActivity;
 import com.shopping.feature.home.data.model.CategoryOffer;
 import com.shopping.feature.home.data.model.ExclusiveOffer;
-import com.shopping.feature.home.data.model.OfferProduct;
 import com.shopping.feature.home.data.model.Offers;
-import com.shopping.feature.home.data.model.Product;
-import com.shopping.framework.constantsValues.ConstantValues;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
     private static final String TAG = HomeActivity.class.getSimpleName();
@@ -43,12 +38,29 @@ public class HomeActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
-    private HomeActivityBinding binding;
+    private ActivityHomeBinding binding;
+    private HomeViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
+        viewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
+        viewModel.getOffers().observe(this, new Observer<List<Offers>>() {
+            @Override
+            public void onChanged(@Nullable List<Offers> offers) {
+                binding.progressbar.setVisibility(View.GONE);
+                if (offers != null && offers.size() != 0) {
+                    ProductAdapter adapter = new ProductAdapter(HomeActivity.this, offers);
+                    binding.productRecyView.setLayoutManager(new LinearLayoutManager(HomeActivity.this, LinearLayoutManager.HORIZONTAL, true));
+                    binding.productRecyView.setAdapter(adapter);
+
+                } else {
+                    Toast.makeText(HomeActivity.this, "Offers is empty", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
         initViews();
         loadOfferList();
         loadProductList();
@@ -91,7 +103,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void loadOfferList() {
-        binding.offersRecyView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true));
+        /*binding.offersRecyView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true));
         ArrayList<Offers> list = new ArrayList<>();
         Offers offers = new Offers("", R.drawable.banner_1);
         Offers offers1 = new Offers("", R.drawable.banner_2);
@@ -100,13 +112,15 @@ public class HomeActivity extends AppCompatActivity {
         list.add(offers1);
         list.add(offers2);
         OfferAdapter adapter = new OfferAdapter(this, list);
-        binding.offersRecyView.setAdapter(adapter);
+        binding.offersRecyView.setAdapter(adapter);*/
     }
 
     private void loadProductList() {
-        binding.productRecyView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true));
+        binding.progressbar.setVisibility(View.VISIBLE);
+        viewModel.getOffersList();
+        /*binding.productRecyView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true));
         ProductAdapter adapter = new ProductAdapter(this, Product.getProduct());
-        binding.productRecyView.setAdapter(adapter);
+        binding.productRecyView.setAdapter(adapter);*/
     }
 
     private void loadExclusiveOfferList() {
@@ -115,14 +129,14 @@ public class HomeActivity extends AppCompatActivity {
         binding.exclusiveOfferRecyView.setAdapter(adapter);
     }
     private void loadOfferProduct() {
-        binding.verticalText.setText(ConstantValues.VERTICAL_STRING);
-        RotateAnimation ranim = (RotateAnimation) AnimationUtils.loadAnimation(this, R.anim.vertical_text_anim);
-        ranim.setFillAfter(true);
-        binding.verticalText.setAnimation(ranim);
-
-        OfferProductAdapter adapter = new OfferProductAdapter(this, OfferProduct.getProduct());
-        binding.discountOfferRecyView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true));
-        binding.discountOfferRecyView.setAdapter(adapter);
+//        binding.verticalText.setText(ConstantValues.VERTICAL_STRING);
+//        RotateAnimation ranim = (RotateAnimation) AnimationUtils.loadAnimation(this, R.anim.vertical_text_anim);
+//        ranim.setFillAfter(true);
+//        binding.verticalText.setAnimation(ranim);
+//
+//        OfferProductAdapter adapter = new OfferProductAdapter(this, OfferProduct.getProduct());
+//        binding.discountOfferRecyView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true));
+//        binding.discountOfferRecyView.setAdapter(adapter);
     }
 
     private void loadCatOfferList() {

@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data class="HomeActivityBinding">
-
+    <data>
+        <import type="android.view.View" />
         <variable
-            name="homeViewModel"
-            type="com.shopping.feature.home.HomeViewModel" />
+            name="offers"
+            type="com.shopping.feature.home.data.model.Offers" />
     </data>
 
 
@@ -136,7 +136,7 @@
                                 android:layout_alignParentBottom="true"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginBottom="0dp"
-                                android:text="Top Savers Today"
+                                android:text="@string/offers"
                                 android:textSize="8pt"
                                 android:textStyle="bold" />
 
@@ -241,8 +241,17 @@
                             android:layout_marginTop="10dp" />
 
                     </LinearLayout>
+
                 </ScrollView>
 
+                <include
+                android:id="@+id/progressbar"
+                layout="@layout/progressbar"
+                android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"/>
 
                 <include
                     android:id="@+id/bottom_toolbar"
