@@ -7,7 +7,6 @@ import com.shopping.feature.login.ui.login.LoginActivity;
 import com.shopping.feature.registration.SignUpResult;
 import com.shopping.framework.network.RestApi;
 import com.shopping.framework.network.RestApiBuilder;
-import com.shopping.framework.network.RestApiClient;
 import com.shopping.framework.network.RestApiServices;
 
 import java.io.IOException;

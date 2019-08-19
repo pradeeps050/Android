@@ -7,24 +7,31 @@
     </data>
 
     <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".feature.termandcondition.ui.TermAndConditionActivity">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        tools:context=".feature.termandcondition.ui.TermAndConditionActivity">
 
-    <include android:id="@+id/white_toolbar"
-        layout="@layout/blacktoolbar"/>
+        <include
+            android:id="@+id/white_toolbar"
+            layout="@layout/blacktoolbar" />
 
         <Button
             android:id="@+id/privacyPolicybutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Go" />
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scrollbars="vertical">
 
         <WebView
             android:id="@+id/webView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="30dp" />
+        </ScrollView>
     </LinearLayout>
 </layout>

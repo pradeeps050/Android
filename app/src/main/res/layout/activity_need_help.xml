@@ -22,13 +22,17 @@
             android:layout_height="wrap_content"
             android:text="GO"
             android:id="@+id/buttn"/>-->
-
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/btn"
+    android:text="go"/>
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <LinearLayout
-                android:id="@+id/hint3"
+                android:id="@+id/lin_layout1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">

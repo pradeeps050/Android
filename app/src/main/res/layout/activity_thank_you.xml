@@ -12,12 +12,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".feature.thankyou.ui.ThankYouActivity">
 
     <include android:id="@+id/white_toolbar"
         layout="@layout/whitetoolbar"/>
-
-
 
     <ImageView
         android:id="@+id/confirm_img"
@@ -50,20 +49,38 @@
         android:text="@string/order_placed_successfully"
         android:textSize="@dimen/order_successfully_placed"
         android:textColor="@color/black"
-        android:fontFamily="Roboto-Regular"
+        app:fontFamily="Roboto-Regular"
         android:textStyle="bold"/>
-
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+    android:layout_marginTop="@dimen/dp_10">
     <TextView
         android:id="@+id/saved_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/dp_2"
+        android:layout_marginLeft="@dimen/dp_120"
         android:gravity="center"
         android:text="@string/you_saved"
         app:fontFamily="Roboto-Regular"
         android:textColor="@color/black"
         android:textSize="@dimen/edit_text" />
+    <TextView
+        android:id="@+id/saved_ammount_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp_2"
+        android:layout_marginLeft="@dimen/dp_12"
+        android:gravity="center"
+        android:text="@string/rup"
+        app:fontFamily="Roboto-Regular"
+        android:textColor="@color/greencolor"
+        android:textSize="@dimen/edit_text" />
+</LinearLayout>
 
 
     <android.support.v7.widget.CardView
@@ -86,7 +103,7 @@
                 android:text="@string/tell_your_friend_saving"
                 app:fontFamily="Roboto-Regular"
                 android:textSize="@dimen/edit_text"
-                android:textColor="@color/shadowblack"
+                android:textColor="@color/black"
                 android:layout_marginLeft="15sp"
                 android:paddingTop="15sp" />
 
@@ -117,32 +134,56 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/address_txt"
+                android:id="@+id/thanku_address_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-
+                android:text="@string/thanku_address"
                 android:textColor="@color/shadowblack"
-                android:padding="10sp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="@dimen/dp_10"
                 android:textSize="@dimen/edit_text"
-                android:fontFamily="Roboto-Regular"
-                />
+                android:fontFamily="Roboto-Regular" />
+            <TextView
+                android:id="@+id/address_name_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/address_saket_nagr"
+                android:textColor="@color/black"
+                android:layout_marginLeft="@dimen/dp_2"
+                android:layout_marginTop="@dimen/dp_10"
+                android:textSize="@dimen/edit_text"
+                android:layout_toRightOf="@+id/thanku_address_txt"
+                android:fontFamily="Roboto-Regular" />
 
             <TextView
+                android:id="@+id/enter_mobile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:layout_below="@+id/address_txt"
-                android:hint="@string/enter_mobile"
-                android:padding="10sp"
+                android:layout_below="@+id/address_name_txt"
+                android:text="@string/mobile"
                 android:textColor="@color/shadowblack"
                 android:textSize="@dimen/edit_text"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="@dimen/dp_10"
                 android:theme="@style/EditTextLine"
-                android:fontFamily="Roboto-Regular"
-                android:textCursorDrawable="@drawable/color_cursor"
-                android:id="@+id/enter_mobile" />
+                app:fontFamily="Roboto-Regular"
+                android:textCursorDrawable="@drawable/color_cursor" />
+
+           <TextView
+                android:id="@+id/enter_mobile_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+               android:layout_below="@+id/address_name_txt"
+                android:textColor="@color/black"
+                android:text="@string/mobilenum"
+               android:layout_marginTop="@dimen/dp_10"
+               android:layout_marginLeft="@dimen/dp_2"
+                android:layout_toRightOf="@+id/enter_mobile"
+                android:textSize="@dimen/edit_text"
+                app:fontFamily="Roboto-Regular"
+                android:textCursorDrawable="@drawable/color_cursor"/>
 
         </RelativeLayout>
 
@@ -159,15 +200,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/order_status"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_gravity="center"
-            android:layout_marginEnd="53dp"
+            android:layout_marginEnd="@dimen/dp_53"
             android:layout_marginRight="53dp"
             android:layout_marginBottom="7dp"
             android:padding="12sp"
             android:text="@string/any_suggestion"
-            android:fontFamily="Roboto-Regular"
+            app:fontFamily="Roboto-Regular"
             android:textSize="@dimen/edit_text"
             android:textColor="@color/greencolor" />
 
@@ -181,6 +221,7 @@
             android:background="@color/black"
             android:textColor="@color/white"
             android:gravity="center"
+            app:fontFamily="Roboto-Regular"
             android:layout_alignParentBottom="true"/>
 
         <Button

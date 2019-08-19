@@ -24,7 +24,7 @@ public class OfferProduct {
 
     @BindingAdapter("android:imageUrl")
     public static void loadProductImage(ImageView imageView, String imageUrl) {
-        imageView.setImageResource(R.drawable.banner_2);
+        //imageView.setImageResource(R.drawable.banner_2);
     }
 
     public static ArrayList<OfferProduct> getProduct() {
