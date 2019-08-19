@@ -3,6 +3,8 @@ package com.shopping.feature.notification.ui;
 import android.app.Notification;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.os.Build;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -35,6 +37,11 @@ private Toolbar toolbar;
                 startActivity(i);
             }
         });
-
+        changeColor(R.color.black);
     }
-}
+    public void changeColor(int resourseColor) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(ContextCompat.getColor(getApplicationContext(), resourseColor));
+        }
+    }
+    }
