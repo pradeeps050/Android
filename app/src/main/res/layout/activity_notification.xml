@@ -5,48 +5,52 @@
 
 
     <data>
+
         <import type="android.view.View" />
     </data>
 
     <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".feature.notification.ui.NotificationActivity">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".feature.notification.ui.NotificationActivity">
 
-        <include android:id="@+id/blacktoolbar"
-            layout="@layout/blacktoolbar"/>
+        <include
+            android:id="@+id/blacktoolbar"
+            layout="@layout/blacktoolbar" />
+
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_50"
+            android:layout_marginLeft="@dimen/dp_15"
             android:layout_marginTop="@dimen/dp_10"
-            android:layout_marginRight="@dimen/dp_15"
-            android:layout_marginLeft="@dimen/dp_15">
+            android:layout_marginRight="@dimen/dp_15">
 
             <RelativeLayout
+                android:id="@+id/Linear1_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/Linear1_layout">
+                android:layout_height="wrap_content">
+
                 <TextView
                     android:id="@+id/confirmed_txt"
                     android:layout_width="match_parent"
-                    android:textSize="@dimen/sp_14"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:fontFamily="Roboto-Regular"
                     android:text="@string/confirmed"
                     android:textColor="@color/black"
-                    android:fontFamily="Roboto-Regular"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginTop="@dimen/dp_15"
-                    android:layout_marginLeft="@dimen/dp_20"/>
+                    android:textSize="@dimen/sp_14" />
 
                 <ImageView
                     android:id="@+id/canceled_img"
                     android:layout_width="@dimen/dp_20"
                     android:layout_height="@dimen/dp_17"
                     android:layout_alignParentRight="true"
+                    android:layout_marginLeft="@dimen/dp_100"
                     android:layout_marginTop="@dimen/dp_15"
                     android:layout_marginRight="@dimen/dp_15"
-                    android:layout_marginLeft="@dimen/dp_100"
                     app:srcCompat="@drawable/ic_email_icon" />
             </RelativeLayout>
         </android.support.v7.widget.CardView>
@@ -54,32 +58,34 @@
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_50"
+            android:layout_marginLeft="@dimen/dp_15"
             android:layout_marginTop="@dimen/dp_10"
-            android:layout_marginRight="@dimen/dp_15"
-            android:layout_marginLeft="@dimen/dp_15">
+            android:layout_marginRight="@dimen/dp_15">
+
             <RelativeLayout
+                android:id="@+id/Linear2_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/Linear2_layout">
+                android:layout_height="wrap_content">
+
                 <TextView
+                    android:id="@+id/cancelled2_txt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/cancelled2_txt"
-                    android:text="@string/cancelled"
-                    android:textSize="@dimen/sp_14"
-                    android:textColor="@color/black"
-                    android:fontFamily="Roboto-Regular"
                     android:layout_alignParentTop="true"
+                    android:layout_marginLeft="@dimen/dp_20"
                     android:layout_marginTop="@dimen/dp_15"
-                    android:layout_marginLeft="@dimen/dp_20"/>
+                    android:fontFamily="Roboto-Regular"
+                    android:text="@string/cancelled"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_14" />
 
                 <ImageView
                     android:id="@+id/confirmed_img"
                     android:layout_width="@dimen/dp_20"
                     android:layout_height="@dimen/dp_17"
                     android:layout_alignParentRight="true"
-                    android:layout_marginTop="@dimen/dp_15"
                     android:layout_marginLeft="@dimen/dp_100"
+                    android:layout_marginTop="@dimen/dp_15"
                     android:layout_marginRight="@dimen/dp_15"
                     app:srcCompat="@drawable/ic_email_icon" />
             </RelativeLayout>
