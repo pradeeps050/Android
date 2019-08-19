@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.Notification;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.os.Build;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -19,7 +21,7 @@ import com.shopping.feature.notification.ui.NotificationActivity;
 import com.shopping.feature.privacypolicy.ui.PrivacyPolicyActivity;
 
 public class SettingActivity extends AppCompatActivity {
-private Toolbar toolbar;
+    private Toolbar toolbar;
 
     private static final String TAG = "MyActivity";
 
@@ -28,8 +30,8 @@ private Toolbar toolbar;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_setting);
-        ActivitySettingBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_setting);
-        toolbar= (Toolbar)binding.blacktoolbar;
+        ActivitySettingBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_setting);
+        toolbar = (Toolbar) binding.blacktoolbar;
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Setting");
         toolbar.setNavigationIcon(R.drawable.ic_icon_back);
@@ -39,13 +41,13 @@ private Toolbar toolbar;
                 onBackPressed();
             }
         });
-binding.card1.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        Intent i =new Intent(SettingActivity.this, NotificationActivity.class);
-        startActivity(i);
-    }
-});
+        binding.card1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(SettingActivity.this, NotificationActivity.class);
+                startActivity(i);
+            }
+        });
 
 
 /*
@@ -56,6 +58,12 @@ String addrs= i.getStringExtra("AddressIs");
         Log.d(TAG,"useraddress");
         Log.d(TAG,"name");
 */
+        changeColor(R.color.black);
+    }
 
+    public void changeColor(int resourseColor) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(ContextCompat.getColor(getApplicationContext(), resourseColor));
+        }
     }
 }
