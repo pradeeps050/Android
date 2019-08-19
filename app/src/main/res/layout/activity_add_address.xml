@@ -3,26 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data >
-    <import type="android.view.View"></import>
+    <data>
+
+        <import type="android.view.View"></import>
     </data>
 
     <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    tools:context=".feature.addaddress.ui.AddAddressActivity">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".feature.addaddress.ui.AddAddressActivity">
 
 
         <include
             android:id="@+id/black_toolbar"
-            layout="@layout/blacktoolbar"/>
+            layout="@layout/blacktoolbar" />
 
 
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <RadioButton
                 android:id="@+id/mr_radio"
                 android:layout_width="wrap_content"
@@ -61,8 +63,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="22dp"
-            android:text="@string/username"
             android:layout_marginTop="5dp"
+            android:text="@string/username"
             android:textColor="@color/black"
             android:textSize="@dimen/txt_view_text" />
 
@@ -70,15 +72,14 @@
             android:id="@+id/enter_name_edtxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/enter_name"
-            android:layout_marginTop="0dp"
-            android:textCursorDrawable="@drawable/color_cursor"
             android:layout_marginLeft="20dp"
-
+            android:layout_marginTop="0dp"
+            android:hint="@string/enter_name"
             android:textColor="@color/black"
-            android:theme="@style/EditTextLine"
-            android:textSize="@dimen/edit_text" />
 
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="@dimen/edit_text"
+            android:theme="@style/EditTextLine" />
 
 
         <TextView
@@ -94,12 +95,12 @@
             android:id="@+id/enter_flatnum_edtxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/enter_street_num"
             android:layout_marginLeft="20dp"
+            android:hint="@string/enter_street_num"
             android:textColor="@color/black"
-            android:theme="@style/EditTextLine"
             android:textCursorDrawable="@drawable/color_cursor"
-            android:textSize="@dimen/edit_text" />
+            android:textSize="@dimen/edit_text"
+            android:theme="@style/EditTextLine" />
 
         <TextView
             android:layout_width="match_parent"
@@ -113,12 +114,12 @@
             android:id="@+id/enter_street_name_edtxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/enter_street_society_name"
             android:layout_marginLeft="20dp"
+            android:hint="@string/enter_street_society_name"
             android:textColor="@color/black"
+            android:textCursorDrawable="@drawable/color_cursor"
             android:textSize="@dimen/edit_text"
-            android:theme="@style/EditTextLine"
-            android:textCursorDrawable="@drawable/color_cursor"/>
+            android:theme="@style/EditTextLine" />
 
         <TextView
             android:layout_width="match_parent"
@@ -132,33 +133,33 @@
             android:id="@+id/enter_location_edtxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/enter_location"
             android:layout_marginLeft="20dp"
-            android:textCursorDrawable="@drawable/color_cursor"
+            android:hint="@string/enter_location"
             android:textColor="@color/black"
-            android:theme="@style/EditTextLine"
-            android:textSize="@dimen/edit_text" />
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="@dimen/edit_text"
+            android:theme="@style/EditTextLine" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="22dp"
             android:text="@string/mobile_num"
-            android:theme="@style/EditTextLine"
-            android:textCursorDrawable="@drawable/color_cursor"
             android:textColor="@color/black"
-            android:textSize="@dimen/txt_view_text" />
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="@dimen/txt_view_text"
+            android:theme="@style/EditTextLine" />
 
         <EditText
             android:id="@+id/enter_mobile_edtxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/enter_mobile"
             android:layout_marginLeft="20dp"
+            android:hint="@string/enter_mobile"
             android:textColor="@color/black"
-            android:theme="@style/EditTextLine"
             android:textCursorDrawable="@drawable/color_cursor"
-            android:textSize="@dimen/edit_text" />
+            android:textSize="@dimen/edit_text"
+            android:theme="@style/EditTextLine" />
 
         <TextView
             android:id="@+id/enter_mobile"
@@ -182,9 +183,9 @@
                 android:layout_width="60dp"
                 android:layout_height="40sp"
                 android:layout_marginLeft="20dp"
+                android:background="@drawable/button_background"
                 android:text="@string/home"
                 android:textAllCaps="false"
-                android:background="@drawable/button_background"
                 android:textSize="@dimen/btn_txt" />
 
             <Button
@@ -192,10 +193,10 @@
                 android:layout_width="60dp"
                 android:layout_height="40sp"
                 android:layout_marginLeft="10dp"
+                android:background="@drawable/button_background"
                 android:text="@string/office"
                 android:textAllCaps="false"
-                android:textSize="@dimen/btn_txt"
-                android:background="@drawable/button_background"/>
+                android:textSize="@dimen/btn_txt" />
 
             <Button
                 android:id="@+id/screen_button"
@@ -233,9 +234,9 @@
                 android:background="@color/lightpurple"
                 android:gravity="center"
                 android:text="@string/proceed_payment"
+                android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="@dimen/btn_txt"
-                android:textAllCaps="false"/>
+                android:textSize="@dimen/btn_txt" />
 
             <Button
                 android:id="@+id/button"
