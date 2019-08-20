@@ -169,9 +169,6 @@
     <!--Term and Condition activity-->
 
 
-
-
-
     <!--for thankYou activity-->
 
     <string name="thanku_address">Address:</string>
@@ -243,7 +240,7 @@
     <string name="user_address">C,block Noida Sector 61</string>
 
 
-<!--for privacy policy screen-->
+    <!--for privacy policy screen-->
     <string name="privacypolicy"><![CDATA[
     <html>
      <head></head>
