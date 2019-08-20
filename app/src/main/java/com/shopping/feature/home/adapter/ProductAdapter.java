@@ -60,9 +60,11 @@ class ProductViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(Offers offers) {
-        Integer i = offers.getQuantity();
-
-        binding.proQty.setText(String.valueOf(i.intValue()));
+        binding.proQty.setText(offers.getQuantity());
+        binding.proDetail.setText(offers.getProductDetail().getTitle());
+        Float fl = offers.getmRP();
+        binding.discount.append(String.valueOf(fl.floatValue()));
+        binding.mrp.append(String.valueOf(fl.floatValue()));
 
     }
 }
