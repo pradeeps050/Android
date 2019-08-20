@@ -1,18 +1,19 @@
 package com.shopping.feature.login.data;
 
-import android.arch.lifecycle.MutableLiveData;
+import android.content.Context;
+import android.os.Looper;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.shopping.feature.login.data.model.LoggedInUser;
 import com.shopping.feature.login.data.model.LoginResponse;
 import com.shopping.feature.login.data.model.User;
-import com.shopping.feature.registration.model.ResponseFail;
-import com.shopping.framework.Room.Database.ShoppingRoomDatabase;
+import com.shopping.feature.login.ui.login.LoginActivity;
+import com.shopping.feature.registration.SignUpResult;
 import com.shopping.framework.application.AppInstance;
-import com.shopping.framework.application.ShoppingApplication;
-import com.shopping.framework.model.UserEntity;
 import com.shopping.framework.network.RestApi;
 import com.shopping.framework.network.RestApiBuilder;
+import com.shopping.framework.network.RestApiServices;
 import com.shopping.framework.preference.PreferenceHelper;
 
 import org.json.JSONException;

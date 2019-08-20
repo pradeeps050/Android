@@ -25,6 +25,7 @@ import com.shopping.feature.home.HomeActivity;
 import com.shopping.feature.login.data.model.User;
 import com.shopping.feature.registration.OTPActivity;
 import com.shopping.feature.registration.SignUpActivity;
+import com.shopping.feature.termandcondition.ui.TermAndConditionActivity;
 import com.shopping.feature.registration.model.ResponseFail;
 import com.shopping.framework.constantsValues.ConstantValues;
 
@@ -46,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         final EditText passwordEditText = findViewById(R.id.password);
         final Button loginButton = findViewById(R.id.login);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
-        loginButton.setEnabled(false);
+        loginButton.setEnabled(true);
         createAccount = findViewById(R.id.signup);
         forgotPassword = findViewById(R.id.forgot_password);
 
@@ -66,26 +67,21 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        loginViewModel.getUserMutableLiveData().observe(this, new Observer<User>() {
+        loginViewModel.getLoginResult().observe(this, new Observer<LoginResult>() {
             @Override
-            public void onChanged(@Nullable User user) {
-                loadingProgressBar.setVisibility(View.GONE);
-                if (user == null) {
+            public void onChanged(@Nullable LoginResult loginResult) {
+                if (loginResult == null) {
                     return;
                 }
-                if (user.getIsVerified()) {
-                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
-                    finish();
-                    return;
-
-                } else {
-                    Intent intent = new Intent(LoginActivity.this, OTPActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    intent.putExtra(ConstantValues.FLAG, ConstantValues.LOGIN);
-                    intent.putExtra(ConstantValues.USER_ID, user.getUserId().intValue());
-                    startActivity(intent);
+                loadingProgressBar.setVisibility(View.GONE);
+                if (loginResult.getError() != null) {
+                    showLoginFailed(loginResult.getError());
+                }
+                if (loginResult.isUserVerified()) {
+                    Toast.makeText(LoginActivity.this, "USer verified", Toast.LENGTH_SHORT).show();
+                }else {
+                    Log.d(TAG, ">>> USER IS NOT VERIFIED");
+                    startActivity(new Intent(LoginActivity.this, OTPActivity.class));
                     finish();
                     return;
                 }
@@ -140,6 +136,7 @@ public class LoginActivity extends AppCompatActivity {
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 loginViewModel.login(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString());
+                //startActivity(new Intent(LoginActivity.this, OTPActivity.class));
             }
         });
 
@@ -160,15 +157,7 @@ public class LoginActivity extends AppCompatActivity {
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Log.d(TAG, ">> forgot >> ");
-                ShoppingRoomDatabase db = ShoppingRoomDatabase.getInstance(LoginActivity.this);
-                UserEntity userEntity = new UserEntity();
-                userEntity.setMobile(22);
-                userEntity.setFullName("Pradeep Sharma");
-                userEntity.setEmail("ps@gmail.com");
-                userEntity.setUserID(2);
-                db.userDao().insetUserDetails(userEntity);*/
-                startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
+                startActivity(new Intent(LoginActivity.this, TermAndConditionActivity.class));
             }
         });
     }

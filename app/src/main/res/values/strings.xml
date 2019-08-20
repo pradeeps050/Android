@@ -43,7 +43,7 @@
         scrambled it to make a type specimen book.</br> Hi vhgvhjb</p></body></html>]]>
     </string>
 
-    <string name="name">Virag Grocery</string>
+    <!--<string name="name">Virag Grocery</string>-->
 
     <!--Register activity-->
     <string name="register">Register to Viraj Grocery</string>
@@ -176,6 +176,99 @@
 
     <!--for thankYou activity-->
 
+    <!--Term and Condition activity-->
+    <string name="termandcond"><![CDATA[
+    <html>
+     <head></head>
+     <body style="text-align:justify;color:gray;background-color:white;">
+     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pellentesque,
+     urna nec hendrerit pellentesque, risus massa Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+     nec hendrerit pellentesque, risus massa</br>
+     </br>
+      Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+      nec hendrerit pellentesque, risus massa
+     Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit. Nunc pellentesque, urna
+      nec hendrerit pellentesque, risus massa</br>
+      </br>
+     Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+     nec hendrerit pellentesque, risus massa
+     Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+     nec hendrerit pellentesque, risus massa</br>
+     </br>
+      Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+      nec hendrerit pellentesque, risus massa
+     Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit. Nunc pellentesque, urna
+      nec hendrerit pellentesque, risus massa</br>
+      </br>
+     Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+     nec hendrerit pellentesque, risus massa
+     Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+     nec hendrerit pellentesque, risus massa</br>
+     </br>
+     </body>
+     </html>]]>
+    </string>
+
+    <!-- my card activity-->
+    <string name="akshay">Akshay Shayl</string>
+    <string name="add_new_card">ADD NEW CARDS</string>
+    <string name="card_num">Card Number</string>
+    <string name="xxxx_xxxx_7987">XXXX_XXXX_7987</string>
+    <string name="card_num2">Card Number</string>
+    <string name="xxxx_xxxx_7986">XXXX_XXXX_7987</string>
+    <string name="expiry">Expiry</string>
+    <string name="expirydate1">3-12</string>
+    <string name="expirydate2">4-12</string>
+
+    <!--FAQ activity-->
+    <string name="message2"><![CDATA[
+<html>
+ <head></head>
+ <body style="text-align:justify;color:black;background-color:white;font-size:16px;">
+ <b> Q. Payment Related Queries?</b>
+   </br>
+ </body>
+</html>
+]]>
+</string>
+
+
+    <string name="message3"><![CDATA[
+<html>
+ <head></head>
+ <body style="text-align:justify;color:gray;background-color:white;font-size:16px;">
+ <b>Lorem ipsum dolor sit amet, consectetur
+     adipiscing elit. Nunc pellentesque, urna
+     nec hendrerit pellentesque, risus massam
+     Q. Payment Related Queries?</b>
+   </br>
+ </body>
+</html>
+]]>
+</string>
+
+
+    <!--for thankYou activity-->
+
+    <string name="thanku_address">Address:</string>
+    <string name="any_suggestion">Any Suggestion/Note to be considered ?</string>
+    <string name="address_saket_nagr"> saket nagar</string>
+    <string name="tell_your_friend_saving">Tell your friends about savings</string>
+    <string name="you_saved">You have saved </string>
+    <string name="order_placed_successfully">Order Successfully Placed</string>
+    <string name="thank_u">Thank You</string>
+    <string name="check_status">CHECK ORDER STATUS</string>
+    <string name="enter_mobile">Mobile: 896868978</string>
+    <string name="continue_shopping">CONTINUE SHOPPING</string>
     <string name="thanku_address">Address:</string>
     <string name="any_suggestion">Any Suggestion/Note to be considered ?</string>
     <string name="address_saket_nagr"> saket nagar</string>
