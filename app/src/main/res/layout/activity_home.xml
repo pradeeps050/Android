@@ -93,7 +93,8 @@
                     android:layout_toRightOf="@id/catagories_btn"
                     android:background="@drawable/rounded_edittext"
                     android:drawableLeft="@drawable/ic_search"
-                    android:focusable="auto"
+                    android:focusable="true"
+
                     android:hint="Search for products"
                     android:textSize="6pt" />
 
@@ -136,7 +137,7 @@
                                 android:layout_alignParentBottom="true"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginBottom="0dp"
-                                android:text="@string/offers"
+                                android:text="Offers"
                                 android:textSize="8pt"
                                 android:textStyle="bold" />
 
