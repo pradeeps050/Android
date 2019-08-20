@@ -33,12 +33,18 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-
-        binding.btn.setOnClickListener(new View.OnClickListener() {
+        binding.addNewCardBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(ProfileActivity.this, PrivacyPolicyActivity.class);
                 startActivity(i);
+            }
+        });
+
+        ((Toolbar) binding.blackToolbar).setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
             }
         });
 

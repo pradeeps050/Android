@@ -34,6 +34,13 @@ private Toolbar toolbar;
                 startActivity(i);
             }
         });
+
+            ((Toolbar) binding.infoBlacktoolbar).setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onBackPressed();
+                }
+            });
         changeColor(R.color.black);
     }
     public void changeColor(int resourseColor) {

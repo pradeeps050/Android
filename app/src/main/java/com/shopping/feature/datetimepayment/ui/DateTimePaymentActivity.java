@@ -37,7 +37,14 @@ public class DateTimePaymentActivity extends AppCompatActivity {
 
             }
         });
-        changeColor(R.color.shadow_light_black_background);
+
+        ((Toolbar) binding.blacktoolbar).setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+        changeColor(R.color.black);
     }
 
     public void changeColor(int resourseColor) {

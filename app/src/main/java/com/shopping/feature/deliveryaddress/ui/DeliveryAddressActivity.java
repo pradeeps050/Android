@@ -13,8 +13,8 @@ import android.view.View;
 import com.shopping.R;
 import com.shopping.databinding.ActivityDeliveryAddressBinding;
 import com.shopping.databinding.ActivityDeliveryAddressBindingImpl;
-import com.shopping.databinding.ActivityNotificationBinding;
-import com.shopping.feature.myorder.ui.MyOrderActivity;
+
+import com.shopping.feature.myorder.MyOrderActivity;
 
 public class DeliveryAddressActivity extends AppCompatActivity {
 private Toolbar toolbar;
@@ -41,11 +41,21 @@ private Toolbar toolbar;
 
              }
          });
-        changeColor(R.color.black);
+
+         ((Toolbar) binding.blacktoolbar).setNavigationOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 onBackPressed();
+             }
+         });
+         changeColor(R.color.black);
     }
-    public void changeColor(int resourseColor) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setStatusBarColor(ContextCompat.getColor(getApplicationContext(), resourseColor));
+    public void changeColor(int resourceColor)
+    {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            getWindow().setStatusBarColor(ContextCompat.getColor(getApplicationContext(),resourceColor));
         }
     }
-    }
+
+
+}
