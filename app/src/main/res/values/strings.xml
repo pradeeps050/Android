@@ -77,6 +77,9 @@
     <string name="otp_txt">Please type the verification code sent to     </string>
     <string name="next">Next</string>
     <string name="resent_otp">Resent OTP</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="request_opt">Request OTP</string>
+    <string name="verify_otp">Verify OTP</string>
 
     <!--Term and Condition activity-->
     <string name="termandcond"><![CDATA[
@@ -121,11 +124,13 @@
     </string>
 
     <!-- my card activity-->
+    <string name="card_holder1">Akshay Shayl</string>
+    <string name="card_holder2">Akshay Shayl</string>
     <string name="akshay">Akshay Shayl</string>
     <string name="add_new_card">ADD NEW CARDS</string>
-    <string name="card_num">Card Number</string>
+    <string name="card_num">Card Number:</string>
     <string name="xxxx_xxxx_7987">XXXX_XXXX_7987</string>
-    <string name="card_num2">Card Number</string>
+    <string name="card_num2">Card Number:</string>
     <string name="xxxx_xxxx_7986">XXXX_XXXX_7987</string>
     <string name="expiry">Expiry</string>
     <string name="expirydate1">3-12</string>
@@ -161,6 +166,11 @@
 
     <!--for thankYou activity-->
 
+    <!--Term and Condition activity-->
+
+
+    <!--for thankYou activity-->
+
     <string name="thanku_address">Address:</string>
     <string name="any_suggestion">Any Suggestion/Note to be considered ?</string>
     <string name="address_saket_nagr"> saket nagar</string>
@@ -171,6 +181,7 @@
     <string name="check_status">CHECK ORDER STATUS</string>
     <string name="enter_mobile">Mobile: 896868978</string>
     <string name="continue_shopping">CONTINUE SHOPPING</string>
+    <string name="rup">₹340</string>
 
     <!-- for add address activity -->
 
@@ -229,7 +240,7 @@
     <string name="user_address">C,block Noida Sector 61</string>
 
 
-<!--for privacy policy screen-->
+    <!--for privacy policy screen-->
     <string name="privacypolicy"><![CDATA[
     <html>
      <head></head>
@@ -293,8 +304,14 @@
     </string>
 
     <!-- for setting activity-->
-     <string name="privacyPolicy">Privacy Policy</string>
-     <string name="termcondition">Terms And Condition</string>
-     <string name="faq">FAQ</string>
+    <string name="privacyPolicy">Privacy Policy</string>
+    <string name="termcondition">Terms And Condition</string>
+    <string name="faq">FAQ</string>
+    <string name="confirmed">Confirmed</string>
+    <string name="cancelled">Cancelled</string>
+    <string name="address1">Saket Nagar</string>
+    <string name="address2">Hemant Vihar</string>
+
+    <string name="rupee">\u20B9</string>
 
 </resources>
