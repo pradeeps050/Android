@@ -16,7 +16,6 @@ import android.widget.TextView;
 import com.shopping.R;
 import com.shopping.databinding.ActivitySettingBinding;
 import com.shopping.feature.deliveryaddress.ui.DeliveryAddressActivity;
-import com.shopping.feature.myorder.ui.MyOrderActivity;
 import com.shopping.feature.notification.ui.NotificationActivity;
 import com.shopping.feature.privacypolicy.ui.PrivacyPolicyActivity;
 
@@ -49,6 +48,12 @@ public class SettingActivity extends AppCompatActivity {
             }
         });
 
+            ((Toolbar) binding.blacktoolbar).setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onBackPressed();
+                }
+            });
 
 /*
 Intent i = getIntent();
@@ -66,4 +71,5 @@ String addrs= i.getStringExtra("AddressIs");
             getWindow().setStatusBarColor(ContextCompat.getColor(getApplicationContext(), resourseColor));
         }
     }
+
 }

@@ -50,6 +50,13 @@ private Toolbar toolbar;
             }
         });
 
+        ((Toolbar) binding.whiteToolbar).setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
 
 // for changing the color of status bar
            changeColor(R.color.white);
