@@ -65,6 +65,7 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+
     private void initViews() {
         toolbar = findViewById(R.id.home_toolbar);
         navigationView = findViewById(R.id.nav_view);

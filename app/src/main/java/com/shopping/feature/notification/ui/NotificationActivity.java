@@ -21,6 +21,7 @@ private Toolbar toolbar;
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_notification);
         ActivityNotificationBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_notification);
+
         toolbar =(Toolbar)binding.blacktoolbar;
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Notification");
@@ -35,6 +36,14 @@ private Toolbar toolbar;
             public void onClick(View view) {
                 Intent i = new Intent(NotificationActivity.this, DeliveryAddressActivity.class);
                 startActivity(i);
+            }
+        });
+
+
+        ((Toolbar) binding.blacktoolbar).setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
             }
         });
         changeColor(R.color.black);
