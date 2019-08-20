@@ -22,31 +22,31 @@ public class Offers {
     private String barCode;
     @SerializedName("Volume")
     @Expose
-    private Float volume;
+    private String volume;
     @SerializedName("Quantity")
     @Expose
-    private Integer quantity;
+    private String quantity;
     @SerializedName("IsCombo")
     @Expose
     private Boolean isCombo;
     @SerializedName("MRP")
     @Expose
-    private String mRP;
+    private Float mRP;
     @SerializedName("FlatDiscount")
     @Expose
-    private Float flatDiscount;
+    private String flatDiscount;
     @SerializedName("PurchasePrice")
     @Expose
-    private Float purchasePrice;
+    private String purchasePrice;
     @SerializedName("GSTPercentage")
     @Expose
-    private Float gSTPercentage;
+    private String gSTPercentage;
     @SerializedName("IsGSTIncluded")
     @Expose
     private Boolean isGSTIncluded;
     @SerializedName("DiscountPercentage")
     @Expose
-    private Float discountPercentage;
+    private String discountPercentage;
     @SerializedName("ProductDetail")
     @Expose
     private OfferProduct productDetail;
@@ -78,19 +78,19 @@ public class Offers {
         this.barCode = barCode;
     }
 
-    public Float getVolume() {
+    public String getVolume() {
         return volume;
     }
 
-    public void setVolume(Float volume) {
+    public void setVolume(String volume) {
         this.volume = volume;
     }
 
-    public Integer getQuantity() {
+    public String getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
 
@@ -102,35 +102,35 @@ public class Offers {
         isCombo = combo;
     }
 
-    public String getmRP() {
+    public Float getmRP() {
         return mRP;
     }
 
-    public void setmRP(String mRP) {
+    public void setmRP(Float mRP) {
         this.mRP = mRP;
     }
 
-    public Float getFlatDiscount() {
+    public String getFlatDiscount() {
         return flatDiscount;
     }
 
-    public void setFlatDiscount(Float flatDiscount) {
+    public void setFlatDiscount(String flatDiscount) {
         this.flatDiscount = flatDiscount;
     }
 
-    public Float getPurchasePrice() {
+    public String getPurchasePrice() {
         return purchasePrice;
     }
 
-    public void setPurchasePrice(Float purchasePrice) {
+    public void setPurchasePrice(String purchasePrice) {
         this.purchasePrice = purchasePrice;
     }
 
-    public Float getgSTPercentage() {
+    public String getgSTPercentage() {
         return gSTPercentage;
     }
 
-    public void setgSTPercentage(Float gSTPercentage) {
+    public void setgSTPercentage(String gSTPercentage) {
         this.gSTPercentage = gSTPercentage;
     }
 
@@ -142,11 +142,11 @@ public class Offers {
         isGSTIncluded = GSTIncluded;
     }
 
-    public Float getDiscountPercentage() {
+    public String getDiscountPercentage() {
         return discountPercentage;
     }
 
-    public void setDiscountPercentage(Float discountPercentage) {
+    public void setDiscountPercentage(String discountPercentage) {
         this.discountPercentage = discountPercentage;
     }
 
