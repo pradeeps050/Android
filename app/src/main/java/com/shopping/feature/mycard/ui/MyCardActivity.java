@@ -72,6 +72,13 @@ private TextView akshayText;
                 startActivity(i);
             }
         });
+
+        ((Toolbar) binding.blackToolbar).setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
         changeColor(R.color.black);
     }
 

@@ -49,6 +49,12 @@ public class SettingActivity extends AppCompatActivity {
             }
         });
 
+            ((Toolbar) binding.blacktoolbar).setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onBackPressed();
+                }
+            });
 
 /*
 Intent i = getIntent();
@@ -66,4 +72,5 @@ String addrs= i.getStringExtra("AddressIs");
             getWindow().setStatusBarColor(ContextCompat.getColor(getApplicationContext(), resourseColor));
         }
     }
+
 }

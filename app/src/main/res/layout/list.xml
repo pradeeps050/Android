@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+<data>
+    <variable
+        name="myListData"
+        type="com.shopping.feature.myorder.data.model.MyListData" />
+</data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/parent_layout"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/dp_8">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="165dp"
+        android:layout_marginRight="@dimen/dp_15"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:id="@+id/card_view"
+        android:onClick="setOnClickListener">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/order_no1_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="@dimen/dp_15"
+                android:text="@{myListData.getOrderNum}"/>
+            <TextView
+                android:id="@+id/order_no2_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/order_no1_txt"
+                android:text="@{myListData.getOrderStatus}"
+                android:textColor="@color/dark_red"
+                android:gravity="right"
+                android:layout_marginTop="@dimen/dp_15"
+                android:paddingRight="@dimen/dp_10"
+                android:layout_alignParentRight="true"/>
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                android:layout_marginTop="@dimen/dp_15"
+                android:layout_below="@+id/order_no1_txt"/>
+
+            <ImageView
+                android:id="@+id/order_img"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_width="64dp"
+                android:layout_height="74dp"
+                android:padding="@dimen/dp_5"
+                app:srcCompat="@drawable/icecreamof_img"
+                android:layout_below="@+id/view1"
+                android:background="@drawable/imageview_border"/>
+
+            <TextView
+                android:id="@+id/mothers_choice_txt"
+                android:layout_width="183dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="@dimen/dp_13"
+                android:layout_below="@+id/view1"
+                android:layout_toRightOf="@+id/order_img"
+                android:text="@{myListData.getMotherChoice}"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/rupees1_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="@dimen/dp_35"
+                android:layout_below="@+id/view1"
+                android:layout_toRightOf="@+id/mothers_choice_txt"
+                android:text="@{myListData.getFirstAmount}"
+                android:textColor="@color/greencolor"/>
+
+            <TextView
+                android:id="@+id/rupees2_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_35"
+                android:layout_below="@+id/view1"
+                android:layout_toRightOf="@+id/rupees1_txt"
+                android:text="@{myListData.getSecondAmount}"
+                android:layout_alignParentRight="true"
+                android:gravity="right"
+                android:layout_marginLeft="@dimen/dp_4"
+                android:paddingRight="@dimen/dp_10"
+                android:textColor="@color/black"/>
+
+
+
+            <TextView
+                android:id="@+id/delivery_charge_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/order_no1_txt"
+                android:text="@{myListData.getDeliveryCharge}"
+                android:textColor="@color/shadowblack"
+                android:gravity="left"
+                android:layout_marginTop="@dimen/dp_6"
+                android:layout_below="@+id/mothers_choice_txt" />
+
+            <TextView
+                android:id="@+id/free_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_6"
+                android:layout_below="@+id/rupees1_txt"
+                android:layout_toRightOf="@+id/delivery_charge_txt"
+               android:text="@{myListData.getMyOrderStatus}"
+                android:layout_alignParentRight="true"
+                android:paddingRight="@dimen/dp_10"
+                android:gravity="right"
+                android:textColor="@color/greencolor"/>
+
+
+
+            <TextView
+                android:id="@+id/vit_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/order_no1_txt"
+               android:text="@{myListData.getVitTax}"
+                android:textColor="@color/shadowblack"
+                android:gravity="left"
+                android:layout_marginTop="@dimen/dp_6"
+                android:layout_marginRight="@dimen/dp_15"
+                android:layout_below="@+id/delivery_charge_txt" />
+
+            <TextView
+                android:id="@+id/percent_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_5"
+                android:layout_below="@+id/free_txt"
+               android:text="@{myListData.getPercentage}"
+                android:gravity="center"
+                android:paddingRight="@dimen/dp_10"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/black"/>
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+    </LinearLayout>
+</layout>

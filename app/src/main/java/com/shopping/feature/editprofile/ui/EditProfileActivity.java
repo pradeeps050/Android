@@ -40,6 +40,13 @@ public class EditProfileActivity extends AppCompatActivity {
         });
 
         changeColor(R.color.black);
+
+        ((Toolbar) binding.blacktoolbar).setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
     public void changeColor(int resourseColor) {

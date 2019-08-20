@@ -54,6 +54,13 @@ public class NeedHelpActivity extends AppCompatActivity {
             }
         });
 
+        ((Toolbar) binding.blackToolbar).setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
      /*   webView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {

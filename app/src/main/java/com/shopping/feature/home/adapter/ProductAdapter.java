@@ -19,7 +19,6 @@ public class ProductAdapter  extends RecyclerView.Adapter<ProductViewHolder> {
     private Context context;
     private ArrayList<Product> list;
     private LayoutInflater inflater;
-
     public ProductAdapter(Context context, ArrayList<Product> list) {
         this.context = context;
         this.list = list;
@@ -48,8 +47,6 @@ public class ProductAdapter  extends RecyclerView.Adapter<ProductViewHolder> {
         return list.size();
     }
 }
-
-
 
 class ProductViewHolder extends RecyclerView.ViewHolder {
 
