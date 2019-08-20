@@ -4,29 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="android.view.View"/>
+
+        <import type="android.view.View" />
     </data>
 
     <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@color/white"
-    tools:context=".feature.needhelp.ui.NeedHelpActivity">
+        android:orientation="vertical"
+        tools:context=".feature.needhelp.ui.NeedHelpActivity">
 
-        <include android:id="@+id/black_toolbar"
-            layout="@layout/blacktoolbar"/>
+        <include
+            android:id="@+id/black_toolbar"
+            layout="@layout/blacktoolbar" />
 
-     <!--   <Button
+        <!--   <Button
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="GO"
+               android:id="@+id/buttn"/>-->
+        <Button
+            android:id="@+id/btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="GO"
-            android:id="@+id/buttn"/>-->
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/btn"
-    android:text="go"/>
+            android:text="go" />
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -49,21 +52,22 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/A1_txt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="21dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_below="@+id/web1"
-                    android:text="A." />
 
-                <WebView
-                    android:id="@+id/web2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="0dp" />
-                 </LinearLayout>
+                    <TextView
+                        android:id="@+id/A1_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/web1"
+                        android:layout_marginLeft="21dp"
+                        android:layout_marginTop="5dp"
+                        android:text="A." />
+
+                    <WebView
+                        android:id="@+id/web2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp" />
+                </LinearLayout>
 
                 <View
                     android:id="@+id/view1"
@@ -77,32 +81,32 @@
                     android:id="@+id/web3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@+id/view1"
                     android:layout_marginLeft="17dp"
                     android:layout_marginTop="17dp"
-                    android:paddingLeft="17dp"
-                    android:layout_below="@+id/view1"/>
+                    android:paddingLeft="17dp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/A2_txt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="21dp"
-                    android:layout_marginTop="5dp"
-                    android:text="A." />
-
-                <WebView
-                    android:id="@+id/web4"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="9dp"
-                    android:paddingLeft="17dp"
-                    android:layout_marginLeft="1dp" />
-            </LinearLayout>
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/A2_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="21dp"
+                        android:layout_marginTop="5dp"
+                        android:text="A." />
+
+                    <WebView
+                        android:id="@+id/web4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:paddingLeft="17dp"
+                        android:paddingTop="9dp" />
+                </LinearLayout>
 
                 <View
                     android:id="@+id/view2"
@@ -119,28 +123,29 @@
                     android:layout_marginTop="17dp"
                     android:paddingLeft="17dp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/A3_txt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="21dp"
-                    android:layout_marginTop="5dp"
-                    android:text="A." />
-
-                <WebView
-                    android:id="@+id/web6"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="9dp"
-                    android:paddingLeft="17dp"
-                    android:layout_marginLeft="1dp" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/A3_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="21dp"
+                        android:layout_marginTop="5dp"
+                        android:text="A." />
+
+                    <WebView
+                        android:id="@+id/web6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:paddingLeft="17dp"
+                        android:paddingTop="9dp" />
+
+                </LinearLayout>
+
                 <View
                     android:id="@+id/view3"
                     android:layout_width="match_parent"
@@ -156,27 +161,27 @@
                     android:layout_marginTop="17dp"
                     android:paddingLeft="17dp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/A4_txt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="21dp"
-                    android:layout_marginTop="5dp"
-                    android:text="A." />
-
-                <WebView
-                    android:id="@+id/web8"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="9dp"
-                    android:paddingLeft="17dp"
-                    android:layout_marginLeft="17dp" />
-            </LinearLayout>
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/A4_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="21dp"
+                        android:layout_marginTop="5dp"
+                        android:text="A." />
+
+                    <WebView
+                        android:id="@+id/web8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="17dp"
+                        android:paddingLeft="17dp"
+                        android:paddingTop="9dp" />
+                </LinearLayout>
 
                 <View
                     android:id="@+id/view4"
@@ -189,80 +194,79 @@
                     android:id="@+id/web9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="17dp"
+                    android:layout_below="@+id/view4"
                     android:layout_marginLeft="17dp"
                     android:layout_marginTop="17dp"
-                    android:layout_below="@+id/view4"/>
+                    android:paddingLeft="17dp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/A5_txt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="21dp"
-                    android:layout_marginTop="5dp"
-                    android:text="A." />
-
-
-                <WebView
-                    android:id="@+id/web10"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="9dp"
-                    android:paddingLeft="17dp"
-                    android:layout_marginLeft="1dp" />
-            </LinearLayout>
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/A5_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="21dp"
+                        android:layout_marginTop="5dp"
+                        android:text="A." />
+
+
+                    <WebView
+                        android:id="@+id/web10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:paddingLeft="17dp"
+                        android:paddingTop="9dp" />
+                </LinearLayout>
 
                 <View
                     android:id="@+id/view5"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:layout_below="@+id/web10"
                     android:layout_marginTop="15dp"
-                    android:background="@color/shadowblack"
-                    android:layout_below="@+id/web10"/>
+                    android:background="@color/shadowblack" />
 
                 <WebView
                     android:id="@+id/web11"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="17dp"
-                    android:paddingLeft="17dp"
                     android:layout_marginLeft="17dp"
-                     />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                    android:layout_marginTop="17dp"
+                    android:paddingLeft="17dp" />
 
-                <TextView
-                    android:id="@+id/A6_txt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="21dp"
-                    android:layout_marginTop="5dp"
-                    android:text="A." />
-
-                <WebView
-                    android:id="@+id/web12"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="9dp"
-                    android:paddingLeft="17dp"
-                    android:layout_marginLeft="1dp"
-                     />
-            </LinearLayout>
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/A6_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="21dp"
+                        android:layout_marginTop="5dp"
+                        android:text="A." />
+
+                    <WebView
+                        android:id="@+id/web12"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:paddingLeft="17dp"
+                        android:paddingTop="9dp" />
+                </LinearLayout>
 
                 <View
                     android:id="@+id/view6"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:layout_below="@+id/web12"
                     android:layout_marginTop="15dp"
-                    android:background="@color/shadowblack"
-                    android:layout_below="@+id/web12"/>
+                    android:background="@color/shadowblack" />
 
             </LinearLayout>
 
