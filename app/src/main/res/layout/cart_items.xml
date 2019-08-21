@@ -34,7 +34,7 @@
                     android:id="@+id/sale_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="87"
+                    android:text="90"
                     android:textColor="@color/green"/>
                 <TextView
                     android:id="@+id/mrp"
@@ -79,16 +79,16 @@
                     android:layout_below="@id/discount_text"
                     android:layout_marginRight="@dimen/dp_20"
                     android:layout_alignParentRight="true"
-                    android:layout_marginTop="@dimen/dp_10">
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginBottom="@dimen/dp_10">
 
                     <Button
                         android:id="@+id/remove"
                         android:layout_width="@dimen/dp_30"
                         android:layout_height="30dp"
-                        android:background="@color/button_color"
-                        android:text="@string/add_to_cart"/>
+                        android:background="@color/button_color" />
                     <TextView
-                        android:id="@+id/count"
+                        android:id="@+id/quantity_count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1"
@@ -101,17 +101,13 @@
                         android:layout_width="@dimen/dp_30"
                         android:layout_height="30dp"
                         android:background="@color/button_color"
-                        android:text="@string/add_to_cart"
-                        android:layout_toRightOf="@id/count"/>
+                        android:layout_toRightOf="@id/quantity_count"/>
 
                 </RelativeLayout>
-
 
             </RelativeLayout>
 
         </LinearLayout>
-
-
 
     </android.support.v7.widget.CardView>
 </layout>
