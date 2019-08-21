@@ -35,86 +35,87 @@
                     android:id="@+id/mrp_heading"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_10"
                     android:layout_marginLeft="@dimen/dp_10"
-                    android:text="MRP"/>
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:text="MRP" />
 
                 <TextView
                     android:id="@+id/mrp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1390"
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="@dimen/dp_10"
-                    android:layout_marginRight="@dimen/dp_10"/>
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:text="1390" />
 
                 <TextView
                     android:id="@+id/discount_haeding"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/mrp_heading"
-                    android:layout_marginTop="@dimen/dp_10"
                     android:layout_marginLeft="@dimen/dp_10"
-                    android:text="Discount"/>
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:text="Discount" />
 
                 <TextView
                     android:id="@+id/discount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/mrp"
-                    android:text="180"
                     android:layout_alignParentRight="true"
-                    android:layout_marginTop="@dimen/dp_10"
                     android:layout_marginLeft="@dimen/dp_10"
-                    android:layout_marginRight="@dimen/dp_5"/>
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:text="180" />
 
                 <TextView
                     android:id="@+id/delivery_haeding"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/discount_haeding"
-                    android:layout_marginTop="@dimen/dp_10"
                     android:layout_marginLeft="@dimen/dp_10"
-                    android:text="Delivery"/>
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:text="Delivery" />
 
                 <TextView
                     android:id="@+id/delivery_charge"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/discount"
-                    android:text="Free"
-                    android:textColor="@color/green"
                     android:layout_alignParentRight="true"
-                    android:layout_marginTop="@dimen/dp_10"
                     android:layout_marginLeft="@dimen/dp_10"
-                    android:layout_marginRight="@dimen/dp_5"/>
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:text="Free"
+                    android:textColor="@color/green" />
 
                 <View
                     android:id="@+id/view"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp_1"
-                    android:layout_below="@id/discount_haeding"
+                    android:layout_below="@id/delivery_haeding"
                     android:layout_marginTop="@dimen/dp_20"
-                    android:background="@color/popup_grey"/>
+                    android:background="@color/popup_grey" />
 
                 <TextView
                     android:id="@+id/totel_heading"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SubTotal"
                     android:layout_below="@id/view"
                     android:layout_marginTop="@dimen/dp_20"
-                    android:textSize="7pt"/>
+                    android:text="SubTotal"
+                    android:textSize="7pt" />
+
                 <TextView
                     android:id="@+id/total"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/view"
-                    android:text="1220"
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="@dimen/dp_20"
                     android:layout_marginRight="@dimen/dp_10"
-                    android:textSize="7pt"/>
+                    android:text="1220"
+                    android:textSize="7pt" />
 
             </RelativeLayout>
         </android.support.v7.widget.CardView>
