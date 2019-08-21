@@ -5,12 +5,12 @@ import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.shopping.R;
 import com.shopping.databinding.CartItemsBinding;
 import com.shopping.feature.home.data.model.Cart;
-import com.shopping.framework.utils.AddOrRemoveItem;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -21,10 +21,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     private HashMap<Integer, Cart> cartMap;
     private LayoutInflater inflater;
     private AddOrRemoveItem addOrRemoveItem;
+    private static int count = 1;
 
-    public CartAdapter(Context context, HashMap<Integer, Cart> cartMap) {
+    public CartAdapter(Context context, HashMap<Integer, Cart> cartMap, AddOrRemoveItem listner) {
         this.context = context;
         this.cartMap = cartMap;
+        this.addOrRemoveItem = listner;
     }
 
     @NonNull
@@ -61,7 +63,27 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             binding.mrp.setText(cart.getMrp());
             binding.productTitle.setText(cart.getTitle());
             binding.quantity.setText(cart.getVolume());
-
+            binding.add.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    count++;
+                    binding.quantityCount.setText(String.valueOf(count));
+                    addOrRemoveItem.addItem(cart.getProductId());
+                }
+            });
+            binding.remove.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    count--;
+                    //binding.quantityCount.setText(count);
+                    addOrRemoveItem.remove(cart.getProductId());
+                }
+            });
         }
+    }
+
+    public interface AddOrRemoveItem {
+        void addItem(int key);
+        void remove(int key);
     }
 }
