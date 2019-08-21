@@ -18,7 +18,7 @@ import java.util.List;
 
 
 public class ProductAdapter  extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
-
+    private static final String TAG = ProductAdapter.class.getSimpleName();
     private Context context;
     private List<Offers> list;
     private LayoutInflater inflater;
@@ -69,7 +69,7 @@ public class ProductAdapter  extends RecyclerView.Adapter<ProductAdapter.Product
         }
 
         public void bind(Offers offers) {
-            binding.proQty.setText(offers.getQuantity());
+            binding.proQty.setText(offers.getVolume());
             binding.proDetail.setText(offers.getProductDetail().getTitle());
             Double fl = offers.getmRP();
             binding.discount.setText("₹"+ String.valueOf(fl.floatValue()));
@@ -86,33 +86,10 @@ public class ProductAdapter  extends RecyclerView.Adapter<ProductAdapter.Product
                         addOrRemoveItem.removeItem(offers);
                         map.put(offers.getProductId(), false);
                     }
-
-
-
-
-
-
-
-                    /*if (! offers.isAdded()) {
-                        offers.setAdded(true);
-                        binding.cartBtn.setText(R.string.remove);
-                        addOrRemoveItem.addItem(offers);
-                        Logger.d("Adapter", ">> if");
-                    } else {
-                        offers.setAdded(false);
-                        binding.cartBtn.setText(R.string.add_to_cart);
-                        addOrRemoveItem.removeItem(offers);
-                        Logger.d("Adapter", ">> else");
-                    }*/
                 }
             });
         }
     }
-//    public interface CartClickListner{
-//        void onClick(Offers offers);
-//    }
-
-
 }
 
 
