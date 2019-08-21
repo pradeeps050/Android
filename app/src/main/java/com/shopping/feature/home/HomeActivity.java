@@ -7,6 +7,7 @@ import android.databinding.DataBindingUtil;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.res.ResourcesCompat;
@@ -16,6 +17,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -23,16 +26,18 @@ import com.shopping.R;
 import com.shopping.databinding.ActivityHomeBinding;
 import com.shopping.feature.home.adapter.CategoryOfferAdapter;
 import com.shopping.feature.home.adapter.ExcluOfferAdapter;
-import com.shopping.feature.home.adapter.OfferProductAdapter;
 import com.shopping.feature.home.adapter.ProductAdapter;
 import com.shopping.feature.home.category.CategoryActivity;
 import com.shopping.feature.home.data.model.CategoryOffer;
 import com.shopping.feature.home.data.model.ExclusiveOffer;
 import com.shopping.feature.home.data.model.Offers;
+import com.shopping.framework.logger.Logger;
+import com.shopping.framework.utils.AddOrRemoveItem;
+import com.shopping.framework.utils.Converter;
 
 import java.util.List;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements AddOrRemoveItem {
     private static final String TAG = HomeActivity.class.getSimpleName();
 
     private Toolbar toolbar;
@@ -40,6 +45,9 @@ public class HomeActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private ActivityHomeBinding binding;
     private HomeViewModel viewModel;
+    private static int cartCount = 0;
+    private MenuItem cartMenuItem;
+    private MenuItem notificationMenuItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +59,10 @@ public class HomeActivity extends AppCompatActivity {
             public void onChanged(@Nullable List<Offers> offers) {
                 binding.progressbar.setVisibility(View.GONE);
                 if (offers != null && offers.size() != 0) {
-                    ProductAdapter adapter = new ProductAdapter(HomeActivity.this, offers);
+                    ProductAdapter adapter = new ProductAdapter(HomeActivity.this, offers, HomeActivity.this);
                     binding.productRecyView.setLayoutManager(new LinearLayoutManager(HomeActivity.this, LinearLayoutManager.HORIZONTAL, true));
                     binding.productRecyView.setAdapter(adapter);
+                    //adapter.setCartListner(HomeActivity.this);
 
                 } else {
                     Toast.makeText(HomeActivity.this, "Offers is empty", Toast.LENGTH_SHORT).show();
@@ -64,9 +73,6 @@ public class HomeActivity extends AppCompatActivity {
         initViews();
         loadOfferList();
         loadProductList();
-        loadExclusiveOfferList();
-        loadOfferProduct();
-        loadCatOfferList();
 
         binding.catagoriesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,14 +108,53 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.home_menu, menu);
+        cartMenuItem = menu.findItem(R.id.cart_action);
+        cartMenuItem.setIcon(Converter.convertLayoutToImage(HomeActivity.this,cartCount, R.drawable.ic_cart_icon));
+        notificationMenuItem = menu.findItem(R.id.notification_action);
+        notificationMenuItem.setIcon(Converter.convertLayoutToImage(HomeActivity.this,0, R.drawable.ic_icon_notification));
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.cart_action:
+                Logger.d(TAG, " Cart clicked >> ");
+
+                break;
+            case R.id.notification_action:
+                Logger.d(TAG, " Notification >> ");
+                break;
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void addItem(Offers offers) {
+        cartCount++;
+        invalidateOptionsMenu();
+        Logger.d(TAG ," >> added " + offers.getProductId() + " " + offers.getProductDetail().getTitle());
+
+    }
+
+    @Override
+    public void removeItem(Offers offers) {
+        cartCount--;
+        invalidateOptionsMenu();
+        Logger.d(TAG ," >> remove " + offers.getProductId() + " " + offers.getProductDetail().getTitle());
+
+
+    }
+
     private void loadOfferList() {
-        /*binding.offersRecyView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true));
-        ArrayList<Offers> list = new ArrayList<>();
-        Offers offers = new Offers("", R.drawable.banner_1);
-        Offers offers1 = new Offers("", R.drawable.banner_2);
-        Offers offers2 = new Offers("", R.drawable.banner_3);
-        list.add(offers);
-        list.add(offers1);
+       /* binding.offersRecyView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true));
+
+
         list.add(offers2);
         OfferAdapter adapter = new OfferAdapter(this, list);
         binding.offersRecyView.setAdapter(adapter);*/
@@ -146,7 +191,17 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-
+   /* @Override
+    public void onClick(Offers offers) {
+        String mrp = offers.getmRP().toString();
+        String title = offers.getProductDetail().getTitle();
+        String q = offers.getVolume();
+        System.out.print(">> " + mrp + " " + title + " " + q );
+        //Logger.d(TAG, "Data >> " + offers.toString());
+        cart_count++;
+        invalidateOptionsMenu();
+        //Snackbar.make(binding.getRoot(), "Added to cart !!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+    }*/
 
     @Override
     public void onBackPressed() {
