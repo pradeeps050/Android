@@ -31,7 +31,7 @@ public class Offers {
     private Boolean isCombo;
     @SerializedName("MRP")
     @Expose
-    private Float mRP;
+    private Double mRP;
     @SerializedName("FlatDiscount")
     @Expose
     private String flatDiscount;
@@ -102,11 +102,11 @@ public class Offers {
         isCombo = combo;
     }
 
-    public Float getmRP() {
+    public Double getmRP() {
         return mRP;
     }
 
-    public void setmRP(Float mRP) {
+    public void setmRP(Double mRP) {
         this.mRP = mRP;
     }
 

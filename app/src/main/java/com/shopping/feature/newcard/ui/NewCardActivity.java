@@ -36,6 +36,12 @@ public class NewCardActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        ((Toolbar) binding.blacktoolbar).setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         changeColor(R.color.black);
     }

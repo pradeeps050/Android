@@ -33,6 +33,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+
         binding.addNewCardBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
