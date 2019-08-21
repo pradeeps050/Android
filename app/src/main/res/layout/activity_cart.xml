@@ -8,9 +8,11 @@
     </data>
 
     <RelativeLayout
+        android:id="@+id/cart"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".feature.cart.CartActivity">
+        tools:context=".feature.cart.CartActivity"
+        android:background="@color/popup_grey">
 
         <include
             android:id="@+id/toolbar"
@@ -23,8 +25,7 @@
             android:layout_below="@id/toolbar"
             android:layout_marginTop="@dimen/dp_10"
             android:layout_marginLeft="@dimen/dp_10"
-            android:layout_marginRight="@dimen/dp_10"
-            android:background="@color/popup_grey">
+            android:layout_marginRight="@dimen/dp_10">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -34,6 +35,8 @@
                     android:id="@+id/mrp_heading"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginLeft="@dimen/dp_10"
                     android:text="MRP"/>
 
                 <TextView
@@ -42,13 +45,16 @@
                     android:layout_height="wrap_content"
                     android:text="1390"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/dp_5"/>
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_10"/>
 
                 <TextView
                     android:id="@+id/discount_haeding"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/mrp_heading"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginLeft="@dimen/dp_10"
                     android:text="Discount"/>
 
                 <TextView
@@ -58,6 +64,8 @@
                     android:layout_below="@id/mrp"
                     android:text="180"
                     android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginLeft="@dimen/dp_10"
                     android:layout_marginRight="@dimen/dp_5"/>
 
                 <TextView
@@ -65,7 +73,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/discount_haeding"
-                    android:text="Discount"/>
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:text="Delivery"/>
 
                 <TextView
                     android:id="@+id/delivery_charge"
@@ -75,6 +85,8 @@
                     android:text="Free"
                     android:textColor="@color/green"
                     android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginLeft="@dimen/dp_10"
                     android:layout_marginRight="@dimen/dp_5"/>
 
                 <View
