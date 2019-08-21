@@ -80,7 +80,7 @@
                 android:layout_height="25dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/dp_10"
-                android:text="Add to cart" />
+                android:text="@string/add_to_cart"/>
 
         </LinearLayout>
 
