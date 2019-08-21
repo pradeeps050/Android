@@ -20,14 +20,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.shopping.R;
 import com.shopping.databinding.ActivityHomeBinding;
+import com.shopping.feature.cart.CartActivity;
 import com.shopping.feature.home.adapter.CategoryOfferAdapter;
 import com.shopping.feature.home.adapter.ExcluOfferAdapter;
 import com.shopping.feature.home.adapter.ProductAdapter;
 import com.shopping.feature.home.category.CategoryActivity;
+import com.shopping.feature.home.data.model.Cart;
 import com.shopping.feature.home.data.model.CategoryOffer;
 import com.shopping.feature.home.data.model.ExclusiveOffer;
 import com.shopping.feature.home.data.model.Offers;
@@ -35,6 +38,8 @@ import com.shopping.framework.logger.Logger;
 import com.shopping.framework.utils.AddOrRemoveItem;
 import com.shopping.framework.utils.Converter;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity implements AddOrRemoveItem {
@@ -48,6 +53,7 @@ public class HomeActivity extends AppCompatActivity implements AddOrRemoveItem {
     private static int cartCount = 0;
     private MenuItem cartMenuItem;
     private MenuItem notificationMenuItem;
+    private HashMap<Integer, Cart> cartMap = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,6 +129,9 @@ public class HomeActivity extends AppCompatActivity implements AddOrRemoveItem {
         switch (item.getItemId()) {
             case R.id.cart_action:
                 Logger.d(TAG, " Cart clicked >> ");
+                Intent intent = new Intent(HomeActivity.this, CartActivity.class);
+                intent.putExtra("key", cartMap);
+                startActivity(intent);
 
                 break;
             case R.id.notification_action:
@@ -139,6 +148,7 @@ public class HomeActivity extends AppCompatActivity implements AddOrRemoveItem {
         cartCount++;
         invalidateOptionsMenu();
         Logger.d(TAG ," >> added " + offers.getProductId() + " " + offers.getProductDetail().getTitle());
+        cartMap.put(offers.getProductId(), new Cart(offers.getProductDetail().getTitle(), "", offers.getmRP().toString(), offers.getFlatDiscount(), offers.getVolume(), offers.getProductId().intValue()));
 
     }
 
@@ -147,8 +157,7 @@ public class HomeActivity extends AppCompatActivity implements AddOrRemoveItem {
         cartCount--;
         invalidateOptionsMenu();
         Logger.d(TAG ," >> remove " + offers.getProductId() + " " + offers.getProductDetail().getTitle());
-
-
+        cartMap.remove(offers.getProductId());
     }
 
     private void loadOfferList() {
